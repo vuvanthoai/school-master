@@ -1,0 +1,73 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "rootDir": "src",
+    "sourceMap": true,
+    "declaration": false,
+    "moduleResolution": "node",
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "importHelpers": true,
+    "target": "es2022",
+    "module": "esnext",
+    "lib": ["es2020", "dom"],
+    "skipLibCheck": true,
+    "skipDefaultLibCheck": true,
+    "baseUrl": ".",
+    "paths": {
+      "@school-master/*": [
+        "src/app",
+        "src/libs/*/src/index.ts",
+        "src/libs/common-ui/*/src/index",
+        "src/libs/common-ui"
+      ],
+      "@school-master/utilities/constants": [
+        "src/libs/utilities/constants/index.ts"
+      ],
+      "@school-master/utilities/directive": [
+        "src/libs/utilities/directive/index.ts"
+      ],
+      "@school-master/utilities/helper": ["src/libs/utilities/helper/index.ts"],
+      "@school-master/utilities/interceptor": [
+        "src/libs/utilities/interceptor/index.ts"
+      ],
+      "@school-master/utilities/pipe": ["src/libs/utilities/pipe/index.ts"],
+      "@school-master/utilities/router-guard": [
+        "src/libs/utilities/router-guard/index.ts"
+      ],
+      "@school-master/utilities/service": [
+        "src/libs/utilities/service/index.ts"
+      ],
+      "@school-master/about": ["src/libs/about/src/index.ts"],
+      "@school-master/about-us": ["src/libs/about-us/src/index.ts"],
+      "@school-master/contact": ["src/libs/contact/src/index.ts"],
+      "@school-master/common-ui/footer": [
+        "src/libs/common-ui/footer/src/index.ts"
+      ],
+      "@school-master/help": ["src/libs/help/src/index.ts"],
+      "@school-master/home": ["src/libs/home/src/index.ts"],
+      "@school-master/common-ui/login": [
+        "src/libs/common-ui/login/src/index.ts"
+      ],
+      "@school-master/common-ui/main-nav": [
+        "src/libs/common-ui/main-nav/src/index.ts"
+      ],
+      "@school-master/common-ui/nav-header": [
+        "src/libs/common-ui/nav-header/src/index.ts"
+      ],
+      "@school-master/privacy-policy": ["src/libs/privacy-policy/src/index.ts"],
+      "@school-master/common-ui/registration": [
+        "src/libs/common-ui/registration/src/index.ts"
+      ],
+      "@school-master/common-ui/reset-password": [
+        "src/libs/common-ui/reset-password/src/index.ts"
+      ],
+      "@school-master/common-ui/school-detail": [
+        "src/libs/common-ui/school-detail/src/index.ts"
+      ],
+      "@school-master/search-detail": ["src/libs/search-detail/src/index.ts"],
+      "@school-master/search-handler": ["src/libs/search-handler/src/index.ts"]
+    }
+  },
+  "exclude": ["node_modules", "tmp"]
+}
