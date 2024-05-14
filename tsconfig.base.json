@@ -1,7 +1,7 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
-    "rootDir": ".",
+    "rootDir": "src",
     "sourceMap": true,
     "declaration": false,
     "moduleResolution": "node",
@@ -20,6 +20,23 @@
         "src/libs/*/src/index.ts",
         "src/libs/common-ui/*/src/index",
         "src/libs/common-ui"
+      ],
+      "@school-master/utilities/constants": [
+        "src/libs/utilities/constants/index.ts"
+      ],
+      "@school-master/utilities/directive": [
+        "src/libs/utilities/directive/index.ts"
+      ],
+      "@school-master/utilities/helper": ["src/libs/utilities/helper/index.ts"],
+      "@school-master/utilities/interceptor": [
+        "src/libs/utilities/interceptor/index.ts"
+      ],
+      "@school-master/utilities/pipe": ["src/libs/utilities/pipe/index.ts"],
+      "@school-master/utilities/router-guard": [
+        "src/libs/utilities/router-guard/index.ts"
+      ],
+      "@school-master/utilities/service": [
+        "src/libs/utilities/service/index.ts"
       ],
       "@school-master/about": ["src/libs/about/src/index.ts"],
       "@school-master/about-us": ["src/libs/about-us/src/index.ts"],
