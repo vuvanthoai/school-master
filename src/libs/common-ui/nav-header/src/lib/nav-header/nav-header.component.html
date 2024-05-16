@@ -1,169 +1,165 @@
-<div class="nav-header-c">
-  <a
-    (click)="handleNavigation(NAVIGATION_URL_VALUES.LOGIN)"
-    rel="noreferrer"
-    class="list-item-link"
-  >
-    <svg
-      fill="none"
-      stroke="currentColor"
-      viewBox="0 0 24 24"
-      xmlns="http://www.w3.org/2000/svg"
+<nav class="navbar navbar-expand-lg ecommerce-navbar" id="navbar">
+  <div class="container">
+    <a class="navbar-brand d-none d-lg-block" href="index.html">
+      <div class="logo-dark">
+        <img src="assets/images/logo-dark.png" alt="" height="25" />
+      </div>
+      <div class="logo-light">
+        <img src="assets/images/logo-light.png" alt="" height="25" />
+      </div>
+    </a>
+    <button
+      class="btn btn-soft-primary btn-icon d-lg-none"
+      type="button"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent"
+      aria-controls="navbarSupportedContent"
+      aria-expanded="false"
+      aria-label="Toggle navigation"
     >
-      <path
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="2"
-        d="M12 6.253v13m0-13C10.832 5.477 9.246 5 7.5 5S4.168 5.477 3 6.253v13C4.168 18.477 5.754 18 7.5 18s3.332.477 4.5 1.253m0-13C13.168 5.477 14.754 5 16.5 5c1.747 0 3.332.477 4.5 1.253v13C19.832 18.477 18.247 18 16.5 18c-1.746 0-3.332.477-4.5 1.253"
-      />
-    </svg>
-    <span> Login </span>
-    <svg
-      fill="none"
-      stroke="currentColor"
-      viewBox="0 0 24 24"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="2"
-        d="M9 5l7 7-7 7"
-      />
-    </svg>
-  </a>
-  <a
-    (click)="handleNavigation(NAVIGATION_URL_VALUES.REGISTRATION)"
-    rel="noreferrer"
-    class="list-item-link"
-  >
-    <svg
-      fill="none"
-      stroke="currentColor"
-      viewBox="0 0 24 24"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="2"
-        d="M19 20H5a2 2 0 01-2-2V6a2 2 0 012-2h10a2 2 0 012 2v1m2 13a2 2 0 01-2-2V7m2 13a2 2 0 002-2V9a2 2 0 00-2-2h-2m-4-3H9M7 16h6M7 8h6v4H7V8z"
-      />
-    </svg>
-    <span> Registration </span>
-    <svg
-      fill="none"
-      stroke="currentColor"
-      viewBox="0 0 24 24"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="2"
-        d="M9 5l7 7-7 7"
-      />
-    </svg>
-  </a>
-  <a
-    (click)="handleNavigation(NAVIGATION_URL_VALUES.RESET_PASSWORD)"
-    rel="noreferrer"
-    class="list-item-link"
-  >
-    <svg
-      role="img"
-      viewBox="0 0 24 24"
-      fill="currentColor"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <title>YouTube</title>
-      <path
-        d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"
-      />
-    </svg>
-    <span> Reset password </span>
-    <svg
-      fill="none"
-      stroke="currentColor"
-      viewBox="0 0 24 24"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="2"
-        d="M9 5l7 7-7 7"
-      />
-    </svg>
-  </a>
-  <a
-    (click)="handleNavigation(NAVIGATION_URL_VALUES.HELP)"
-    rel="noreferrer"
-    class="list-item-link"
-  >
-    <svg
-      fill="none"
-      stroke="currentColor"
-      viewBox="0 0 24 24"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="2"
-        d="M15 15l-2 5L9 9l11 4-5 2zm0 0l5 5M7.188 2.239l.777 2.897M5.136 7.965l-2.898-.777M13.95 4.05l-2.122 2.122m-5.657 5.656l-2.12 2.122"
-      />
-    </svg>
-    <span> Help </span>
-    <svg
-      fill="none"
-      stroke="currentColor"
-      viewBox="0 0 24 24"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="2"
-        d="M9 5l7 7-7 7"
-      />
-    </svg>
-  </a>
-  <a
-    (click)="handleNavigation(NAVIGATION_URL_VALUES.SEARCH_HANDLER)"
-    rel="noreferrer"
-    class="list-item-link"
-  >
-    <svg
-      fill="none"
-      stroke="currentColor"
-      viewBox="0 0 24 24"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path d="M12 14l9-5-9-5-9 5 9 5z" />
-      <path
-        d="M12 14l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14z"
-      />
-      <path
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="2"
-        d="M12 14l9-5-9-5-9 5 9 5zm0 0l6.16-3.422a12.083 12.083 0 01.665 6.479A11.952 11.952 0 0012 20.055a11.952 11.952 0 00-6.824-2.998 12.078 12.078 0 01.665-6.479L12 14zm-4 6v-7.5l4-2.222"
-      />
-    </svg>
-    <span> Search handler </span>
-    <svg
-      fill="none"
-      stroke="currentColor"
-      viewBox="0 0 24 24"
-      xmlns="http://www.w3.org/2000/svg"
-    >
-      <path
-        stroke-linecap="round"
-        stroke-linejoin="round"
-        stroke-width="2"
-        d="M9 5l7 7-7 7"
-      />
-    </svg>
-  </a>
-</div>
+      <i class="bi bi-list fs-20"></i>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+      <ul class="navbar-nav mx-lg-auto mb-2 mb-lg-0" id="navigation-menu">
+        <li class="nav-item d-block d-lg-none">
+          <a class="d-block p-3 h-auto text-center" href="index.html">
+            <img
+              src="assets/images/logo-dark.png"
+              alt=""
+              height="25"
+              class="card-logo-dark mx-auto"
+            />
+            <img
+              src="assets/images/logo-light.png"
+              alt=""
+              height="25"
+              class="card-logo-light mx-auto"
+            />
+          </a>
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            data-key="t-demos"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            My applications
+          </a>
+        </li>
+        <li class="nav-item">
+          <a
+            class="nav-link"
+            data-key="t-catalog"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            My children
+          </a>
+        </li>
+        <li class="nav-item">
+          <a
+            (click)="handleNavigation(NAVIGATION_URL_VALUES.ABOUT_US)"
+            class="nav-link"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+            data-key="t-shop"
+          >
+            About
+          </a>
+        </li>
+        <li class="nav-item">
+          <a
+            (click)="handleNavigation(NAVIGATION_URL_VALUES.HELP)"
+            class="nav-link"
+            data-key="t-pages"
+            role="button"
+            data-bs-toggle="dropdown"
+            aria-expanded="false"
+          >
+            Help
+          </a>
+        </li>
+      </ul>
+    </div>
+    <div
+      class="bg-overlay navbar-overlay"
+      data-bs-toggle="collapse"
+      data-bs-target="#navbarSupportedContent.show"
+    ></div>
+
+    <div class="d-flex align-items-center">
+      <button
+        type="button"
+        class="btn btn-icon btn-topbar btn-ghost-dark rounded-circle text-muted"
+        data-bs-toggle="modal"
+        data-bs-target="#searchModal"
+      >
+        <i class="bx bx-search fs-22"></i>
+      </button>
+      <div
+        class="dropdown topbar-head-dropdown ms-2 header-item dropdown-hover-end"
+      >
+        <button
+          type="button"
+          class="btn btn-icon btn-topbar btn-ghost-dark rounded-circle text-muted"
+          data-bs-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded="false"
+        >
+          <i class="bi bi-sun align-middle fs-20"></i>
+        </button>
+        <div class="dropdown-menu p-2 dropdown-menu-end" id="light-dark-mode">
+          <a href="#" class="dropdown-item" data-mode="light"
+            ><i class="bi bi-sun align-middle me-2"></i> Default (light mode)</a
+          >
+          <a href="#" class="dropdown-item" data-mode="dark"
+            ><i class="bi bi-moon align-middle me-2"></i> Dark</a
+          >
+          <a href="#" class="dropdown-item" data-mode="auto"
+            ><i class="bi bi-moon-stars align-middle me-2"></i> Auto (system
+            default)</a
+          >
+        </div>
+      </div>
+      <div class="dropdown header-item dropdown-hover-end">
+        <button
+          type="button"
+          class="btn"
+          id="page-header-user-dropdown"
+          data-bs-toggle="dropdown"
+          aria-haspopup="true"
+          aria-expanded="false"
+        >
+          <img
+            class="rounded-circle header-profile-user"
+            src="assets/images/users/avatar-1.jpg"
+            alt="Header Avatar"
+          />
+        </button>
+        <!-- <button type="button" class="btn btn-icon btn-topbar btn-ghost-secondary rounded-circle" id="page-header-user-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="ph-user-circle fs-22"></i>
+                    </button>    -->
+        <div class="dropdown-menu dropdown-menu-end">
+          <!-- item-->
+          <h6 class="dropdown-header">Welcome thoaivv2!</h6>
+          <a class="dropdown-item"
+            ><i
+              class="mdi mdi-cog-outline text-muted fs-16 align-middle me-1"
+            ></i>
+            <span class="align-middle">Settings</span></a
+          >
+          <a class="dropdown-item"
+            ><i
+              class="bi bi-box-arrow-right text-muted fs-16 align-middle me-1"
+            ></i>
+            <span class="align-middle" data-key="t-logout">Logout</span></a
+          >
+        </div>
+      </div>
+    </div>
+  </div>
+</nav>

@@ -1,0 +1,46 @@
+// Custom Dropdown Styling
+
+//.dropdown {
+//  .dropdown-menu {
+//    font-size: $dropdown-font-size;
+//    .dropdown-header {
+//      @extend .text-uppercase;
+//      font-weight: 800;
+//      font-size: 0.65rem;
+//      color: $gray-500;
+//    }
+//  }
+//}
+//
+//// Utility class to hide arrow from dropdown
+//
+//.dropdown.no-arrow {
+//  .dropdown-toggle::after {
+//    display: none;
+//  }
+//}
+
+form {
+  padding: 3rem;
+  background: #ffffff;
+  border-radius: 0.5rem;
+  box-shadow: 0 32px 32px rgb(0 0 0 / 11%), 0 2px 2px rgb(0 0 0 / 11%),
+    0 4px 4px rgb(0 0 0 / 11%), 0 8px 8px rgb(0 0 0 / 11%),
+    0 16px 16px rgb(0 0 0 / 11%), 0 32px 32px rgb(0 0 0 / 11%);
+}
+
+.ng-select.ng-select-single {
+  padding: 0;
+  .ng-select-container {
+    height: 100%;
+    border: none;
+    .ng-value-container .ng-input {
+      top: unset;
+    }
+  }
+  &:focus {
+    border-color: #007eff;
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, 0.075),
+      0 0 0 3px rgba(0, 126, 255, 0.1);
+  }
+}
