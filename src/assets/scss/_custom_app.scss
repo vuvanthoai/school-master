@@ -2,6 +2,7 @@
 
 body {
   background-color: #f3f5f6 !important;
+  font-family: Figtree, serif;
 }
 
 .d-grid {
@@ -58,6 +59,11 @@ a:hover {
     width: 1rem;
     height: 1rem;
   }
+}
+
+input {
+  border-radius: 10rem !important;
+  padding: 0.75rem !important;
 }
 
 @for $i from 0 through 100 {
