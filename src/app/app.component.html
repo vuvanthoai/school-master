@@ -1,1 +1,12 @@
 <router-outlet></router-outlet>
+<div
+  *ngIf="notification && notification.message"
+  id="bootstrap-show-notification-container"
+>
+  <div class="{{ notification.styleClass }}" role="alert">
+    <div>{{ notification.message }}</div>
+    <span *ngIf="notification.description" class="small">{{
+      notification.description
+    }}</span>
+  </div>
+</div>
