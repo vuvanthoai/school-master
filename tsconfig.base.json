@@ -21,6 +21,11 @@
         "src/libs/common-ui/*/src/index",
         "src/libs/common-ui"
       ],
+      "@school-master/services": ["src/libs/http-access/services.ts"],
+      "@school-master/services/configuration": [
+        "src/libs/http-access/api-configuration.ts"
+      ],
+      "@school-master/services/models": ["src/libs/http-access/models.ts"],
       "@school-master/utilities/constants": [
         "src/libs/utilities/constants/index.ts"
       ],
