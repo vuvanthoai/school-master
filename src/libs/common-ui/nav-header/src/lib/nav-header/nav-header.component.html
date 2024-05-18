@@ -1,6 +1,6 @@
 <nav class="navbar navbar-expand-lg ecommerce-navbar" id="navbar">
   <div class="container">
-    <a class="navbar-brand d-none d-lg-block" href="index.html">
+    <a class="navbar-brand d-none d-lg-block" [routerLink]="'/'">
       <div class="logo-dark">
         <img src="assets/images/logo-dark.png" alt="" height="25" />
       </div>
@@ -100,66 +100,49 @@
       >
         <i class="bx bx-search fs-22"></i>
       </button>
-      <div
-        class="dropdown topbar-head-dropdown ms-2 header-item dropdown-hover-end"
-      >
-        <button
-          type="button"
-          class="btn btn-icon btn-topbar btn-ghost-dark rounded-circle text-muted"
-          data-bs-toggle="dropdown"
-          aria-haspopup="true"
-          aria-expanded="false"
-        >
-          <i class="bi bi-sun align-middle fs-20"></i>
-        </button>
-        <div class="dropdown-menu p-2 dropdown-menu-end" id="light-dark-mode">
-          <a href="#" class="dropdown-item" data-mode="light"
-            ><i class="bi bi-sun align-middle me-2"></i> Default (light mode)</a
-          >
-          <a href="#" class="dropdown-item" data-mode="dark"
-            ><i class="bi bi-moon align-middle me-2"></i> Dark</a
-          >
-          <a href="#" class="dropdown-item" data-mode="auto"
-            ><i class="bi bi-moon-stars align-middle me-2"></i> Auto (system
-            default)</a
-          >
-        </div>
-      </div>
       <div class="dropdown header-item dropdown-hover-end">
-        <button
-          type="button"
-          class="btn"
-          id="page-header-user-dropdown"
-          data-bs-toggle="dropdown"
-          aria-haspopup="true"
-          aria-expanded="false"
-        >
-          <img
-            class="rounded-circle header-profile-user"
-            src="assets/images/users/avatar-1.jpg"
-            alt="Header Avatar"
-          />
-        </button>
-        <!-- <button type="button" class="btn btn-icon btn-topbar btn-ghost-secondary rounded-circle" id="page-header-user-dropdown" data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                        <i class="ph-user-circle fs-22"></i>
-                    </button>    -->
-        <div class="dropdown-menu dropdown-menu-end">
-          <!-- item-->
-          <h6 class="dropdown-header">Welcome thoaivv2!</h6>
-          <a class="dropdown-item"
-            ><i
-              class="mdi mdi-cog-outline text-muted fs-16 align-middle me-1"
-            ></i>
-            <span class="align-middle">Settings</span></a
+        <ng-container *ngIf="activeUser$ | async as activeUser; else notAuth">
+          <button
+            type="button"
+            class="btn"
+            id="page-header-user-dropdown"
+            data-bs-toggle="dropdown"
+            aria-haspopup="true"
+            aria-expanded="false"
           >
-          <a class="dropdown-item"
-            ><i
-              class="bi bi-box-arrow-right text-muted fs-16 align-middle me-1"
-            ></i>
-            <span class="align-middle" data-key="t-logout">Logout</span></a
-          >
-        </div>
+            <img
+              class="rounded-circle header-profile-user"
+              src="assets/images/users/avatar-1.jpg"
+              alt="Header Avatar"
+            />
+          </button>
+          <div class="dropdown-menu dropdown-menu-end">
+            <!-- item-->
+            <h6 class="dropdown-header">Welcome {{ activeUser.email }}!</h6>
+            <a class="dropdown-item"
+              ><i
+                class="mdi mdi-cog-outline text-muted fs-16 align-middle me-1"
+              ></i>
+              <span class="align-middle">Settings</span></a
+            >
+            <a class="dropdown-item" (click)="logout()"
+              ><i
+                class="bi bi-box-arrow-right text-muted fs-16 align-middle me-1"
+              ></i>
+              <span class="align-middle" data-key="t-logout">Logout</span></a
+            >
+          </div>
+        </ng-container>
       </div>
     </div>
   </div>
 </nav>
+
+<ng-template #notAuth>
+  <button
+    class="btn btn-common-style btn-user btn-block"
+    [routerLink]="'/login'"
+  >
+    Login
+  </button>
+</ng-template>
