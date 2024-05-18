@@ -16,7 +16,7 @@ import {
 import {
   RegistrationFormProperties,
   RegistrationFormValue,
-} from './model/registrationFormProperies';
+} from './model/registration.model';
 import { AuthenticationService } from '@school-master/services';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { finalize, of } from 'rxjs';
