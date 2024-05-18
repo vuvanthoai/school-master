@@ -8,6 +8,7 @@ import {
 import { CommonModule } from '@angular/common';
 import {
   AbstractControl,
+  AbstractControlOptions,
   FormBuilder,
   FormGroup,
   ReactiveFormsModule,
@@ -22,6 +23,8 @@ import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { finalize, of } from 'rxjs';
 import { NotificationService } from '@school-master/utilities/service';
 import { RouterLink } from '@angular/router';
+import { ConfirmedValidator } from '@school-master/utilities/helper';
+import { EMAIL_REGEX } from '@school-master/utilities/constants';
 
 @Component({
   selector: 'app-registration',
@@ -42,25 +45,36 @@ export class RegistrationComponent implements OnInit {
   statusLoading = false;
   signUpSuccessfully = false;
 
-  RegistrationFormProperties = RegistrationFormProperties;
+  readonly EMAIL_REGEX = EMAIL_REGEX;
+  readonly RegistrationFormProperties = RegistrationFormProperties;
 
   ngOnInit() {
     this.initForm();
   }
 
   private initForm() {
-    this.registrationForm = this.formBuilder.group({
-      [RegistrationFormProperties.FIRST_NAME]: ['', [Validators.required]],
-      [RegistrationFormProperties.LAST_NAME]: ['', [Validators.required]],
-      [RegistrationFormProperties.EMAIL]: ['', [Validators.required]],
-      [RegistrationFormProperties.PASSWORD]: ['', [Validators.required]],
-      [RegistrationFormProperties.CONFIRM_PASSWORD]: [
-        '',
-        [Validators.required],
-      ],
-      [RegistrationFormProperties.POST_CODE]: ['', [Validators.required]],
-      [RegistrationFormProperties.PHONE_NUMBER]: ['', [Validators.required]],
-    });
+    this.registrationForm = this.formBuilder.group(
+      {
+        [RegistrationFormProperties.FIRST_NAME]: ['', [Validators.required]],
+        [RegistrationFormProperties.LAST_NAME]: ['', [Validators.required]],
+        [RegistrationFormProperties.EMAIL]: ['', [Validators.required]],
+        [RegistrationFormProperties.PASSWORD]: ['', [Validators.required]],
+        [RegistrationFormProperties.CONFIRM_PASSWORD]: [
+          '',
+          [Validators.required],
+        ],
+        [RegistrationFormProperties.POST_CODE]: ['', [Validators.required]],
+        [RegistrationFormProperties.PHONE_NUMBER]: ['', [Validators.required]],
+      },
+      {
+        validators: [
+          ConfirmedValidator.confirmedValidator(
+            RegistrationFormProperties.PASSWORD,
+            RegistrationFormProperties.CONFIRM_PASSWORD
+          ),
+        ],
+      } as unknown as AbstractControlOptions
+    );
   }
 
   handleSignUp(registrationFormElm: HTMLElement) {

@@ -25,6 +25,7 @@ import { finalize } from 'rxjs';
 import { CookieService } from 'ngx-cookie-service';
 import {
   CookieKey,
+  EMAIL_REGEX,
   NAVIGATION_URL_VALUES,
 } from '@school-master/utilities/constants';
 import { Router, RouterLink } from '@angular/router';
@@ -52,6 +53,7 @@ export class LoginComponent implements OnInit {
   loginErrorMessage?: string;
   readonly LoginFormProperties = LoginFormProperties;
   readonly NAVIGATION_URL_VALUES = NAVIGATION_URL_VALUES;
+  readonly EMAIL_REGEX = EMAIL_REGEX;
 
   ngOnInit() {
     this.initForm();

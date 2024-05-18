@@ -68,19 +68,23 @@
           type="text"
           class="form-control form-control-user"
           placeholder="Enter your email"
+          [pattern]="EMAIL_REGEX"
           [formControlName]="RegistrationFormProperties.EMAIL"
         />
         <ng-container
           *ngIf="getControl(RegistrationFormProperties.EMAIL) as emailControl"
         >
-          <ng-container *ngIf="emailControl.touched && emailControl.errors">
-            <div
-              *ngIf="emailControl.hasError('required')"
-              class="invalid-feedback d-block text-left red-txt-st"
-            >
+          <div
+            *ngIf="emailControl.touched && emailControl.errors"
+            class="invalid-feedback d-block text-left red-txt-st"
+          >
+            <span *ngIf="emailControl.hasError('required')">
               Please enter your email.
-            </div>
-          </ng-container>
+            </span>
+            <span *ngIf="emailControl.hasError('pattern')">
+              Email format invalid.
+            </span>
+          </div>
         </ng-container>
       </div>
       <div class="mb-4">
@@ -125,18 +129,19 @@
             ) as confirmPasswordControl
           "
         >
-          <ng-container
+          <div
             *ngIf="
               confirmPasswordControl.touched && confirmPasswordControl.errors
             "
+            class="invalid-feedback d-block text-left red-txt-st"
           >
-            <div
-              *ngIf="confirmPasswordControl.hasError('required')"
-              class="invalid-feedback d-block text-left red-txt-st"
-            >
+            <span *ngIf="confirmPasswordControl.hasError('required')">
               Please enter your confirm password.
-            </div>
-          </ng-container>
+            </span>
+            <span *ngIf="confirmPasswordControl.hasError('confirmedValidator')">
+              Password and confirmed password aren't matched
+            </span>
+          </div>
         </ng-container>
       </div>
       <div class="mb-4">
