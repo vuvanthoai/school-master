@@ -5,6 +5,7 @@
   "scripts": {
     "start": "nx serve",
     "build": "nx build",
+    "build-production": "nx build --prod --configuration=production",
     "test": "nx test",
     "generate-api": "ng-openapi-gen --input ./src/libs/http-access/api-file/swagger.json --output ./src/libs/http-access/"
   },
