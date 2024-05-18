@@ -69,9 +69,7 @@ export class LoginComponent implements OnInit {
   handleLogin() {
     this.loading = true;
     this.authenticationService
-      .login({
-        body: { ...this.loginForm.value },
-      })
+      .login({ ...this.loginForm.value })
       .pipe(
         takeUntilDestroyed(this.destroyRef),
         finalize(() => {
@@ -80,11 +78,11 @@ export class LoginComponent implements OnInit {
         })
       )
       .subscribe({
-        next: (user) => {
-          // this.authService.setActiveUser$(user);
+        next: (data) => {
+          void this.router.navigate(['/']);
           this.cookieService.set(
-            CookieKey.ActiveUser,
-            JSON.stringify(user),
+            CookieKey.AccessToken,
+            data.accessToken,
             365,
             '/',
             this.windowRef.nativeWindow.location.hostname,
