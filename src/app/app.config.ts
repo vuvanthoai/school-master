@@ -14,6 +14,7 @@ import {
   withInterceptorsFromDi,
 } from '@angular/common/http';
 import { provideAnimations } from '@angular/platform-browser/animations';
+import { WindowRef } from '@school-master/utilities/service';
 
 const scrollConfig: InMemoryScrollingOptions = {
   scrollPositionRestoration: 'top',
@@ -25,6 +26,7 @@ const inMemoryScrollingFeature: InMemoryScrollingFeature =
 
 export const appConfig: ApplicationConfig = {
   providers: [
+    WindowRef,
     provideRouter(
       appRoutes,
       inMemoryScrollingFeature,
