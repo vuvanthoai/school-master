@@ -20,7 +20,7 @@ import {
 } from './model/registration.model';
 import { AuthenticationService } from '@school-master/services';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { finalize, of } from 'rxjs';
+import { finalize } from 'rxjs';
 import { NotificationService } from '@school-master/utilities/service';
 import { RouterLink } from '@angular/router';
 import { ConfirmedValidator } from '@school-master/utilities/helper';
@@ -82,18 +82,16 @@ export class RegistrationComponent implements OnInit {
     const formData =
       this.registrationForm.getRawValue() as RegistrationFormValue;
     this.statusLoading = true;
-    this.authenticationService.signup({
-      body: {
-        first_name: formData[RegistrationFormProperties.FIRST_NAME],
-        last_name: formData[RegistrationFormProperties.LAST_NAME],
+    this.authenticationService
+      .signup({
+        firstName: formData[RegistrationFormProperties.FIRST_NAME],
+        lastName: formData[RegistrationFormProperties.LAST_NAME],
         email: formData[RegistrationFormProperties.EMAIL],
         password1: formData[RegistrationFormProperties.PASSWORD],
         password2: formData[RegistrationFormProperties.CONFIRM_PASSWORD],
-        phone_number: formData[RegistrationFormProperties.PHONE_NUMBER],
-        post_code: formData[RegistrationFormProperties.POST_CODE],
-      },
-    });
-    of({})
+        phoneNumber: formData[RegistrationFormProperties.PHONE_NUMBER],
+        postCode: formData[RegistrationFormProperties.POST_CODE],
+      })
       .pipe(
         finalize(() => {
           this.statusLoading = false;

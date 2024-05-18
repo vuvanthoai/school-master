@@ -1,37 +1,27 @@
-/* tslint:disable */
-/* eslint-disable */
 import {
   ModuleWithProviders,
   NgModule,
   Optional,
   SkipSelf,
 } from '@angular/core';
+import { Configuration } from './configuration';
 import { HttpClient } from '@angular/common/http';
-import { ApiConfiguration, ApiConfigurationParams } from './api-configuration';
 
-import { AuthenticationService } from './services/authentication.service';
+import { AuthenticationService } from './api/authentication.service';
 
-/**
- * Module that provides all services and configuration.
- */
 @NgModule({
   imports: [],
-  exports: [],
   declarations: [],
-  providers: [AuthenticationService, ApiConfiguration],
+  exports: [],
+  providers: [AuthenticationService],
 })
 export class ApiModule {
-  static forRoot(
-    params: ApiConfigurationParams
-  ): ModuleWithProviders<ApiModule> {
+  public static forRoot(
+    configurationFactory: () => Configuration
+  ): ModuleWithProviders<any> {
     return {
       ngModule: ApiModule,
-      providers: [
-        {
-          provide: ApiConfiguration,
-          useValue: params,
-        },
-      ],
+      providers: [{ provide: Configuration, useFactory: configurationFactory }],
     };
   }
 

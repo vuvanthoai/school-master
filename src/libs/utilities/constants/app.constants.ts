@@ -19,6 +19,7 @@ export enum NAVIGATION_URL_VALUES {
 
 export enum CookieKey {
   AccessToken = 'access_token',
+  RefreshToken = 'refresh_Token',
   ActiveUser = 'active_user',
 }
 

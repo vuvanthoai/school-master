@@ -27,15 +27,14 @@ export class ResetPasswordComponent {
 
   emailControl = new FormControl('', [Validators.required, Validators.email]);
   loading = false;
+  readonly EMAIL_REGEX = EMAIL_REGEX;
 
   submitResetPasswordRequest() {
     if (this.emailControl.invalid) return;
     this.loading = true;
     this.authenticationService
       .resetPassword({
-        body: {
-          email: this.emailControl.value ?? '',
-        },
+        email: this.emailControl.value ?? '',
       })
       .pipe(
         takeUntilDestroyed(this.destroyRef),
@@ -58,6 +57,4 @@ export class ResetPasswordComponent {
         },
       });
   }
-
-  protected readonly EMAIL_REGEX = EMAIL_REGEX;
 }
