@@ -10,6 +10,7 @@ import { AuthenticationService } from '@school-master/services';
 import { NotificationService } from '@school-master/utilities/service';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { finalize } from 'rxjs';
+import { EMAIL_REGEX } from '@school-master/utilities/constants';
 
 @Component({
   selector: 'app-reset-password',
@@ -57,4 +58,6 @@ export class ResetPasswordComponent {
         },
       });
   }
+
+  protected readonly EMAIL_REGEX = EMAIL_REGEX;
 }
