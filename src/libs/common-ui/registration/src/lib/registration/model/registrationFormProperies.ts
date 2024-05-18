@@ -3,7 +3,7 @@ export enum RegistrationFormProperties {
   LAST_NAME = 'lastName',
   EMAIL = 'email',
   PASSWORD = 'password',
-  RE_PASSWORD = 'rePassword',
+  CONFIRM_PASSWORD = 'CONFIRM_PASSWORD',
   POST_CODE = 'postCode',
   PHONE_NUMBER = 'phoneNumber',
 }
@@ -13,7 +13,13 @@ export interface RegistrationFormValue {
   [RegistrationFormProperties.LAST_NAME]: string;
   [RegistrationFormProperties.EMAIL]: string;
   [RegistrationFormProperties.PASSWORD]: string;
-  [RegistrationFormProperties.RE_PASSWORD]: string;
-  [RegistrationFormProperties.POST_CODE]?: string;
-  [RegistrationFormProperties.PHONE_NUMBER]?: string;
+  [RegistrationFormProperties.CONFIRM_PASSWORD]: string;
+  [RegistrationFormProperties.POST_CODE]: string;
+  [RegistrationFormProperties.PHONE_NUMBER]: string;
+}
+
+export enum StatusLoading {
+  DEFAULT,
+  SUBMITTING,
+  SUCCESS,
 }

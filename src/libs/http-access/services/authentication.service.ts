@@ -317,7 +317,7 @@ export class AuthenticationService extends BaseService {
   }
 
   /** Path part for operation `signUpConfirm()` */
-  static readonly SignUpConfirmPath = '/hr/signup/{userId}/confirm/';
+  static readonly SignUpConfirmPath = '/hr/signup/confirm/';
 
   /**
    * Sign Up Confirm.
@@ -330,7 +330,7 @@ export class AuthenticationService extends BaseService {
    * This method doesn't expect any request body.
    */
   signUpConfirm$Response(
-    params: SignUpConfirm$Params,
+    params?: SignUpConfirm$Params,
     context?: HttpContext
   ): Observable<StrictHttpResponse<void>> {
     return signUpConfirm(this.http, this.rootUrl, params, context);
@@ -347,7 +347,7 @@ export class AuthenticationService extends BaseService {
    * This method doesn't expect any request body.
    */
   signUpConfirm(
-    params: SignUpConfirm$Params,
+    params?: SignUpConfirm$Params,
     context?: HttpContext
   ): Observable<void> {
     return this.signUpConfirm$Response(params, context).pipe(

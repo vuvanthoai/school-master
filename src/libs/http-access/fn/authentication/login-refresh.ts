@@ -8,7 +8,7 @@ import { RequestBuilder } from '../../request-builder';
 
 export interface LoginRefresh$Params {
   body?: {
-    refresh?: string;
+    refresh: string;
   };
 }
 
@@ -20,7 +20,7 @@ export function loginRefresh(
 ): Observable<StrictHttpResponse<void>> {
   const rb = new RequestBuilder(rootUrl, loginRefresh.PATH, 'post');
   if (params) {
-    rb.body('body', params.body, {});
+    rb.body(params.body, 'application/json');
   }
 
   return http

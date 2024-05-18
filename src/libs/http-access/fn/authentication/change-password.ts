@@ -8,9 +8,9 @@ import { RequestBuilder } from '../../request-builder';
 
 export interface ChangePassword$Params {
   body?: {
-    new_password1?: string;
-    new_password2?: string;
-    old_password?: string;
+    new_password1: string;
+    new_password2: string;
+    old_password: string;
   };
 }
 
@@ -22,7 +22,7 @@ export function changePassword(
 ): Observable<StrictHttpResponse<void>> {
   const rb = new RequestBuilder(rootUrl, changePassword.PATH, 'post');
   if (params) {
-    rb.body('body', params.body, {});
+    rb.body(params.body, 'application/json');
   }
 
   return http

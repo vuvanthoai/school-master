@@ -8,7 +8,7 @@ import { RequestBuilder } from '../../request-builder';
 
 export interface ResetPassword$Params {
   body?: {
-    email?: string;
+    email: string;
   };
 }
 
@@ -20,7 +20,7 @@ export function resetPassword(
 ): Observable<StrictHttpResponse<void>> {
   const rb = new RequestBuilder(rootUrl, resetPassword.PATH, 'post');
   if (params) {
-    rb.body('body', params.body, {});
+    rb.body(params.body, 'application/json');
   }
 
   return http

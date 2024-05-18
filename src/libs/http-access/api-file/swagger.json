@@ -20,16 +20,17 @@
             "name": "body",
             "schema": {
               "properties": {
-                "password": {
-                  "example": "<string>",
+                "email": {
+                  "example": "",
                   "type": "string"
                 },
-                "username": {
-                  "example": "<string>",
+                "password": {
+                  "example": "Demo123!@#",
                   "type": "string"
                 }
               },
-              "type": "object"
+              "type": "object",
+              "required": ["email", "password"]
             }
           }
         ],
@@ -72,7 +73,8 @@
                   "type": "string"
                 }
               },
-              "type": "object"
+              "type": "object",
+              "required": ["refresh"]
             }
           }
         ],
@@ -98,10 +100,32 @@
     },
     "/hr/logout/": {
       "post": {
+        "produces": ["application/json"],
         "parameters": [],
         "responses": {
           "200": {
-            "description": ""
+            "description": "200 OK",
+            "schema": {
+              "properties": {
+                "detail": {
+                  "example": "<detail message>",
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            }
+          },
+          "401": {
+            "description": "401 Unauthorized",
+            "schema": {
+              "properties": {
+                "detail": {
+                  "example": "<detail message>",
+                  "type": "string"
+                }
+              },
+              "type": "object"
+            }
           }
         },
         "tags": ["Authentication"],
@@ -132,7 +156,8 @@
                   "type": "string"
                 }
               },
-              "type": "object"
+              "type": "object",
+              "required": ["old_password", "new_password2", "new_password1"]
             }
           }
         ],
@@ -162,7 +187,8 @@
                   "type": "string"
                 }
               },
-              "type": "object"
+              "type": "object",
+              "required": ["email"]
             }
           }
         ],
@@ -186,16 +212,25 @@
             "name": "body",
             "schema": {
               "properties": {
-                "password": {
+                "new_password1": {
+                  "example": "",
+                  "type": "string"
+                },
+                "new_password2": {
                   "example": "",
                   "type": "string"
                 },
                 "token": {
                   "example": "",
                   "type": "string"
+                },
+                "uid": {
+                  "example": "",
+                  "type": "string"
                 }
               },
-              "type": "object"
+              "type": "object",
+              "required": ["new_password1", "new_password2", "token", "uid"]
             }
           }
         ],
@@ -221,35 +256,44 @@
             "schema": {
               "properties": {
                 "email": {
-                  "example": "<string>",
+                  "example": "",
                   "type": "string"
                 },
                 "first_name": {
-                  "example": "<string>",
+                  "example": "",
                   "type": "string"
                 },
                 "last_name": {
-                  "example": "<string>",
+                  "example": "",
                   "type": "string"
                 },
                 "password1": {
-                  "example": "<string>",
+                  "example": "Demo123!@#",
                   "type": "string"
                 },
                 "password2": {
-                  "example": "<string>",
+                  "example": "Demo123!@#",
                   "type": "string"
                 },
                 "phone_number": {
-                  "example": "<string>6",
+                  "example": "",
                   "type": "string"
                 },
                 "post_code": {
-                  "example": "<string>",
+                  "example": "",
                   "type": "string"
                 }
               },
-              "type": "object"
+              "type": "object",
+              "required": [
+                "email",
+                "first_name",
+                "last_name",
+                "password1",
+                "password2",
+                "phone_number",
+                "post_code"
+              ]
             }
           }
         ],
@@ -264,17 +308,29 @@
         "summary": "Signup"
       }
     },
-    "/hr/signup/{userId}/confirm/": {
-      "parameters": [
-        {
-          "in": "path",
-          "name": "userId",
-          "required": true,
-          "type": "string"
-        }
-      ],
+    "/hr/signup/confirm/": {
       "post": {
-        "parameters": [],
+        "consumes": ["application/json"],
+        "parameters": [
+          {
+            "in": "body",
+            "name": "body",
+            "schema": {
+              "properties": {
+                "token": {
+                  "example": "",
+                  "type": "string"
+                },
+                "uid": {
+                  "example": "",
+                  "type": "string"
+                }
+              },
+              "type": "object",
+              "required": ["token", "uid"]
+            }
+          }
+        ],
         "responses": {
           "200": {
             "description": "200 OK"
