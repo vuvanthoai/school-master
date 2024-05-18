@@ -18,11 +18,11 @@ export class AuthService {
     }
   }
 
-  // getActiveUser$(): BehaviorSubject<User | undefined> {
-  //   return this._activeUser$;
-  // }
-  //
-  // setActiveUser$(value: User | undefined) {
-  //   this._activeUser$.next(value);
-  // }
+  getActiveUser$(): BehaviorSubject<User | undefined> {
+    return this._activeUser$;
+  }
+
+  setActiveUser$(value: User | undefined) {
+    this._activeUser$.next(value);
+  }
 }
