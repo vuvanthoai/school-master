@@ -382,6 +382,18 @@ label {
   font-weight: 600;
 }
 
+.btn-common-style {
+  border-radius: 22px;
+  border: 1px solid #d9d9d9;
+  width: 120px;
+  height: 44px;
+  padding: 10px 16px;
+  &:hover {
+    background-color: var(--Primary, #2399f9);
+    color: var(--White, #fafafa);
+  }
+}
+
 @keyframes placeHolderShimmer {
   0% {
     background-position: -468px 0;
