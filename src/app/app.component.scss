@@ -1,0 +1,13 @@
+#bootstrap-show-notification-container {
+  position: fixed;
+  right: 3rem;
+  top: 3rem;
+  margin-left: 2rem;
+  z-index: 10000;
+}
+
+@media (max-width: 768px) {
+  #bootstrap-show-notification-container {
+    right: 0;
+  }
+}

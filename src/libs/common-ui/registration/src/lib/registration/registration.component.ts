@@ -7,6 +7,7 @@ import {
 } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import {
+  AbstractControl,
   FormBuilder,
   FormGroup,
   ReactiveFormsModule,
@@ -18,13 +19,14 @@ import {
 } from './model/registrationFormProperies';
 import { AuthenticationService } from '@school-master/services';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
-import { finalize } from 'rxjs';
+import { finalize, of } from 'rxjs';
 import { NotificationService } from '@school-master/utilities/service';
+import { RouterLink } from '@angular/router';
 
 @Component({
   selector: 'app-registration',
   standalone: true,
-  imports: [CommonModule, ReactiveFormsModule],
+  imports: [CommonModule, ReactiveFormsModule, RouterLink],
   templateUrl: './registration.component.html',
   styleUrl: './registration.component.scss',
 })
@@ -37,7 +39,8 @@ export class RegistrationComponent implements OnInit {
 
   registrationForm: FormGroup = new FormGroup({});
 
-  loading = false;
+  statusLoading = false;
+  signUpSuccessfully = false;
 
   RegistrationFormProperties = RegistrationFormProperties;
 
@@ -51,35 +54,46 @@ export class RegistrationComponent implements OnInit {
       [RegistrationFormProperties.LAST_NAME]: ['', [Validators.required]],
       [RegistrationFormProperties.EMAIL]: ['', [Validators.required]],
       [RegistrationFormProperties.PASSWORD]: ['', [Validators.required]],
-      [RegistrationFormProperties.RE_PASSWORD]: ['', [Validators.required]],
-      [RegistrationFormProperties.POST_CODE]: [''],
-      [RegistrationFormProperties.PHONE_NUMBER]: [''],
+      [RegistrationFormProperties.CONFIRM_PASSWORD]: [
+        '',
+        [Validators.required],
+      ],
+      [RegistrationFormProperties.POST_CODE]: ['', [Validators.required]],
+      [RegistrationFormProperties.PHONE_NUMBER]: ['', [Validators.required]],
     });
   }
 
-  handleSignUp() {
+  handleSignUp(registrationFormElm: HTMLElement) {
+    if (this.registrationForm.invalid || this.statusLoading) return;
     const formData =
       this.registrationForm.getRawValue() as RegistrationFormValue;
-    this.loading = true;
-    this.authenticationService
-      .signup({
-        firstName: formData[RegistrationFormProperties.FIRST_NAME],
-        lastName: formData[RegistrationFormProperties.LAST_NAME],
-        password: formData[RegistrationFormProperties.PASSWORD],
-        passwordConfirm: formData[RegistrationFormProperties.RE_PASSWORD],
-      })
+    this.statusLoading = true;
+    this.authenticationService.signup({
+      body: {
+        first_name: formData[RegistrationFormProperties.FIRST_NAME],
+        last_name: formData[RegistrationFormProperties.LAST_NAME],
+        email: formData[RegistrationFormProperties.EMAIL],
+        password1: formData[RegistrationFormProperties.PASSWORD],
+        password2: formData[RegistrationFormProperties.CONFIRM_PASSWORD],
+        phone_number: formData[RegistrationFormProperties.PHONE_NUMBER],
+        post_code: formData[RegistrationFormProperties.POST_CODE],
+      },
+    });
+    of({})
       .pipe(
         finalize(() => {
-          this.loading = false;
+          this.statusLoading = false;
           this.changeDetectorRef.markForCheck();
         }),
         takeUntilDestroyed(this.destroyRef)
       )
       .subscribe({
         next: () => {
+          this.signUpSuccessfully = true;
           this.notificationService.setNotification({
             message: 'Registration successfully created',
           });
+          registrationFormElm.scrollIntoView({ behavior: 'smooth' });
         },
         error: (err) => {
           this.notificationService.setNotification({
@@ -88,5 +102,9 @@ export class RegistrationComponent implements OnInit {
           });
         },
       });
+  }
+
+  getControl<T>(controlName: RegistrationFormProperties): AbstractControl {
+    return <AbstractControl<T, T>>this.registrationForm.get(controlName);
   }
 }

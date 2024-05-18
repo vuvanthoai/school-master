@@ -8,8 +8,10 @@ import { RequestBuilder } from '../../request-builder';
 
 export interface ResetPasswordConfirm$Params {
   body?: {
-    password?: string;
-    token?: string;
+    new_password1: string;
+    new_password2: string;
+    token: string;
+    uid: string;
   };
 }
 
@@ -21,7 +23,7 @@ export function resetPasswordConfirm(
 ): Observable<StrictHttpResponse<void>> {
   const rb = new RequestBuilder(rootUrl, resetPasswordConfirm.PATH, 'post');
   if (params) {
-    rb.body('body', params.body, {});
+    rb.body(params.body, 'application/json');
   }
 
   return http

@@ -8,8 +8,8 @@ import { RequestBuilder } from '../../request-builder';
 
 export interface Login$Params {
   body?: {
-    password?: string;
-    username?: string;
+    email: string;
+    password: string;
   };
 }
 
@@ -21,7 +21,7 @@ export function login(
 ): Observable<StrictHttpResponse<void>> {
   const rb = new RequestBuilder(rootUrl, login.PATH, 'post');
   if (params) {
-    rb.body('body', params.body, {});
+    rb.body(params.body, 'application/json');
   }
 
   return http

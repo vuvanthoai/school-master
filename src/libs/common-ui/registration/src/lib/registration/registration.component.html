@@ -1,81 +1,231 @@
-<div class="form-container">
-  <div class="form-title">
-    Sign up
-    <span class="form-title-name">School Master</span>
-  </div>
-  <form
-    [formGroup]="registrationForm"
-    (submit)="handleSignUp()"
-    class="form-body"
+<div #registrationFormElm class="form-container img-background">
+  <div
+    *ngIf="!signUpSuccessfully; else signUpSuccessfullyTmp"
+    class="form-initiate"
   >
-    <div class="mb-4">
-      <label class="mb-2"> First name * </label>
-      <input
-        type="text"
-        class="form-control form-control-user"
-        placeholder="Enter your first name"
-        [formControlName]="RegistrationFormProperties.FIRST_NAME"
-      />
-    </div>
-    <div class="mb-4">
-      <label class="mb-2"> Last name * </label>
-      <input
-        type="text"
-        class="form-control form-control-user"
-        placeholder="Enter your last name"
-        [formControlName]="RegistrationFormProperties.LAST_NAME"
-      />
-    </div>
-    <div class="mb-4">
-      <label class="mb-2"> Email * </label>
+    <div class="form-title">Sign up School Master</div>
+    <form
+      [formGroup]="registrationForm"
+      (submit)="handleSignUp(registrationFormElm)"
+      class="form-body"
+    >
+      <div class="mb-4">
+        <label class="mb-2"> First name * </label>
+        <input
+          type="text"
+          class="form-control form-control-user"
+          placeholder="Enter your first name"
+          [formControlName]="RegistrationFormProperties.FIRST_NAME"
+        />
+        <ng-container
+          *ngIf="
+            getControl(
+              RegistrationFormProperties.FIRST_NAME
+            ) as firstNameControl
+          "
+        >
+          <ng-container
+            *ngIf="firstNameControl.touched && firstNameControl.errors"
+          >
+            <div
+              *ngIf="firstNameControl.hasError('required')"
+              class="invalid-feedback d-block text-left red-txt-st"
+            >
+              Please enter your first name.
+            </div>
+          </ng-container>
+        </ng-container>
+      </div>
+      <div class="mb-4">
+        <label class="mb-2"> Last name * </label>
+        <input
+          type="text"
+          class="form-control form-control-user"
+          placeholder="Enter your last name"
+          [formControlName]="RegistrationFormProperties.LAST_NAME"
+        />
+        <ng-container
+          *ngIf="
+            getControl(RegistrationFormProperties.LAST_NAME) as lastNameControl
+          "
+        >
+          <ng-container
+            *ngIf="lastNameControl.touched && lastNameControl.errors"
+          >
+            <div
+              *ngIf="lastNameControl.hasError('required')"
+              class="invalid-feedback d-block text-left red-txt-st"
+            >
+              Please enter your last name.
+            </div>
+          </ng-container>
+        </ng-container>
+      </div>
+      <div class="mb-4">
+        <label class="mb-2"> Email * </label>
 
-      <input
-        type="text"
-        class="form-control form-control-user"
-        placeholder="Enter your email"
-        [formControlName]="RegistrationFormProperties.EMAIL"
-      />
-    </div>
-    <div class="mb-4">
-      <label class="mb-2"> Password * </label>
+        <input
+          type="text"
+          class="form-control form-control-user"
+          placeholder="Enter your email"
+          [formControlName]="RegistrationFormProperties.EMAIL"
+        />
+        <ng-container
+          *ngIf="getControl(RegistrationFormProperties.EMAIL) as emailControl"
+        >
+          <ng-container *ngIf="emailControl.touched && emailControl.errors">
+            <div
+              *ngIf="emailControl.hasError('required')"
+              class="invalid-feedback d-block text-left red-txt-st"
+            >
+              Please enter your email.
+            </div>
+          </ng-container>
+        </ng-container>
+      </div>
+      <div class="mb-4">
+        <label class="mb-2"> Password * </label>
 
-      <input
-        type="password"
-        class="form-control form-control-user"
-        placeholder="Enter your password"
-        [formControlName]="RegistrationFormProperties.PASSWORD"
-      />
-    </div>
-    <div class="mb-4">
-      <label class="mb-2"> RePassword * </label>
+        <input
+          type="password"
+          class="form-control form-control-user"
+          placeholder="Enter your password"
+          [formControlName]="RegistrationFormProperties.PASSWORD"
+        />
+        <ng-container
+          *ngIf="
+            getControl(RegistrationFormProperties.PASSWORD) as passwordControl
+          "
+        >
+          <ng-container
+            *ngIf="passwordControl.touched && passwordControl.errors"
+          >
+            <div
+              *ngIf="passwordControl.hasError('required')"
+              class="invalid-feedback d-block text-left red-txt-st"
+            >
+              Please enter your password.
+            </div>
+          </ng-container>
+        </ng-container>
+      </div>
+      <div class="mb-4">
+        <label class="mb-2"> RePassword * </label>
 
-      <input
-        type="password"
-        class="form-control form-control-user"
-        placeholder="Enter your re password"
-        [formControlName]="RegistrationFormProperties.RE_PASSWORD"
-      />
-    </div>
-    <div class="mb-4">
-      <label class="mb-2">Post code</label>
-      <input
-        type="text"
-        class="form-control form-control-user"
-        placeholder="Enter your post code"
-        [formControlName]="RegistrationFormProperties.POST_CODE"
-      />
-    </div>
-    <div class="mb-4">
-      <label class="mb-2">Phone number</label>
-      <input
-        type="text"
-        class="form-control form-control-user"
-        placeholder="Enter your phone number"
-        [formControlName]="RegistrationFormProperties.PHONE_NUMBER"
-      />
-    </div>
-    <a (click)="handleSignUp()" class="btn btn-primary btn-user btn-block">
-      Sign up
-    </a>
-  </form>
+        <input
+          type="password"
+          class="form-control form-control-user"
+          placeholder="Enter your confirm password"
+          [formControlName]="RegistrationFormProperties.CONFIRM_PASSWORD"
+        />
+        <ng-container
+          *ngIf="
+            getControl(
+              RegistrationFormProperties.CONFIRM_PASSWORD
+            ) as confirmPasswordControl
+          "
+        >
+          <ng-container
+            *ngIf="
+              confirmPasswordControl.touched && confirmPasswordControl.errors
+            "
+          >
+            <div
+              *ngIf="confirmPasswordControl.hasError('required')"
+              class="invalid-feedback d-block text-left red-txt-st"
+            >
+              Please enter your confirm password.
+            </div>
+          </ng-container>
+        </ng-container>
+      </div>
+      <div class="mb-4">
+        <label class="mb-2">Post code</label>
+        <input
+          type="text"
+          class="form-control form-control-user"
+          placeholder="Enter your post code"
+          [formControlName]="RegistrationFormProperties.POST_CODE"
+        />
+        <ng-container
+          *ngIf="
+            getControl(RegistrationFormProperties.POST_CODE) as postCodeControl
+          "
+        >
+          <ng-container
+            *ngIf="postCodeControl.touched && postCodeControl.errors"
+          >
+            <div
+              *ngIf="postCodeControl.hasError('required')"
+              class="invalid-feedback d-block text-left red-txt-st"
+            >
+              Please enter your post code.
+            </div>
+          </ng-container>
+        </ng-container>
+      </div>
+      <div class="mb-4">
+        <label class="mb-2">Phone number</label>
+        <input
+          type="text"
+          class="form-control form-control-user"
+          placeholder="Enter your phone number"
+          [formControlName]="RegistrationFormProperties.PHONE_NUMBER"
+        />
+        <ng-container
+          *ngIf="
+            getControl(
+              RegistrationFormProperties.PHONE_NUMBER
+            ) as phoneNumberControl
+          "
+        >
+          <ng-container
+            *ngIf="phoneNumberControl.touched && phoneNumberControl.errors"
+          >
+            <div
+              *ngIf="phoneNumberControl.hasError('required')"
+              class="invalid-feedback d-block text-left red-txt-st"
+            >
+              Please enter your phone number.
+            </div>
+          </ng-container>
+        </ng-container>
+      </div>
+      <button
+        class="btn btn-c btn-primary btn-user btn-block d-flex align-items-center gap-8"
+        [disabled]="registrationForm.invalid || statusLoading"
+        (click)="handleSignUp(registrationFormElm)"
+      >
+        <span
+          *ngIf="statusLoading"
+          class="spinner-border spinner-border-sm"
+          role="status"
+          aria-hidden="true"
+        ></span>
+        Sign up
+      </button>
+    </form>
+  </div>
 </div>
+
+<ng-template #signUpSuccessfullyTmp>
+  <div class="su-success-c">
+    <img
+      loading="lazy"
+      src="https://cdn.builder.io/api/v1/image/assets/TEMP/f4688d45c3e409543baa686154ed49c6577d3ebcba9f267899c04f43d5f0fd5d?"
+      class="su-success-icon"
+      alt=""
+    />
+    <div class="su-success-title">Sign up success</div>
+    <div class="su-success-description">
+      Please confirm your mail to sign up success
+    </div>
+    <div class="div-17"></div>
+    <button
+      class="btn btn-c btn-primary btn-user btn-block mt-3"
+      [routerLink]="'/'"
+    >
+      Back to home
+    </button>
+  </div>
+</ng-template>

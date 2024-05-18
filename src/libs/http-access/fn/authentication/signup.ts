@@ -8,13 +8,13 @@ import { RequestBuilder } from '../../request-builder';
 
 export interface Signup$Params {
   body?: {
-    email?: string;
-    first_name?: string;
-    last_name?: string;
-    password1?: string;
-    password2?: string;
-    phone_number?: string;
-    post_code?: string;
+    email: string;
+    first_name: string;
+    last_name: string;
+    password1: string;
+    password2: string;
+    phone_number: string;
+    post_code: string;
   };
 }
 
@@ -26,7 +26,7 @@ export function signup(
 ): Observable<StrictHttpResponse<void>> {
   const rb = new RequestBuilder(rootUrl, signup.PATH, 'post');
   if (params) {
-    rb.body('body', params.body, {});
+    rb.body(params.body, 'application/json');
   }
 
   return http

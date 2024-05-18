@@ -7,18 +7,21 @@ import { StrictHttpResponse } from '../../strict-http-response';
 import { RequestBuilder } from '../../request-builder';
 
 export interface SignUpConfirm$Params {
-  userId: any;
+  body?: {
+    token: string;
+    uid: string;
+  };
 }
 
 export function signUpConfirm(
   http: HttpClient,
   rootUrl: string,
-  params: SignUpConfirm$Params,
+  params?: SignUpConfirm$Params,
   context?: HttpContext
 ): Observable<StrictHttpResponse<void>> {
   const rb = new RequestBuilder(rootUrl, signUpConfirm.PATH, 'post');
   if (params) {
-    rb.path('userId', params.userId, {});
+    rb.body(params.body, 'application/json');
   }
 
   return http
@@ -33,4 +36,4 @@ export function signUpConfirm(
     );
 }
 
-signUpConfirm.PATH = '/hr/signup/{userId}/confirm/';
+signUpConfirm.PATH = '/hr/signup/confirm/';
