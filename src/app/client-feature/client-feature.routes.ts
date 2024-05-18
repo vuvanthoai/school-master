@@ -38,6 +38,13 @@ function getClientFeatureChildRoutes(): Route[] {
         ),
     },
     {
+      path: `${NAVIGATION_URL_VALUES.FORGOT_PASSWORD}`,
+      loadComponent: () =>
+        import('@school-master/common-ui/reset-password').then(
+          (m) => m.ResetPasswordComponent
+        ),
+    },
+    {
       path: `${NAVIGATION_URL_VALUES.CONTACT}`,
       loadComponent: () =>
         import('@school-master/contact').then((m) => m.ContactComponent),
