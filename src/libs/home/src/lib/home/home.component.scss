@@ -207,11 +207,12 @@
   display: flex;
   gap: 20px;
   padding: 6px 24px;
+  height: 3rem;
 }
 
 @media (max-width: 991px) {
   .search-box {
-    flex-wrap: wrap;
+    padding: 0 !important;
   }
 }
 
@@ -284,6 +285,12 @@
   padding: 80px 60px;
 }
 
+@media (max-width: 991px) {
+  .section-blue {
+    padding: 1.5rem;
+  }
+}
+
 .about-content {
   display: flex;
   width: 100%;
@@ -309,6 +316,7 @@
 .features {
   align-self: stretch;
   display: flex;
+  flex-wrap: wrap;
   margin-top: 65px;
   gap: 20px;
 }
@@ -317,8 +325,6 @@
   border-radius: 28px;
   background-color: #fff;
   display: flex;
-  gap: 20px;
-  justify-content: space-between;
   flex: 1;
 }
 
@@ -328,8 +334,10 @@
 }
 
 .feature-text {
+  width: 100%;
   font-family: Figtree, sans-serif;
   margin: auto 0;
+  white-space:nowrap
 }
 
 .steps-section {
@@ -620,6 +628,12 @@
   }
 }
 
+@media (max-width: 991px) {
+  .section-heading {
+    max-width: unset !important;
+  }
+}
+
 .section-heading {
   color: #fff;
   max-width: 312px;
@@ -634,27 +648,13 @@
   background: none;
   box-shadow: none;
   align-items: unset;
+  padding: 1rem;
 }
 
 @media (max-width: 991px) {
   .form-container {
+    padding: 0;
     max-width: 100%;
-  }
-}
-
-.search-box {
-  border-radius: 24px;
-  display: flex;
-  gap: 20px;
-  padding: 6px 8px 6px 24px;
-  box-shadow: none;
-  height: 48px;
-}
-
-@media (max-width: 991px) {
-  .search-box {
-    flex-wrap: wrap;
-    padding-left: 20px;
   }
 }
 
@@ -673,7 +673,12 @@
 
 @media (max-width: 991px) {
   .input-fields {
-    flex-wrap: wrap;
+    padding: 0;
+    max-width: unset;
+    width: 100%;
+    input {
+      width: 100%;
+    }
   }
 }
 
@@ -688,6 +693,13 @@
   .input-field {
     max-width: 100%;
   }
+}
+
+.home-search-icon {
+  position: absolute;
+  right: 6px;
+  top: 6px;
+  cursor: pointer;
 }
 
 .search-button-wrapper {
