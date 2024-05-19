@@ -22,12 +22,9 @@ import { AuthenticationService } from '@school-master/services';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { finalize } from 'rxjs';
 import { NotificationService } from '@school-master/utilities/service';
-import { Router, RouterLink } from '@angular/router';
+import { RouterLink } from '@angular/router';
 import { ConfirmedValidator } from '@school-master/utilities/helper';
-import {
-  EMAIL_REGEX,
-  NAVIGATION_URL_VALUES,
-} from '@school-master/utilities/constants';
+import { EMAIL_REGEX } from '@school-master/utilities/constants';
 
 @Component({
   selector: 'app-registration',
@@ -38,7 +35,6 @@ import {
 })
 export class RegistrationComponent implements OnInit {
   private formBuilder = inject(FormBuilder);
-  private router = inject(Router);
   private authenticationService = inject(AuthenticationService);
   private notificationService = inject(NotificationService);
   private changeDetectorRef = inject(ChangeDetectorRef);
@@ -81,7 +77,7 @@ export class RegistrationComponent implements OnInit {
     );
   }
 
-  handleSignUp() {
+  handleSignUp(registrationFormElm: HTMLElement) {
     if (this.registrationForm.invalid || this.statusLoading) return;
     const formData =
       this.registrationForm.getRawValue() as RegistrationFormValue;
@@ -106,10 +102,7 @@ export class RegistrationComponent implements OnInit {
       .subscribe({
         next: () => {
           this.signUpSuccessfully = true;
-          this.notificationService.setNotification({
-            message: 'Registration successfully created',
-          });
-          void this.router.navigate([NAVIGATION_URL_VALUES.LOGIN]);
+          registrationFormElm.scrollIntoView({ behavior: 'smooth' });
         },
         error: (err) => {
           this.notificationService.setNotification({
