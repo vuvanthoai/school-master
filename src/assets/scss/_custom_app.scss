@@ -318,6 +318,16 @@ input.form-control.ng-invalid.ng-touched {
   margin-top: 80px;
 }
 
+@media (max-width: 400px) {
+  .form-initiate {
+    width: 95%;
+    form {
+      padding: 1.5rem;
+    }
+  }
+}
+
+
 .img-background {
   background-image: url('../images/clients/background.png');
   height: 100vh;
