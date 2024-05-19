@@ -1,4 +1,4 @@
-<div #registrationFormElm class="form-container img-background">
+<div class="form-container img-background">
   <div
     *ngIf="!signUpSuccessfully; else signUpSuccessfullyTmp"
     class="form-initiate"
@@ -6,7 +6,7 @@
     <div class="form-title">Sign up School Master</div>
     <form
       [formGroup]="registrationForm"
-      (submit)="handleSignUp(registrationFormElm)"
+      (submit)="handleSignUp()"
       class="form-body"
     >
       <div class="mb-4">
@@ -68,7 +68,6 @@
           type="text"
           class="form-control form-control-user"
           placeholder="Enter your email"
-          [pattern]="EMAIL_REGEX"
           [formControlName]="RegistrationFormProperties.EMAIL"
         />
         <ng-container
@@ -199,7 +198,7 @@
       <button
         class="btn btn-c btn-primary btn-user btn-block d-flex align-items-center gap-8"
         [disabled]="registrationForm.invalid || statusLoading"
-        (click)="handleSignUp(registrationFormElm)"
+        (click)="handleSignUp()"
       >
         <span
           *ngIf="statusLoading"

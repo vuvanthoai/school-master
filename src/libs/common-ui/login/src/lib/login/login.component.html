@@ -8,7 +8,6 @@
           type="text"
           class="form-control form-control-user"
           placeholder="Enter your email"
-          [pattern]="EMAIL_REGEX"
           [formControlName]="LoginFormProperties.EMAIL"
         />
         <ng-container
@@ -18,6 +17,7 @@
             *ngIf="emailControl.touched && emailControl.errors"
             class="invalid-feedback d-block text-left red-txt-st"
           >
+            <pre>{{ emailControl.errors | json }}</pre>
             <span *ngIf="emailControl.hasError('required')">
               Please enter your email.
             </span>

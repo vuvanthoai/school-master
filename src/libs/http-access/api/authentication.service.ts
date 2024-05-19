@@ -12,7 +12,12 @@
 /* tslint:disable:no-unused-variable member-ordering */
 
 import { Inject, Injectable, Optional } from '@angular/core';
-import { HttpClient, HttpEvent, HttpHeaders, HttpResponse } from '@angular/common/http';
+import {
+  HttpClient,
+  HttpEvent,
+  HttpHeaders,
+  HttpResponse,
+} from '@angular/common/http';
 
 import { Observable } from 'rxjs';
 
@@ -32,7 +37,7 @@ import { Configuration } from '../configuration';
 
 @Injectable()
 export class AuthenticationService {
-  protected basePath = 'https://schoolmaster.io/hr';
+  protected basePath = 'https://schoolmaster.io';
   public defaultHeaders = new HttpHeaders();
   public configuration = new Configuration();
 
@@ -110,7 +115,7 @@ export class AuthenticationService {
     }
 
     return this.httpClient.post<any>(
-      `${this.basePath}/password-change`,
+      `${this.basePath}/hr/password-change/`,
       body,
       {
         withCredentials: this.configuration.withCredentials,
@@ -167,7 +172,7 @@ export class AuthenticationService {
     }
 
     return this.httpClient.post<InlineResponse200>(
-      `${this.basePath}/login`,
+      `${this.basePath}/hr/login/`,
       body,
       {
         withCredentials: this.configuration.withCredentials,
@@ -224,7 +229,7 @@ export class AuthenticationService {
     }
 
     return this.httpClient.post<InlineResponse2001>(
-      `${this.basePath}/login/refresh`,
+      `${this.basePath}/hr/login/refresh/`,
       body,
       {
         withCredentials: this.configuration.withCredentials,
@@ -271,7 +276,7 @@ export class AuthenticationService {
     const consumes: string[] = [];
 
     return this.httpClient.post<InlineResponse2002>(
-      `${this.basePath}/logout`,
+      `${this.basePath}/hr/logout/`,
       null,
       {
         withCredentials: this.configuration.withCredentials,
@@ -327,12 +332,16 @@ export class AuthenticationService {
       headers = headers.set('Content-Type', httpContentTypeSelected);
     }
 
-    return this.httpClient.post<any>(`${this.basePath}/password-reset`, body, {
-      withCredentials: this.configuration.withCredentials,
-      headers: headers,
-      observe: observe,
-      reportProgress: reportProgress,
-    });
+    return this.httpClient.post<any>(
+      `${this.basePath}/hr/password-reset/`,
+      body,
+      {
+        withCredentials: this.configuration.withCredentials,
+        headers: headers,
+        observe: observe,
+        reportProgress: reportProgress,
+      }
+    );
   }
 
   /**
@@ -381,7 +390,7 @@ export class AuthenticationService {
     }
 
     return this.httpClient.post<any>(
-      `${this.basePath}/password-reset/confirm`,
+      `${this.basePath}/hr/password-reset/confirm/`,
       body,
       {
         withCredentials: this.configuration.withCredentials,
@@ -437,12 +446,16 @@ export class AuthenticationService {
       headers = headers.set('Content-Type', httpContentTypeSelected);
     }
 
-    return this.httpClient.post<any>(`${this.basePath}/signup/confirm`, body, {
-      withCredentials: this.configuration.withCredentials,
-      headers: headers,
-      observe: observe,
-      reportProgress: reportProgress,
-    });
+    return this.httpClient.post<any>(
+      `${this.basePath}/hr/signup/confirm/`,
+      body,
+      {
+        withCredentials: this.configuration.withCredentials,
+        headers: headers,
+        observe: observe,
+        reportProgress: reportProgress,
+      }
+    );
   }
 
   /**
@@ -475,7 +488,7 @@ export class AuthenticationService {
     let headers = this.defaultHeaders;
 
     // to determine the Accept header
-    let httpHeaderAccepts: string[] = ['text/plain'];
+    let httpHeaderAccepts: string[] = ['application/json'];
     const httpHeaderAcceptSelected: string | undefined =
       this.configuration.selectHeaderAccept(httpHeaderAccepts);
     if (httpHeaderAcceptSelected != undefined) {
@@ -490,7 +503,7 @@ export class AuthenticationService {
       headers = headers.set('Content-Type', httpContentTypeSelected);
     }
 
-    return this.httpClient.post<any>(`${this.basePath}/signup`, body, {
+    return this.httpClient.post<any>(`${this.basePath}/hr/signup/`, body, {
       withCredentials: this.configuration.withCredentials,
       headers: headers,
       observe: observe,
