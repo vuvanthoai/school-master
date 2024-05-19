@@ -15,17 +15,12 @@ import {
 } from '@angular/forms';
 import { LoginFormProperties } from './model/login.model';
 import { AuthenticationService } from '@school-master/services';
-import {
-  AuthService,
-  NotificationService,
-  WindowRef,
-} from '@school-master/utilities/service';
+import { WindowRef } from '@school-master/utilities/service';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { finalize } from 'rxjs';
 import { CookieService } from 'ngx-cookie-service';
 import {
   CookieKey,
-  EMAIL_REGEX,
   NAVIGATION_URL_VALUES,
 } from '@school-master/utilities/constants';
 import { Router, RouterLink } from '@angular/router';
@@ -41,10 +36,8 @@ export class LoginComponent implements OnInit {
   private formBuilder = inject(FormBuilder);
   private router = inject(Router);
   private windowRef = inject(WindowRef);
-  private authService = inject(AuthService);
   private cookieService = inject(CookieService);
   private authenticationService = inject(AuthenticationService);
-  private notificationService = inject(NotificationService);
   private changeDetectorRef = inject(ChangeDetectorRef);
   private destroyRef = inject(DestroyRef);
 
@@ -53,7 +46,6 @@ export class LoginComponent implements OnInit {
   loginErrorMessage?: string;
   readonly LoginFormProperties = LoginFormProperties;
   readonly NAVIGATION_URL_VALUES = NAVIGATION_URL_VALUES;
-  readonly EMAIL_REGEX = EMAIL_REGEX;
 
   ngOnInit() {
     this.initForm();
@@ -61,7 +53,10 @@ export class LoginComponent implements OnInit {
 
   private initForm() {
     this.loginForm = this.formBuilder.group({
-      [LoginFormProperties.EMAIL]: ['', [Validators.required]],
+      [LoginFormProperties.EMAIL]: [
+        '',
+        [Validators.required, Validators.email],
+      ],
       [LoginFormProperties.PASSWORD]: ['', [Validators.required]],
     });
   }

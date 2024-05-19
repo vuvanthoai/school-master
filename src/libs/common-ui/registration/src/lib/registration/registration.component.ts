@@ -24,7 +24,6 @@ import { finalize } from 'rxjs';
 import { NotificationService } from '@school-master/utilities/service';
 import { RouterLink } from '@angular/router';
 import { ConfirmedValidator } from '@school-master/utilities/helper';
-import { EMAIL_REGEX } from '@school-master/utilities/constants';
 
 @Component({
   selector: 'app-registration',
@@ -45,7 +44,6 @@ export class RegistrationComponent implements OnInit {
   statusLoading = false;
   signUpSuccessfully = false;
 
-  readonly EMAIL_REGEX = EMAIL_REGEX;
   readonly RegistrationFormProperties = RegistrationFormProperties;
 
   ngOnInit() {
@@ -57,7 +55,10 @@ export class RegistrationComponent implements OnInit {
       {
         [RegistrationFormProperties.FIRST_NAME]: ['', [Validators.required]],
         [RegistrationFormProperties.LAST_NAME]: ['', [Validators.required]],
-        [RegistrationFormProperties.EMAIL]: ['', [Validators.required]],
+        [RegistrationFormProperties.EMAIL]: [
+          '',
+          [Validators.required, Validators.email],
+        ],
         [RegistrationFormProperties.PASSWORD]: ['', [Validators.required]],
         [RegistrationFormProperties.CONFIRM_PASSWORD]: [
           '',
