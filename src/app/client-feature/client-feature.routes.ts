@@ -50,6 +50,11 @@ function getClientFeatureChildRoutes(): Route[] {
         import('@school-master/contact').then((m) => m.ContactComponent),
     },
     {
+      path: `${NAVIGATION_URL_VALUES.ABOUT_US}`,
+      loadComponent: () =>
+        import('@school-master/about-us').then((m) => m.AboutUsComponent),
+    },
+    {
       path: `${NAVIGATION_URL_VALUES.ABOUT_SYSTEM}`,
       loadComponent: () =>
         import('@school-master/about').then((m) => m.AboutComponent),
