@@ -7,7 +7,7 @@
     "build": "nx build",
     "build-production": "nx build --prod --configuration=production",
     "test": "nx test",
-    "generate-api": "ng-openapi-gen --input ./src/libs/http-access/api-file/swagger.json --output ./src/libs/http-access/"
+    "generate-api": "ng-openapi-gen --input ./src/libs/http-access1/api-file/swagger.yaml --output ./src/libs/http-access1/"
   },
   "private": true,
   "dependencies": {

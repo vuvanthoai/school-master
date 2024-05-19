@@ -11,7 +11,7 @@
  */
 
 export interface Body2 {
-  newPassword1: string;
-  newPassword2: string;
-  oldPassword: string;
+  new_password1: string;
+  new_password2: string;
+  old_password: string;
 }

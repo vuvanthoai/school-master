@@ -79,7 +79,6 @@ export class LoginComponent implements OnInit {
       )
       .subscribe({
         next: (data) => {
-          void this.router.navigate(['/']);
           this.cookieService.set(
             CookieKey.AccessToken,
             data.accessToken,
@@ -89,6 +88,7 @@ export class LoginComponent implements OnInit {
             true,
             'Lax'
           );
+          void this.router.navigate(['/']);
         },
         error: (err) => {
           this.loginErrorMessage = err.error?.message;

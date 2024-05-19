@@ -22,9 +22,12 @@ import { AuthenticationService } from '@school-master/services';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { finalize } from 'rxjs';
 import { NotificationService } from '@school-master/utilities/service';
-import { RouterLink } from '@angular/router';
+import { Router, RouterLink } from '@angular/router';
 import { ConfirmedValidator } from '@school-master/utilities/helper';
-import { EMAIL_REGEX } from '@school-master/utilities/constants';
+import {
+  EMAIL_REGEX,
+  NAVIGATION_URL_VALUES,
+} from '@school-master/utilities/constants';
 
 @Component({
   selector: 'app-registration',
@@ -35,6 +38,7 @@ import { EMAIL_REGEX } from '@school-master/utilities/constants';
 })
 export class RegistrationComponent implements OnInit {
   private formBuilder = inject(FormBuilder);
+  private router = inject(Router);
   private authenticationService = inject(AuthenticationService);
   private notificationService = inject(NotificationService);
   private changeDetectorRef = inject(ChangeDetectorRef);
@@ -77,20 +81,20 @@ export class RegistrationComponent implements OnInit {
     );
   }
 
-  handleSignUp(registrationFormElm: HTMLElement) {
+  handleSignUp() {
     if (this.registrationForm.invalid || this.statusLoading) return;
     const formData =
       this.registrationForm.getRawValue() as RegistrationFormValue;
     this.statusLoading = true;
     this.authenticationService
       .signup({
-        firstName: formData[RegistrationFormProperties.FIRST_NAME],
-        lastName: formData[RegistrationFormProperties.LAST_NAME],
+        first_name: formData[RegistrationFormProperties.FIRST_NAME],
+        last_name: formData[RegistrationFormProperties.LAST_NAME],
         email: formData[RegistrationFormProperties.EMAIL],
         password1: formData[RegistrationFormProperties.PASSWORD],
         password2: formData[RegistrationFormProperties.CONFIRM_PASSWORD],
-        phoneNumber: formData[RegistrationFormProperties.PHONE_NUMBER],
-        postCode: formData[RegistrationFormProperties.POST_CODE],
+        phone_number: formData[RegistrationFormProperties.PHONE_NUMBER],
+        post_code: formData[RegistrationFormProperties.POST_CODE],
       })
       .pipe(
         finalize(() => {
@@ -105,7 +109,7 @@ export class RegistrationComponent implements OnInit {
           this.notificationService.setNotification({
             message: 'Registration successfully created',
           });
-          registrationFormElm.scrollIntoView({ behavior: 'smooth' });
+          void this.router.navigate([NAVIGATION_URL_VALUES.LOGIN]);
         },
         error: (err) => {
           this.notificationService.setNotification({

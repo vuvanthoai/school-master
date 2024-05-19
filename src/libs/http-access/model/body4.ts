@@ -11,8 +11,8 @@
  */
 
 export interface Body4 {
-  newPassword1: string;
-  newPassword2: string;
+  new_password1: string;
+  new_password2: string;
   token: string;
   uid: string;
 }

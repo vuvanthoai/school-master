@@ -12,10 +12,10 @@
 
 export interface Body5 {
   email: string;
-  firstName: string;
-  lastName: string;
+  first_name: string;
+  last_name: string;
   password1: string;
   password2: string;
-  phoneNumber: string;
-  postCode: string;
+  phone_number: string;
+  post_code: string;
 }
