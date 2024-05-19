@@ -17,11 +17,10 @@
             *ngIf="emailControl.touched && emailControl.errors"
             class="invalid-feedback d-block text-left red-txt-st"
           >
-            <pre>{{ emailControl.errors | json }}</pre>
             <span *ngIf="emailControl.hasError('required')">
               Please enter your email.
             </span>
-            <span *ngIf="emailControl.hasError('pattern')">
+            <span *ngIf="emailControl.hasError('email')">
               Email format invalid.
             </span>
           </div>
