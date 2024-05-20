@@ -39,8 +39,6 @@ export class ConfirmationActiveComponent implements OnInit {
         token: this.token,
       })
       .pipe(
-        catchError(() => of({})),
-        delay(10000),
         finalize(() => {
           this.confirming = false;
           this.changeDetectorRef.markForCheck();
