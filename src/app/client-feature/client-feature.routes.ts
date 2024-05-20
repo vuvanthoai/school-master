@@ -25,10 +25,12 @@ function getClientFeatureChildRoutes(): Route[] {
     },
     {
       path: `${NAVIGATION_URL_VALUES.REGISTRATION}`,
+      pathMatch: 'full',
       loadComponent: () =>
         import('@school-master/common-ui/registration').then(
           (m) => m.RegistrationComponent
         ),
+      children: [],
     },
     {
       path: `${NAVIGATION_URL_VALUES.REGISTRATION}/${NAVIGATION_URL_VALUES.CONFIRM}`,

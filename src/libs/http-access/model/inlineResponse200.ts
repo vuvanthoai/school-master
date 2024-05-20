@@ -11,6 +11,6 @@
  */
 
 export interface InlineResponse200 {
-  accessToken: string;
-  refreshToken: string;
+  access: string;
+  refresh: string;
 }

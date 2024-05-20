@@ -1,0 +1,156 @@
+{
+  "openapi": "3.0.1",
+  "info": { "title": "OpenAPI definition", "version": "v3" },
+  "servers": [
+    {
+      "url": "http://api.schoolmaster.io",
+      "description": "Generated server url"
+    }
+  ],
+  "paths": {
+    "/auth/logout": {
+      "post": {
+        "tags": ["auth-controller"],
+        "summary": "Logout",
+        "operationId": "logout",
+        "responses": { "200": { "description": "OK" } }
+      }
+    },
+    "/auth/login": {
+      "post": {
+        "tags": ["auth-controller"],
+        "summary": "Login",
+        "operationId": "login",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/LoginRequest" }
+            }
+          },
+          "required": true
+        },
+        "responses": {
+          "200": {
+            "description": "OK",
+            "content": {
+              "application/json": {
+                "schema": { "$ref": "#/components/schemas/LoginResponse" }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/auth/forgot-password": {
+      "post": {
+        "tags": ["auth-controller"],
+        "summary": "Forgot password",
+        "operationId": "forgotPassword",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/ForgotPasswordRequest" }
+            }
+          },
+          "required": true
+        },
+        "responses": { "200": { "description": "OK" } }
+      }
+    },
+    "/auth/forgot-password-confirmation": {
+      "post": {
+        "tags": ["auth-controller"],
+        "summary": "Forgot password confirmation",
+        "operationId": "forgotPasswordConfirm",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "$ref": "#/components/schemas/ForgotPasswordConfirmRequest"
+              }
+            }
+          },
+          "required": true
+        },
+        "responses": { "200": { "description": "OK" } }
+      }
+    },
+    "/auth/change-password": {
+      "post": {
+        "tags": ["auth-controller"],
+        "summary": "Change password",
+        "operationId": "changePassword",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": { "$ref": "#/components/schemas/ChangePasswordRequest" }
+            }
+          },
+          "required": true
+        },
+        "responses": { "200": { "description": "OK" } }
+      }
+    }
+  },
+  "components": {
+    "schemas": {
+      "User": {
+        "type": "object",
+        "properties": {
+          "id": { "type": "string" },
+          "email": { "type": "string" },
+          "passwordHash": { "type": "string" },
+          "name": { "type": "string" },
+          "slug": { "type": "string" },
+          "description": { "type": "string" },
+          "avatarImageId": { "type": "string" },
+          "coverImageId": { "type": "string" },
+          "role": {
+            "type": "string",
+            "enum": ["ADMIN", "SELLER", "COLLABORATOR"]
+          },
+          "active": { "type": "boolean" },
+          "imageUploadCount": { "type": "integer", "format": "int32" },
+          "maxImageUploadCount": { "type": "integer", "format": "int32" },
+          "faceSearchCount": { "type": "integer", "format": "int32" },
+          "maxFaceSearchCount": { "type": "integer", "format": "int32" },
+          "accessTokenResetAt": { "type": "string", "format": "date-time" },
+          "createdAt": { "type": "string", "format": "date-time" },
+          "updatedAt": { "type": "string", "format": "date-time" },
+          "collaborator": { "type": "boolean" },
+          "admin": { "type": "boolean" }
+        }
+      },
+      "LoginRequest": {
+        "type": "object",
+        "properties": {
+          "username": { "type": "string" },
+          "password": { "type": "string" }
+        }
+      },
+      "LoginResponse": {
+        "type": "object",
+        "properties": { "accessToken": { "type": "string" } }
+      },
+      "ForgotPasswordRequest": {
+        "type": "object",
+        "properties": { "email": { "type": "string" } }
+      },
+      "ForgotPasswordConfirmRequest": {
+        "type": "object",
+        "properties": {
+          "code": { "type": "string" },
+          "username": { "type": "string" },
+          "newPassword": { "type": "string" }
+        }
+      },
+      "ChangePasswordRequest": {
+        "type": "object",
+        "properties": {
+          "currentPassword": { "type": "string" },
+          "newPassword": { "type": "string" }
+        }
+      }
+    }
+  }
+}

@@ -16,6 +16,7 @@ import {
 import { LoginFormProperties } from './model/login.model';
 import { AuthenticationService } from '@school-master/services';
 import {
+  AuthService,
   NotificationService,
   WindowRef,
 } from '@school-master/utilities/service';
@@ -40,8 +41,9 @@ export class LoginComponent implements OnInit {
   private router = inject(Router);
   private windowRef = inject(WindowRef);
   private cookieService = inject(CookieService);
-  private notificationService = inject(NotificationService);
+  private authService = inject(AuthService);
   private authenticationService = inject(AuthenticationService);
+  private notificationService = inject(NotificationService);
   private changeDetectorRef = inject(ChangeDetectorRef);
   private destroyRef = inject(DestroyRef);
 
@@ -78,15 +80,13 @@ export class LoginComponent implements OnInit {
       )
       .subscribe({
         next: (data) => {
-          this.cookieService.set(
-            CookieKey.AccessToken,
-            data.accessToken,
-            365,
-            '/',
-            this.windowRef.nativeWindow.location.hostname,
-            true,
-            'Lax'
+          const mockActiveUser = { email: this.loginForm.value.email };
+          this.setCookieService(CookieKey.AccessToken, data.access);
+          this.setCookieService(
+            CookieKey.ActiveUser,
+            JSON.stringify(mockActiveUser)
           );
+          this.authService.setActiveUser$(mockActiveUser);
           void this.router.navigate(['/']);
         },
         error: (err) => {
@@ -105,5 +105,17 @@ export class LoginComponent implements OnInit {
 
   navigateToUrl(url: NAVIGATION_URL_VALUES) {
     void this.router.navigate([`/${url}`]);
+  }
+
+  private setCookieService(key: CookieKey, value: string) {
+    this.cookieService.set(
+      key,
+      value,
+      365,
+      '/',
+      this.windowRef.nativeWindow.location.hostname,
+      true,
+      'Lax'
+    );
   }
 }
