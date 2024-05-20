@@ -327,7 +327,6 @@ input.form-control.ng-invalid.ng-touched {
   }
 }
 
-
 .img-background {
   background-image: url('../images/clients/background.png');
   height: 100vh;
@@ -430,6 +429,12 @@ $list-style: none, circle;
 @for $fontSize from 1 through 2000 {
   .fs-#{$fontSize} {
     font-size: #{$fontSize + 'px'};
+  }
+}
+
+@for $borderRadius from 1 through 2000 {
+  .border-radius-#{$borderRadius} {
+    border-radius: #{$borderRadius + 'px'};
   }
 }
 

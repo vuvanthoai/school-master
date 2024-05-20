@@ -8,7 +8,7 @@ import {
 import { CommonModule } from '@angular/common';
 import { AuthenticationService } from '@school-master/services';
 import { ActivatedRoute, RouterLink } from '@angular/router';
-import { catchError, delay, finalize, of } from 'rxjs';
+import { finalize } from 'rxjs';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { NotificationService } from '@school-master/utilities/service';
 import { FormsModule } from '@angular/forms';
@@ -40,12 +40,14 @@ export class ConfirmationActiveComponent implements OnInit {
       })
       .pipe(
         finalize(() => {
-          this.confirming = false;
           this.changeDetectorRef.detectChanges();
         }),
         takeUntilDestroyed(this.destroyRef)
       )
       .subscribe({
+        next: () => {
+          this.confirming = false;
+        },
         error: (err) => {
           this.notificationService.setNotification({
             modifier: 'danger',

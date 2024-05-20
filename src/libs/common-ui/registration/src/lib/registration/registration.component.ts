@@ -18,12 +18,12 @@ import {
   RegistrationFormProperties,
   RegistrationFormValue,
 } from './model/registration.model';
-import { AuthenticationService } from '@school-master/services';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { finalize } from 'rxjs';
 import { NotificationService } from '@school-master/utilities/service';
 import { RouterLink } from '@angular/router';
 import { ConfirmedValidator } from '@school-master/utilities/helper';
+import { AuthenticationService } from '@school-master/services';
 
 @Component({
   selector: 'app-registration',

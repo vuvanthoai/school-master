@@ -214,22 +214,57 @@
 
 <ng-template #signUpSuccessfullyTmp>
   <div class="su-success-c">
-    <img
-      loading="lazy"
-      src="https://cdn.builder.io/api/v1/image/assets/TEMP/f4688d45c3e409543baa686154ed49c6577d3ebcba9f267899c04f43d5f0fd5d?"
-      class="su-success-icon"
-      alt=""
-    />
-    <div class="su-success-title">Sign up success</div>
+    <svg
+      width="56"
+      height="56"
+      viewBox="0 0 56 56"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <g clip-path="url(#clip0_439_1116)">
+        <path
+          d="M54.9829 24.511V50.2142C54.9829 53.4079 52.3907 56.0001 49.197 56.0001H6.79228C3.59853 56.0001 1.00635 53.4079 1.00635 50.2142V24.511L23.9204 1.68447C26.1735 -0.568652 29.8267 -0.568652 32.0907 1.68447L54.9829 24.511Z"
+          fill="#FF6914"
+        />
+        <path
+          d="M11.3206 6.44238H44.7347C47.9284 6.44238 50.5206 9.03457 50.5206 12.2283V45.6424C50.5206 48.8361 47.9284 51.4283 44.7347 51.4283H11.3206C8.12686 51.4283 5.53467 48.8361 5.53467 45.6424V12.2174C5.53467 9.02363 8.12686 6.44238 11.3206 6.44238Z"
+          fill="white"
+        />
+        <path
+          d="M54.9829 24.511V50.2141C54.9829 53.4079 52.3907 56 49.197 56H6.79228C3.59853 56 1.00635 53.4079 1.00635 50.2141V24.5875L27.9563 51.5375L54.9829 24.511Z"
+          fill="#FF6914"
+        />
+        <path
+          d="M53.3097 54.2938C52.4019 55.2126 51.1769 55.8251 49.8206 55.9782L6.59561 56.0001C5.07529 55.9454 3.69717 55.3001 2.69092 54.2938L23.9097 33.0751C26.1628 30.822 29.8269 30.822 32.0909 33.0751L53.3097 54.2938Z"
+          fill="#DB5A11"
+        />
+        <path
+          d="M28.0002 28.547C33.322 28.547 37.6361 24.2329 37.6361 18.9111C37.6361 13.5893 33.322 9.27515 28.0002 9.27515C22.6784 9.27515 18.3643 13.5893 18.3643 18.9111C18.3643 24.2329 22.6784 28.547 28.0002 28.547Z"
+          fill="#2399F9"
+        />
+        <path
+          d="M33.5236 14.7877C33.1518 14.4158 32.5393 14.4158 32.1564 14.7877L25.9658 20.9783L23.8111 18.8236C23.4502 18.4627 22.8486 18.4627 22.4877 18.8236L22.4658 18.8455C22.083 19.2283 22.083 19.8408 22.4658 20.2127L25.2768 23.0236C25.6486 23.3955 26.2611 23.3955 26.6439 23.0236L33.5236 16.1439C33.9064 15.7721 33.9064 15.1596 33.5236 14.7877Z"
+          fill="white"
+        />
+      </g>
+      <defs>
+        <clipPath id="clip0_439_1116">
+          <rect width="56" height="56" fill="white" />
+        </clipPath>
+      </defs>
+    </svg>
+
+    <div class="su-success-title">Confirm email</div>
     <div class="su-success-description">
-      Please confirm your mail to sign up success
+      Click the button below to confirm email to sign up.
     </div>
     <div class="div-17"></div>
-    <button
+    <a
       class="btn btn-c btn-primary btn-user btn-block mt-3"
-      [routerLink]="'/'"
+      href="https://mail.google.com/mail/u/0/#inbox"
+      target="_blank"
     >
-      Back to home
-    </button>
+      Confirm sign up
+    </a>
   </div>
 </ng-template>
