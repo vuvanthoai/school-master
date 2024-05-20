@@ -15,7 +15,10 @@ import {
 } from '@angular/forms';
 import { LoginFormProperties } from './model/login.model';
 import { AuthenticationService } from '@school-master/services';
-import { WindowRef } from '@school-master/utilities/service';
+import {
+  NotificationService,
+  WindowRef,
+} from '@school-master/utilities/service';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { finalize } from 'rxjs';
 import { CookieService } from 'ngx-cookie-service';
@@ -37,6 +40,7 @@ export class LoginComponent implements OnInit {
   private router = inject(Router);
   private windowRef = inject(WindowRef);
   private cookieService = inject(CookieService);
+  private notificationService = inject(NotificationService);
   private authenticationService = inject(AuthenticationService);
   private changeDetectorRef = inject(ChangeDetectorRef);
   private destroyRef = inject(DestroyRef);
@@ -86,6 +90,10 @@ export class LoginComponent implements OnInit {
           void this.router.navigate(['/']);
         },
         error: (err) => {
+          this.notificationService.setNotification({
+            modifier: 'danger',
+            message: err.message ?? 'Some thing went wrong.',
+          });
           this.loginErrorMessage = err.error?.message;
         },
       });

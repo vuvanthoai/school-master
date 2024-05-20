@@ -8,7 +8,7 @@ import {
 import { CommonModule } from '@angular/common';
 import { AuthenticationService } from '@school-master/services';
 import { ActivatedRoute, RouterLink } from '@angular/router';
-import { finalize } from 'rxjs';
+import { catchError, delay, finalize, of } from 'rxjs';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { NotificationService } from '@school-master/utilities/service';
 import { FormsModule } from '@angular/forms';
@@ -39,6 +39,8 @@ export class ConfirmationActiveComponent implements OnInit {
         token: this.token,
       })
       .pipe(
+        catchError(() => of({})),
+        delay(10000),
         finalize(() => {
           this.confirming = false;
           this.changeDetectorRef.markForCheck();
