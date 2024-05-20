@@ -41,7 +41,7 @@ export class ConfirmationActiveComponent implements OnInit {
       .pipe(
         finalize(() => {
           this.confirming = false;
-          this.changeDetectorRef.markForCheck();
+          this.changeDetectorRef.detectChanges();
         }),
         takeUntilDestroyed(this.destroyRef)
       )
