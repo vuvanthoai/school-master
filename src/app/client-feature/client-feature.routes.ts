@@ -31,6 +31,13 @@ function getClientFeatureChildRoutes(): Route[] {
         ),
     },
     {
+      path: `${NAVIGATION_URL_VALUES.REGISTRATION}/${NAVIGATION_URL_VALUES.CONFIRM}`,
+      loadComponent: () =>
+        import('@school-master/common-ui/confirmation-active').then(
+          (m) => m.ConfirmationActiveComponent
+        ),
+    },
+    {
       path: `${NAVIGATION_URL_VALUES.RESET_PASSWORD}`,
       loadComponent: () =>
         import('@school-master/common-ui/reset-password').then(

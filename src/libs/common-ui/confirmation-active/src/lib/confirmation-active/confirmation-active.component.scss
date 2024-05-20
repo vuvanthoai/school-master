@@ -1,0 +1,29 @@
+.su-success-c {
+  border-radius: 6px;
+  background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 470px;
+  max-width: 100%;
+  margin-top: 146px;
+  padding: 36px;
+  z-index: 2;
+  .su-success-icon {
+    aspect-ratio: 1;
+    object-position: center;
+    width: 64px;
+    align-self: center;
+  }
+  .su-success-title {
+    color: var(--Black, #212326);
+    margin-top: 24px;
+    font: 24px Figtree, sans-serif;
+  }
+  .su-success-description {
+    color: #898989;
+    font-family: Figtree, sans-serif;
+    font-weight: 500;
+    margin-top: 8px;
+  }
+}

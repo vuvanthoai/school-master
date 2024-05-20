@@ -15,6 +15,12 @@ export enum NAVIGATION_URL_VALUES {
   SCHOOL_SLUG = 'school-slug',
   HELP = 'help',
   SEARCH_HANDLER = 'search',
+  CONFIRM = 'confirm',
+}
+
+export enum NAVIGATION_URL_PARAMS_VALUES {
+  UID = 'uid',
+  TOKEN = 'token'
 }
 
 export enum CookieKey {

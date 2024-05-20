@@ -37,7 +37,7 @@ import { Configuration } from '../configuration';
 
 @Injectable()
 export class AuthenticationService {
-  protected basePath = 'https://schoolmaster.io';
+  protected basePath = 'https://api.schoolmaster.io';
   public defaultHeaders = new HttpHeaders();
   public configuration = new Configuration();
 
