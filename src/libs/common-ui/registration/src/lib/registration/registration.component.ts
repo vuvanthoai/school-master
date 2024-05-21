@@ -64,8 +64,8 @@ export class RegistrationComponent implements OnInit {
           '',
           [Validators.required],
         ],
-        [RegistrationFormProperties.POST_CODE]: ['', [Validators.required]],
-        [RegistrationFormProperties.PHONE_NUMBER]: ['', [Validators.required]],
+        [RegistrationFormProperties.POST_CODE]: [''],
+        [RegistrationFormProperties.PHONE_NUMBER]: [''],
       },
       {
         validators: [

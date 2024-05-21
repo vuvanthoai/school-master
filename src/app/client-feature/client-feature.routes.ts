@@ -11,12 +11,11 @@ function getClientFeatureChildRoutes(): Route[] {
         import('@school-master/home').then((m) => m.HomeComponent),
     },
     {
-      path: `${NAVIGATION_URL_VALUES.SCHOOL}/:${NAVIGATION_URL_VALUES.USER_SLUG}/:${NAVIGATION_URL_VALUES.SCHOOL_SLUG}`,
+      path: `${NAVIGATION_URL_VALUES.SEARCH_HANDLER}`,
       loadComponent: () =>
         import('@school-master/search-handler').then(
           (m) => m.SearchHandlerComponent
         ),
-      pathMatch: 'full',
     },
     {
       path: `${NAVIGATION_URL_VALUES.LOGIN}`,
