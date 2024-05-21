@@ -1,0 +1,1512 @@
+{
+  "openapi": "3.0.3",
+  "info": {
+    "title": "School Master",
+    "description": "This Postman collection contains all API endpoints for developing School Master projects.",
+    "version": "v3",
+    "contact": {}
+  },
+  "servers": [
+    {
+      "url": "http://api.schoolmaster.io",
+      "description": "Generated server url"
+    }
+  ],
+  "paths": {
+    "/hr/login/": {
+      "post": {
+        "tags": ["Authentication"],
+        "summary": "Login",
+        "description": "Login endpoint, used to log the user in.\n\nThis endpoint's response is currently only a sample, and may vary depending on the authentication method used.  \nBut it should return a token.",
+        "operationId": "login",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "password": {
+                    "type": "string",
+                    "example": "admin"
+                  },
+                  "username": {
+                    "type": "string",
+                    "example": "admin"
+                  }
+                }
+              },
+              "examples": {
+                "Login": {
+                  "value": {
+                    "password": "admin",
+                    "username": "admin"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "200 OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "access_token": {
+                      "type": "string",
+                      "example": "access_token"
+                    },
+                    "refresh_token": {
+                      "type": "string",
+                      "example": "refresh_token"
+                    }
+                  }
+                },
+                "examples": {
+                  "200 OK": {
+                    "value": {
+                      "access_token": "access_token",
+                      "refresh_token": "refresh_token"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/hr/login/refresh/": {
+      "post": {
+        "tags": ["Authentication"],
+        "summary": "Login Refresh",
+        "description": "Login Refresh",
+        "operationId": "loginRefresh",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "refresh": {
+                    "type": "string",
+                    "example": "{{refresh_token}}"
+                  }
+                }
+              },
+              "examples": {
+                "Login Refresh": {
+                  "value": {
+                    "refresh": "{{refresh_token}}"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "200 OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "access": {
+                      "type": "string",
+                      "example": "access_token"
+                    }
+                  }
+                },
+                "examples": {
+                  "200 OK": {
+                    "value": {
+                      "access": "access_token"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/hr/logout/": {
+      "post": {
+        "tags": ["Authentication"],
+        "summary": "Logout",
+        "description": "Logout",
+        "operationId": "logout",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "refresh": {
+                    "type": "string",
+                    "example": "{{refresh_token}}"
+                  }
+                }
+              },
+              "examples": {
+                "Logout": {
+                  "value": {
+                    "refresh": "{{refresh_token}}"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "200 OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "detail": {
+                      "type": "string",
+                      "example": "<detail message>"
+                    }
+                  }
+                },
+                "examples": {
+                  "200 OK": {
+                    "value": {
+                      "detail": "<detail message>"
+                    }
+                  }
+                }
+              }
+            }
+          },
+          "401": {
+            "description": "401 Unauthorized",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "detail": {
+                      "type": "string",
+                      "example": "<detail message>"
+                    }
+                  }
+                },
+                "examples": {
+                  "401 Unauthorized": {
+                    "value": {
+                      "detail": "<detail message>"
+                    }
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/hr/signup/": {
+      "post": {
+        "tags": ["Authentication"],
+        "summary": "Signup",
+        "description": "Signup",
+        "operationId": "signup",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "type": "string",
+                    "example": "<string>"
+                  },
+                  "first_name": {
+                    "type": "string",
+                    "example": "<string>"
+                  },
+                  "last_name": {
+                    "type": "string",
+                    "example": "<string>"
+                  },
+                  "password1": {
+                    "type": "string",
+                    "example": "<string>"
+                  },
+                  "password2": {
+                    "type": "string",
+                    "example": "<string>"
+                  },
+                  "phone_number": {
+                    "type": "string",
+                    "example": "<string>6"
+                  },
+                  "post_code": {
+                    "type": "string",
+                    "example": "<string>"
+                  }
+                }
+              },
+              "examples": {
+                "Signup": {
+                  "value": {
+                    "email": "<string>",
+                    "first_name": "<string>",
+                    "last_name": "<string>",
+                    "password1": "<string>",
+                    "password2": "<string>",
+                    "phone_number": "<string>6",
+                    "post_code": "<string>"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "200 OK",
+            "content": {
+              "text/plain": {
+                "examples": {
+                  "200 OK": {
+                    "value": ""
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/hr/password-change/": {
+      "post": {
+        "tags": ["Authentication"],
+        "summary": "Change Password",
+        "description": "Change Password",
+        "operationId": "changePassword",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "new_password1": {
+                    "type": "string",
+                    "example": "{{password}}"
+                  },
+                  "new_password2": {
+                    "type": "string",
+                    "example": "{{password}}"
+                  },
+                  "old_password": {
+                    "type": "string",
+                    "example": "{{password}}"
+                  }
+                }
+              },
+              "examples": {
+                "Change Password": {
+                  "value": {
+                    "new_password1": "{{password}}",
+                    "new_password2": "{{password}}",
+                    "old_password": "{{password}}"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "200 OK",
+            "content": {}
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/hr/password-reset/": {
+      "post": {
+        "tags": ["Authentication"],
+        "summary": "Reset Password",
+        "description": "Reset Password",
+        "operationId": "resetPassword",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "email": {
+                    "type": "string",
+                    "example": "<string>"
+                  }
+                }
+              },
+              "examples": {
+                "Reset Password": {
+                  "value": {
+                    "email": "<string>"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "200 OK",
+            "content": {
+              "text/plain": {
+                "examples": {
+                  "200 OK": {
+                    "value": ""
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "/hr/password-reset/confirm/": {
+      "post": {
+        "tags": ["Authentication"],
+        "summary": "Reset Password Confirm",
+        "description": "Reset Password Confirm",
+        "operationId": "resetPasswordConfirm",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "new_password1": {
+                    "type": "string",
+                    "example": "<new_password>"
+                  },
+                  "new_password2": {
+                    "type": "string",
+                    "example": "<new_password>"
+                  },
+                  "token": {
+                    "type": "string",
+                    "example": "<onetime_token>"
+                  },
+                  "uid": {
+                    "type": "string",
+                    "example": "<user_hashed_uid>"
+                  }
+                }
+              },
+              "examples": {
+                "Reset Password Confirm": {
+                  "value": {
+                    "new_password1": "<new_password>",
+                    "new_password2": "<new_password>",
+                    "token": "<onetime_token>",
+                    "uid": "<user_hashed_uid>"
+                  }
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "200 OK",
+            "content": {}
+          }
+        }
+      }
+    },
+    "/hr/signup/confirm/": {
+      "post": {
+        "tags": ["Authentication"],
+        "summary": "Sign Up Confirm",
+        "description": "Sign Up Confirm",
+        "operationId": "signUpConfirm",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "properties": {
+                  "token": {
+                    "type": "string",
+                    "example": "{{token}}"
+                  },
+                  "uid": {
+                    "type": "string",
+                    "example": "{{uid}}"
+                  }
+                }
+              },
+              "examples": {
+                "Sign Up Confirm": {
+                  "value": "{\n    \"uid\": {{uid}},\n    \"token\": {{token}}\n}"
+                }
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "200 OK",
+            "content": {}
+          }
+        }
+      }
+    },
+    "/schools/": {
+      "get": {
+        "tags": ["Schools"],
+        "summary": "School List",
+        "description": "School List",
+        "operationId": "schoolList",
+        "parameters": [
+          {
+            "name": "name",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": "<string>"
+            }
+          },
+          {
+            "name": "postcode",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": "<string>"
+            }
+          },
+          {
+            "name": "location",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": "<string>"
+            }
+          },
+          {
+            "name": "gender",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": "<string>"
+            }
+          },
+          {
+            "name": "age_range_from",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": "<integer>"
+            }
+          },
+          {
+            "name": "age_range_to",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": "<integer>"
+            }
+          },
+          {
+            "name": "boarding_day",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": "<date string>"
+            }
+          },
+          {
+            "name": "admission_difficulty_rating",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": "<integer (0-5)>"
+            }
+          },
+          {
+            "name": "academic_result",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": "<string>"
+            }
+          },
+          {
+            "name": "distance_from",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": "<number>"
+            }
+          },
+          {
+            "name": "distance_to",
+            "in": "query",
+            "schema": {
+              "type": "string",
+              "example": "<number>"
+            }
+          }
+        ],
+        "responses": {
+          "200": {
+            "description": "200 OK",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "type": "object",
+                  "properties": {
+                    "schools": {
+                      "type": "array",
+                      "items": {
+                        "type": "object",
+                        "properties": {
+                          "address3": {
+                            "type": "string",
+                            "example": ""
+                          },
+                          "county": {
+                            "type": "string",
+                            "example": ""
+                          },
+                          "created_at": {
+                            "type": "string",
+                            "example": "2024-05-21T09:22:34.312098Z"
+                          },
+                          "entry_stages": {
+                            "type": "array",
+                            "items": {
+                              "type": "object",
+                              "properties": {
+                                "academic_assessment": {
+                                  "type": "string",
+                                  "example": "Academic assessment"
+                                },
+                                "acceptance_deadline": {
+                                  "type": "string",
+                                  "example": "2024-05-21T09:55:38Z"
+                                },
+                                "admission_link": {
+                                  "type": "string",
+                                  "example": "https://example.com"
+                                },
+                                "assessment_in_person": {
+                                  "type": "boolean",
+                                  "example": false
+                                },
+                                "birth_certificate_required": {
+                                  "type": "boolean",
+                                  "example": false
+                                },
+                                "consortium": {
+                                  "type": "boolean",
+                                  "example": true
+                                },
+                                "created_at": {
+                                  "type": "string",
+                                  "example": "2024-05-21T09:55:45.138867Z"
+                                },
+                                "deposit_amount": {
+                                  "type": "number",
+                                  "example": 123.34
+                                },
+                                "detail_link": {
+                                  "type": "string",
+                                  "example": "https://example.com"
+                                },
+                                "id": {
+                                  "type": "number",
+                                  "example": 1
+                                },
+                                "iseb": {
+                                  "type": "boolean",
+                                  "example": false
+                                },
+                                "name": {
+                                  "type": "string",
+                                  "example": "Name"
+                                },
+                                "note": {
+                                  "type": "string",
+                                  "example": "Note"
+                                },
+                                "offers_made": {
+                                  "type": "string",
+                                  "example": "2024-05-21"
+                                },
+                                "online_assessment": {
+                                  "type": "boolean",
+                                  "example": true
+                                },
+                                "open_date": {
+                                  "type": "string",
+                                  "example": "2024-05-21"
+                                },
+                                "passpost_required": {
+                                  "type": "boolean",
+                                  "example": true
+                                },
+                                "registration_due_date": {
+                                  "type": "string",
+                                  "example": "2024-05-21"
+                                },
+                                "registration_fee": {
+                                  "type": "number",
+                                  "example": 11.23
+                                },
+                                "school": {
+                                  "type": "string",
+                                  "example": "School Name"
+                                },
+                                "school_id": {
+                                  "type": "number",
+                                  "example": 1
+                                },
+                                "steps": {
+                                  "type": "array",
+                                  "items": {
+                                    "type": "object",
+                                    "properties": {
+                                      "created_at": {
+                                        "type": "string",
+                                        "example": "2024-05-21T10:01:30.965001Z"
+                                      },
+                                      "due_date": {
+                                        "type": "string",
+                                        "example": "2024-05-21"
+                                      },
+                                      "entry_stage": {
+                                        "type": "number",
+                                        "example": 1
+                                      },
+                                      "id": {
+                                        "type": "number",
+                                        "example": 1
+                                      },
+                                      "name": {
+                                        "type": "string",
+                                        "example": "Step 1"
+                                      },
+                                      "order_number": {
+                                        "type": "number",
+                                        "example": 1
+                                      },
+                                      "updated_at": {
+                                        "type": "string",
+                                        "example": "2024-05-21T10:01:30.965042Z"
+                                      }
+                                    }
+                                  },
+                                  "example": [
+                                    {
+                                      "created_at": "2024-05-21T10:01:30.965001Z",
+                                      "due_date": "2024-05-21",
+                                      "entry_stage": 1,
+                                      "id": 1,
+                                      "name": "Step 1",
+                                      "order_number": 1,
+                                      "updated_at": "2024-05-21T10:01:30.965042Z"
+                                    },
+                                    {
+                                      "created_at": "2024-05-21T10:01:30.965001Z",
+                                      "due_date": "2024-05-21",
+                                      "entry_stage": 1,
+                                      "id": 2,
+                                      "name": "Step 2",
+                                      "order_number": 1,
+                                      "updated_at": "2024-05-21T10:01:30.965042Z"
+                                    },
+                                    {
+                                      "created_at": "2024-05-21T10:01:30.965001Z",
+                                      "due_date": "2024-05-21",
+                                      "entry_stage": 1,
+                                      "id": 3,
+                                      "name": "Step 3",
+                                      "order_number": 1,
+                                      "updated_at": "2024-05-21T10:01:30.965042Z"
+                                    }
+                                  ]
+                                },
+                                "updated_at": {
+                                  "type": "string",
+                                  "example": "2024-05-21T09:55:45.138898Z"
+                                },
+                                "year": {
+                                  "type": "number",
+                                  "example": 2020
+                                }
+                              }
+                            },
+                            "example": [
+                              {
+                                "academic_assessment": "Academic assessment",
+                                "acceptance_deadline": "2024-05-21T09:55:38Z",
+                                "admission_link": "https://example.com",
+                                "assessment_in_person": false,
+                                "birth_certificate_required": false,
+                                "consortium": true,
+                                "created_at": "2024-05-21T09:55:45.138867Z",
+                                "deposit_amount": 123.34,
+                                "detail_link": "https://example.com",
+                                "id": 1,
+                                "iseb": false,
+                                "name": "Name",
+                                "note": "Note",
+                                "offers_made": "2024-05-21",
+                                "online_assessment": true,
+                                "open_date": "2024-05-21",
+                                "passpost_required": true,
+                                "registration_due_date": "2024-05-21",
+                                "registration_fee": 11.23,
+                                "school": "School Name",
+                                "school_id": 1,
+                                "steps": [
+                                  {
+                                    "created_at": "2024-05-21T10:01:30.965001Z",
+                                    "due_date": "2024-05-21",
+                                    "entry_stage": 1,
+                                    "id": 1,
+                                    "name": "Step 1",
+                                    "order_number": 1,
+                                    "updated_at": "2024-05-21T10:01:30.965042Z"
+                                  },
+                                  {
+                                    "created_at": "2024-05-21T10:01:30.965001Z",
+                                    "due_date": "2024-05-21",
+                                    "entry_stage": 1,
+                                    "id": 2,
+                                    "name": "Step 2",
+                                    "order_number": 1,
+                                    "updated_at": "2024-05-21T10:01:30.965042Z"
+                                  },
+                                  {
+                                    "created_at": "2024-05-21T10:01:30.965001Z",
+                                    "due_date": "2024-05-21",
+                                    "entry_stage": 1,
+                                    "id": 3,
+                                    "name": "Step 3",
+                                    "order_number": 1,
+                                    "updated_at": "2024-05-21T10:01:30.965042Z"
+                                  }
+                                ],
+                                "updated_at": "2024-05-21T09:55:45.138898Z",
+                                "year": 2020
+                              },
+                              {
+                                "academic_assessment": "Academic assessment",
+                                "acceptance_deadline": "2024-05-21T09:55:38Z",
+                                "admission_link": "https://example.com",
+                                "assessment_in_person": false,
+                                "birth_certificate_required": false,
+                                "consortium": true,
+                                "created_at": "2024-05-21T09:55:45.138867Z",
+                                "deposit_amount": 123.34,
+                                "detail_link": "https://example.com",
+                                "id": 2,
+                                "iseb": false,
+                                "name": "Name 2",
+                                "note": "Note",
+                                "offers_made": "2024-05-21",
+                                "online_assessment": true,
+                                "open_date": "2024-05-21",
+                                "passpost_required": true,
+                                "registration_due_date": "2024-05-21",
+                                "registration_fee": 11.23,
+                                "school": "School Name",
+                                "school_id": 1,
+                                "steps": [
+                                  {
+                                    "created_at": "2024-05-21T10:01:30.965001Z",
+                                    "due_date": "2024-05-21",
+                                    "entry_stage": 1,
+                                    "id": 1,
+                                    "name": "Step 1",
+                                    "order_number": 1,
+                                    "updated_at": "2024-05-21T10:01:30.965042Z"
+                                  },
+                                  {
+                                    "created_at": "2024-05-21T10:01:30.965001Z",
+                                    "due_date": "2024-05-21",
+                                    "entry_stage": 1,
+                                    "id": 2,
+                                    "name": "Step 2",
+                                    "order_number": 1,
+                                    "updated_at": "2024-05-21T10:01:30.965042Z"
+                                  },
+                                  {
+                                    "created_at": "2024-05-21T10:01:30.965001Z",
+                                    "due_date": "2024-05-21",
+                                    "entry_stage": 1,
+                                    "id": 3,
+                                    "name": "Step 3",
+                                    "order_number": 1,
+                                    "updated_at": "2024-05-21T10:01:30.965042Z"
+                                  }
+                                ],
+                                "updated_at": "2024-05-21T09:55:45.138898Z",
+                                "year": 2020
+                              }
+                            ]
+                          },
+                          "general_admission_link": {
+                            "type": "string",
+                            "example": "https://example.com"
+                          },
+                          "id": {
+                            "type": "number",
+                            "example": 1
+                          },
+                          "locality": {
+                            "type": "string",
+                            "example": ""
+                          },
+                          "name": {
+                            "type": "string",
+                            "example": "Sample School"
+                          },
+                          "postcode": {
+                            "type": "string",
+                            "example": "postcode"
+                          },
+                          "street_address": {
+                            "type": "string",
+                            "example": "street Address"
+                          },
+                          "town": {
+                            "type": "string",
+                            "example": ""
+                          },
+                          "updated_at": {
+                            "type": "string",
+                            "example": "2024-05-21T09:22:34.312114Z"
+                          },
+                          "urn": {
+                            "type": "string",
+                            "example": "182382"
+                          },
+                          "website": {
+                            "type": "string",
+                            "example": "https://example.com"
+                          }
+                        }
+                      },
+                      "example": [
+                        {
+                          "address3": "",
+                          "county": "",
+                          "created_at": "2024-05-21T09:22:34.312098Z",
+                          "entry_stages": [
+                            {
+                              "academic_assessment": "Academic assessment",
+                              "acceptance_deadline": "2024-05-21T09:55:38Z",
+                              "admission_link": "https://example.com",
+                              "assessment_in_person": false,
+                              "birth_certificate_required": false,
+                              "consortium": true,
+                              "created_at": "2024-05-21T09:55:45.138867Z",
+                              "deposit_amount": 123.34,
+                              "detail_link": "https://example.com",
+                              "id": 1,
+                              "iseb": false,
+                              "name": "Name",
+                              "note": "Note",
+                              "offers_made": "2024-05-21",
+                              "online_assessment": true,
+                              "open_date": "2024-05-21",
+                              "passpost_required": true,
+                              "registration_due_date": "2024-05-21",
+                              "registration_fee": 11.23,
+                              "school": "School Name",
+                              "school_id": 1,
+                              "steps": [
+                                {
+                                  "created_at": "2024-05-21T10:01:30.965001Z",
+                                  "due_date": "2024-05-21",
+                                  "entry_stage": 1,
+                                  "id": 1,
+                                  "name": "Step 1",
+                                  "order_number": 1,
+                                  "updated_at": "2024-05-21T10:01:30.965042Z"
+                                },
+                                {
+                                  "created_at": "2024-05-21T10:01:30.965001Z",
+                                  "due_date": "2024-05-21",
+                                  "entry_stage": 1,
+                                  "id": 2,
+                                  "name": "Step 2",
+                                  "order_number": 1,
+                                  "updated_at": "2024-05-21T10:01:30.965042Z"
+                                },
+                                {
+                                  "created_at": "2024-05-21T10:01:30.965001Z",
+                                  "due_date": "2024-05-21",
+                                  "entry_stage": 1,
+                                  "id": 3,
+                                  "name": "Step 3",
+                                  "order_number": 1,
+                                  "updated_at": "2024-05-21T10:01:30.965042Z"
+                                }
+                              ],
+                              "updated_at": "2024-05-21T09:55:45.138898Z",
+                              "year": 2020
+                            },
+                            {
+                              "academic_assessment": "Academic assessment",
+                              "acceptance_deadline": "2024-05-21T09:55:38Z",
+                              "admission_link": "https://example.com",
+                              "assessment_in_person": false,
+                              "birth_certificate_required": false,
+                              "consortium": true,
+                              "created_at": "2024-05-21T09:55:45.138867Z",
+                              "deposit_amount": 123.34,
+                              "detail_link": "https://example.com",
+                              "id": 2,
+                              "iseb": false,
+                              "name": "Name 2",
+                              "note": "Note",
+                              "offers_made": "2024-05-21",
+                              "online_assessment": true,
+                              "open_date": "2024-05-21",
+                              "passpost_required": true,
+                              "registration_due_date": "2024-05-21",
+                              "registration_fee": 11.23,
+                              "school": "School Name",
+                              "school_id": 1,
+                              "steps": [
+                                {
+                                  "created_at": "2024-05-21T10:01:30.965001Z",
+                                  "due_date": "2024-05-21",
+                                  "entry_stage": 1,
+                                  "id": 1,
+                                  "name": "Step 1",
+                                  "order_number": 1,
+                                  "updated_at": "2024-05-21T10:01:30.965042Z"
+                                },
+                                {
+                                  "created_at": "2024-05-21T10:01:30.965001Z",
+                                  "due_date": "2024-05-21",
+                                  "entry_stage": 1,
+                                  "id": 2,
+                                  "name": "Step 2",
+                                  "order_number": 1,
+                                  "updated_at": "2024-05-21T10:01:30.965042Z"
+                                },
+                                {
+                                  "created_at": "2024-05-21T10:01:30.965001Z",
+                                  "due_date": "2024-05-21",
+                                  "entry_stage": 1,
+                                  "id": 3,
+                                  "name": "Step 3",
+                                  "order_number": 1,
+                                  "updated_at": "2024-05-21T10:01:30.965042Z"
+                                }
+                              ],
+                              "updated_at": "2024-05-21T09:55:45.138898Z",
+                              "year": 2020
+                            }
+                          ],
+                          "general_admission_link": "https://example.com",
+                          "id": 1,
+                          "locality": "",
+                          "name": "Sample School",
+                          "postcode": "postcode",
+                          "street_address": "street Address",
+                          "town": "",
+                          "updated_at": "2024-05-21T09:22:34.312114Z",
+                          "urn": "182382",
+                          "website": "https://example.com"
+                        },
+                        {
+                          "address3": "",
+                          "county": "",
+                          "created_at": "2024-05-21T09:22:34.312098Z",
+                          "entry_stages": [
+                            {
+                              "academic_assessment": "Academic assessment",
+                              "acceptance_deadline": "2024-05-21T09:55:38Z",
+                              "admission_link": "https://example.com",
+                              "assessment_in_person": false,
+                              "birth_certificate_required": false,
+                              "consortium": true,
+                              "created_at": "2024-05-21T09:55:45.138867Z",
+                              "deposit_amount": 123.34,
+                              "detail_link": "https://example.com",
+                              "id": 1,
+                              "iseb": false,
+                              "name": "Name",
+                              "note": "Note",
+                              "offers_made": "2024-05-21",
+                              "online_assessment": true,
+                              "open_date": "2024-05-21",
+                              "passpost_required": true,
+                              "registration_due_date": "2024-05-21",
+                              "registration_fee": 11.23,
+                              "school": "School Name",
+                              "school_id": 1,
+                              "steps": [
+                                {
+                                  "created_at": "2024-05-21T10:01:30.965001Z",
+                                  "due_date": "2024-05-21",
+                                  "entry_stage": 1,
+                                  "id": 1,
+                                  "name": "Step 1",
+                                  "order_number": 1,
+                                  "updated_at": "2024-05-21T10:01:30.965042Z"
+                                },
+                                {
+                                  "created_at": "2024-05-21T10:01:30.965001Z",
+                                  "due_date": "2024-05-21",
+                                  "entry_stage": 1,
+                                  "id": 2,
+                                  "name": "Step 2",
+                                  "order_number": 1,
+                                  "updated_at": "2024-05-21T10:01:30.965042Z"
+                                },
+                                {
+                                  "created_at": "2024-05-21T10:01:30.965001Z",
+                                  "due_date": "2024-05-21",
+                                  "entry_stage": 1,
+                                  "id": 3,
+                                  "name": "Step 3",
+                                  "order_number": 1,
+                                  "updated_at": "2024-05-21T10:01:30.965042Z"
+                                }
+                              ],
+                              "updated_at": "2024-05-21T09:55:45.138898Z",
+                              "year": 2020
+                            },
+                            {
+                              "academic_assessment": "Academic assessment",
+                              "acceptance_deadline": "2024-05-21T09:55:38Z",
+                              "admission_link": "https://example.com",
+                              "assessment_in_person": false,
+                              "birth_certificate_required": false,
+                              "consortium": true,
+                              "created_at": "2024-05-21T09:55:45.138867Z",
+                              "deposit_amount": 123.34,
+                              "detail_link": "https://example.com",
+                              "id": 2,
+                              "iseb": false,
+                              "name": "Name 2",
+                              "note": "Note",
+                              "offers_made": "2024-05-21",
+                              "online_assessment": true,
+                              "open_date": "2024-05-21",
+                              "passpost_required": true,
+                              "registration_due_date": "2024-05-21",
+                              "registration_fee": 11.23,
+                              "school": "School Name",
+                              "school_id": 1,
+                              "steps": [
+                                {
+                                  "created_at": "2024-05-21T10:01:30.965001Z",
+                                  "due_date": "2024-05-21",
+                                  "entry_stage": 1,
+                                  "id": 1,
+                                  "name": "Step 1",
+                                  "order_number": 1,
+                                  "updated_at": "2024-05-21T10:01:30.965042Z"
+                                },
+                                {
+                                  "created_at": "2024-05-21T10:01:30.965001Z",
+                                  "due_date": "2024-05-21",
+                                  "entry_stage": 1,
+                                  "id": 2,
+                                  "name": "Step 2",
+                                  "order_number": 1,
+                                  "updated_at": "2024-05-21T10:01:30.965042Z"
+                                },
+                                {
+                                  "created_at": "2024-05-21T10:01:30.965001Z",
+                                  "due_date": "2024-05-21",
+                                  "entry_stage": 1,
+                                  "id": 3,
+                                  "name": "Step 3",
+                                  "order_number": 1,
+                                  "updated_at": "2024-05-21T10:01:30.965042Z"
+                                }
+                              ],
+                              "updated_at": "2024-05-21T09:55:45.138898Z",
+                              "year": 2020
+                            }
+                          ],
+                          "general_admission_link": "https://example.com",
+                          "id": 2,
+                          "locality": "",
+                          "name": "Sample School 2",
+                          "postcode": "postcode",
+                          "street_address": "street Address",
+                          "town": "",
+                          "updated_at": "2024-05-21T09:22:34.312114Z",
+                          "urn": "182382",
+                          "website": "https://example.com"
+                        }
+                      ]
+                    }
+                  }
+                },
+                "examples": {
+                  "200 OK": {
+                    "value": {
+                      "schools": [
+                        {
+                          "address3": "",
+                          "county": "",
+                          "created_at": "2024-05-21T09:22:34.312098Z",
+                          "entry_stages": [
+                            {
+                              "academic_assessment": "Academic assessment",
+                              "acceptance_deadline": "2024-05-21T09:55:38Z",
+                              "admission_link": "https://example.com",
+                              "assessment_in_person": false,
+                              "birth_certificate_required": false,
+                              "consortium": true,
+                              "created_at": "2024-05-21T09:55:45.138867Z",
+                              "deposit_amount": 123.34,
+                              "detail_link": "https://example.com",
+                              "id": 1,
+                              "iseb": false,
+                              "name": "Name",
+                              "note": "Note",
+                              "offers_made": "2024-05-21",
+                              "online_assessment": true,
+                              "open_date": "2024-05-21",
+                              "passpost_required": true,
+                              "registration_due_date": "2024-05-21",
+                              "registration_fee": 11.23,
+                              "school": "School Name",
+                              "school_id": 1,
+                              "steps": [
+                                {
+                                  "created_at": "2024-05-21T10:01:30.965001Z",
+                                  "due_date": "2024-05-21",
+                                  "entry_stage": 1,
+                                  "id": 1,
+                                  "name": "Step 1",
+                                  "order_number": 1,
+                                  "updated_at": "2024-05-21T10:01:30.965042Z"
+                                },
+                                {
+                                  "created_at": "2024-05-21T10:01:30.965001Z",
+                                  "due_date": "2024-05-21",
+                                  "entry_stage": 1,
+                                  "id": 2,
+                                  "name": "Step 2",
+                                  "order_number": 1,
+                                  "updated_at": "2024-05-21T10:01:30.965042Z"
+                                },
+                                {
+                                  "created_at": "2024-05-21T10:01:30.965001Z",
+                                  "due_date": "2024-05-21",
+                                  "entry_stage": 1,
+                                  "id": 3,
+                                  "name": "Step 3",
+                                  "order_number": 1,
+                                  "updated_at": "2024-05-21T10:01:30.965042Z"
+                                }
+                              ],
+                              "updated_at": "2024-05-21T09:55:45.138898Z",
+                              "year": 2020
+                            },
+                            {
+                              "academic_assessment": "Academic assessment",
+                              "acceptance_deadline": "2024-05-21T09:55:38Z",
+                              "admission_link": "https://example.com",
+                              "assessment_in_person": false,
+                              "birth_certificate_required": false,
+                              "consortium": true,
+                              "created_at": "2024-05-21T09:55:45.138867Z",
+                              "deposit_amount": 123.34,
+                              "detail_link": "https://example.com",
+                              "id": 2,
+                              "iseb": false,
+                              "name": "Name 2",
+                              "note": "Note",
+                              "offers_made": "2024-05-21",
+                              "online_assessment": true,
+                              "open_date": "2024-05-21",
+                              "passpost_required": true,
+                              "registration_due_date": "2024-05-21",
+                              "registration_fee": 11.23,
+                              "school": "School Name",
+                              "school_id": 1,
+                              "steps": [
+                                {
+                                  "created_at": "2024-05-21T10:01:30.965001Z",
+                                  "due_date": "2024-05-21",
+                                  "entry_stage": 1,
+                                  "id": 1,
+                                  "name": "Step 1",
+                                  "order_number": 1,
+                                  "updated_at": "2024-05-21T10:01:30.965042Z"
+                                },
+                                {
+                                  "created_at": "2024-05-21T10:01:30.965001Z",
+                                  "due_date": "2024-05-21",
+                                  "entry_stage": 1,
+                                  "id": 2,
+                                  "name": "Step 2",
+                                  "order_number": 1,
+                                  "updated_at": "2024-05-21T10:01:30.965042Z"
+                                },
+                                {
+                                  "created_at": "2024-05-21T10:01:30.965001Z",
+                                  "due_date": "2024-05-21",
+                                  "entry_stage": 1,
+                                  "id": 3,
+                                  "name": "Step 3",
+                                  "order_number": 1,
+                                  "updated_at": "2024-05-21T10:01:30.965042Z"
+                                }
+                              ],
+                              "updated_at": "2024-05-21T09:55:45.138898Z",
+                              "year": 2020
+                            }
+                          ],
+                          "general_admission_link": "https://example.com",
+                          "id": 1,
+                          "locality": "",
+                          "name": "Sample School",
+                          "postcode": "postcode",
+                          "street_address": "street Address",
+                          "town": "",
+                          "updated_at": "2024-05-21T09:22:34.312114Z",
+                          "urn": "182382",
+                          "website": "https://example.com"
+                        },
+                        {
+                          "address3": "",
+                          "county": "",
+                          "created_at": "2024-05-21T09:22:34.312098Z",
+                          "entry_stages": [
+                            {
+                              "academic_assessment": "Academic assessment",
+                              "acceptance_deadline": "2024-05-21T09:55:38Z",
+                              "admission_link": "https://example.com",
+                              "assessment_in_person": false,
+                              "birth_certificate_required": false,
+                              "consortium": true,
+                              "created_at": "2024-05-21T09:55:45.138867Z",
+                              "deposit_amount": 123.34,
+                              "detail_link": "https://example.com",
+                              "id": 1,
+                              "iseb": false,
+                              "name": "Name",
+                              "note": "Note",
+                              "offers_made": "2024-05-21",
+                              "online_assessment": true,
+                              "open_date": "2024-05-21",
+                              "passpost_required": true,
+                              "registration_due_date": "2024-05-21",
+                              "registration_fee": 11.23,
+                              "school": "School Name",
+                              "school_id": 1,
+                              "steps": [
+                                {
+                                  "created_at": "2024-05-21T10:01:30.965001Z",
+                                  "due_date": "2024-05-21",
+                                  "entry_stage": 1,
+                                  "id": 1,
+                                  "name": "Step 1",
+                                  "order_number": 1,
+                                  "updated_at": "2024-05-21T10:01:30.965042Z"
+                                },
+                                {
+                                  "created_at": "2024-05-21T10:01:30.965001Z",
+                                  "due_date": "2024-05-21",
+                                  "entry_stage": 1,
+                                  "id": 2,
+                                  "name": "Step 2",
+                                  "order_number": 1,
+                                  "updated_at": "2024-05-21T10:01:30.965042Z"
+                                },
+                                {
+                                  "created_at": "2024-05-21T10:01:30.965001Z",
+                                  "due_date": "2024-05-21",
+                                  "entry_stage": 1,
+                                  "id": 3,
+                                  "name": "Step 3",
+                                  "order_number": 1,
+                                  "updated_at": "2024-05-21T10:01:30.965042Z"
+                                }
+                              ],
+                              "updated_at": "2024-05-21T09:55:45.138898Z",
+                              "year": 2020
+                            },
+                            {
+                              "academic_assessment": "Academic assessment",
+                              "acceptance_deadline": "2024-05-21T09:55:38Z",
+                              "admission_link": "https://example.com",
+                              "assessment_in_person": false,
+                              "birth_certificate_required": false,
+                              "consortium": true,
+                              "created_at": "2024-05-21T09:55:45.138867Z",
+                              "deposit_amount": 123.34,
+                              "detail_link": "https://example.com",
+                              "id": 2,
+                              "iseb": false,
+                              "name": "Name 2",
+                              "note": "Note",
+                              "offers_made": "2024-05-21",
+                              "online_assessment": true,
+                              "open_date": "2024-05-21",
+                              "passpost_required": true,
+                              "registration_due_date": "2024-05-21",
+                              "registration_fee": 11.23,
+                              "school": "School Name",
+                              "school_id": 1,
+                              "steps": [
+                                {
+                                  "created_at": "2024-05-21T10:01:30.965001Z",
+                                  "due_date": "2024-05-21",
+                                  "entry_stage": 1,
+                                  "id": 1,
+                                  "name": "Step 1",
+                                  "order_number": 1,
+                                  "updated_at": "2024-05-21T10:01:30.965042Z"
+                                },
+                                {
+                                  "created_at": "2024-05-21T10:01:30.965001Z",
+                                  "due_date": "2024-05-21",
+                                  "entry_stage": 1,
+                                  "id": 2,
+                                  "name": "Step 2",
+                                  "order_number": 1,
+                                  "updated_at": "2024-05-21T10:01:30.965042Z"
+                                },
+                                {
+                                  "created_at": "2024-05-21T10:01:30.965001Z",
+                                  "due_date": "2024-05-21",
+                                  "entry_stage": 1,
+                                  "id": 3,
+                                  "name": "Step 3",
+                                  "order_number": 1,
+                                  "updated_at": "2024-05-21T10:01:30.965042Z"
+                                }
+                              ],
+                              "updated_at": "2024-05-21T09:55:45.138898Z",
+                              "year": 2020
+                            }
+                          ],
+                          "general_admission_link": "https://example.com",
+                          "id": 2,
+                          "locality": "",
+                          "name": "Sample School 2",
+                          "postcode": "postcode",
+                          "street_address": "street Address",
+                          "town": "",
+                          "updated_at": "2024-05-21T09:22:34.312114Z",
+                          "urn": "182382",
+                          "website": "https://example.com"
+                        }
+                      ]
+                    }
+                  }
+                }
+              }
+            }
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      }
+    },
+    "/schools/{id}/": {
+      "get": {
+        "tags": ["Schools"],
+        "summary": "School Detail",
+        "description": "School Detail",
+        "operationId": "schoolDetail",
+        "responses": {
+          "200": {
+            "description": "200 OK",
+            "content": {}
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      },
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string",
+            "example": ""
+          }
+        }
+      ]
+    },
+    "/schools/{id}/statistics/": {
+      "get": {
+        "tags": ["Schools"],
+        "summary": "School Statistics",
+        "description": "School Statistics",
+        "operationId": "schoolStatistics",
+        "responses": {
+          "200": {
+            "description": "200 OK",
+            "content": {}
+          }
+        },
+        "security": [
+          {
+            "bearerAuth": []
+          }
+        ]
+      },
+      "parameters": [
+        {
+          "name": "id",
+          "in": "path",
+          "required": true,
+          "schema": {
+            "type": "string",
+            "example": ""
+          }
+        }
+      ]
+    }
+  },
+  "components": {
+    "securitySchemes": {
+      "bearerAuth": {
+        "type": "http",
+        "scheme": "bearer"
+      }
+    }
+  },
+  "tags": [
+    {
+      "name": "Authentication",
+      "description": "This folder contains api endpoints for authentication purpose, such as login, logout, register...\n\nThe content in each endpoint is still in development and can be changed any time.\n\n> NOTE: the sample data in all urls are using Postman random values (ref: https://learning.postman.com/docs/writing-scripts/script-references/variables-list/) !!!"
+    },
+    {
+      "name": "Schools"
+    }
+  ]
+}

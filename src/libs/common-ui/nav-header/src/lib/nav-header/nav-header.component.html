@@ -23,7 +23,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
       <ul class="navbar-nav mx-lg-auto mb-2 mb-lg-0" id="navigation-menu">
         <li class="nav-item d-block d-lg-none">
-          <a class="d-block p-3 h-auto text-center" href="index.html">
+          <a class="d-block p-3 h-auto text-center">
             <img
               src="assets/images/logo-dark.png"
               alt=""
@@ -92,31 +92,53 @@
       data-bs-target="#navbarSupportedContent.show"
     ></div>
 
-    <div class="d-flex align-items-center">
+    <div class="d-flex align-items-center gap-8">
       <button
+        (click)="openToggleSearch = !openToggleSearch"
         type="button"
-        class="btn btn-icon btn-topbar btn-ghost-dark rounded-circle text-muted"
-        data-bs-toggle="modal"
-        data-bs-target="#searchModal"
+        class="btn btn-icon btn-search-cr rounded-circle text-muted"
       >
-        <i class="bx bx-search fs-22"></i>
+        @if (openToggleSearch) {
+        <svg
+          width="44"
+          height="44"
+          viewBox="0 0 44 44"
+          fill="none"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <rect width="44" height="44" rx="22" fill="#2399F9" />
+          <g clip-path="url(#clip0_618_1849)">
+            <path
+              d="M26.5 26.5L17.5 17.5M26.5 17.5L17.5 26.5"
+              stroke="white"
+              stroke-width="2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            />
+          </g>
+          <defs>
+            <clipPath id="clip0_618_1849">
+              <rect
+                width="12"
+                height="12"
+                fill="white"
+                transform="translate(16 16)"
+              />
+            </clipPath>
+          </defs>
+        </svg>
+
+        } @else {
+        <i class="bx bx-search fs-12 fw-bold"></i>
+        }
       </button>
       <div class="dropdown header-item dropdown-hover-end">
         <ng-container *ngIf="activeUser$ | async as activeUser; else notAuth">
-          <button
-            type="button"
-            class="btn"
-            id="page-header-user-dropdown"
-            data-bs-toggle="dropdown"
-            aria-haspopup="true"
-            aria-expanded="false"
-          >
-            <img
-              class="rounded-circle header-profile-user"
-              src="assets/images/users/avatar_default.png"
-              alt="Header Avatar"
-            />
-          </button>
+          <img
+            class="rounded-circle header-profile-user"
+            src="assets/images/users/avatar_default.png"
+            alt="Header Avatar"
+          />
           <div class="dropdown-menu dropdown-menu-end">
             <!-- item-->
             <h6 class="dropdown-header">Welcome {{ activeUser.email }}!</h6>
@@ -137,6 +159,35 @@
       </div>
     </div>
   </div>
+  <form
+    *ngIf="openToggleSearch"
+    [formGroup]="searchForm"
+    class="form-container"
+  >
+    <div class="search-box">
+      <div class="input-fields">
+        <input
+          type="text"
+          class="input-field"
+          placeholder="School name...."
+          aria-label="School name"
+          formControlName="searchKey"
+        />
+        <span class="ACRAdd M2vV3"></span>
+        <input
+          type="text"
+          class="input-field"
+          placeholder="Town, city or post code"
+          aria-label="Town, city or post code"
+          formControlName="postCode"
+        />
+      </div>
+      <button class="search-button" (click)="navigateToSearch()">
+        <i class="bx bx-search fs-12 fw-bold"></i>
+        <span class="search-4a">Search</span>
+      </button>
+    </div>
+  </form>
 </nav>
 
 <ng-template #notAuth>

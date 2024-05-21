@@ -16,15 +16,17 @@ import { AuthenticationService } from '@school-master/services';
 import { takeUntilDestroyed } from '@angular/core/rxjs-interop';
 import { finalize } from 'rxjs';
 import { CookieService } from 'ngx-cookie-service';
+import { FormBuilder, FormGroup, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-nav-header',
   standalone: true,
-  imports: [CommonModule, RouterLink],
+  imports: [CommonModule, RouterLink, ReactiveFormsModule],
   templateUrl: './nav-header.component.html',
   styleUrl: './nav-header.component.scss',
 })
 export class NavHeaderComponent {
+  private formBuilder = inject(FormBuilder);
   private authService = inject(AuthService);
   private cookieService = inject(CookieService);
   private windowRef = inject(WindowRef);
@@ -35,9 +37,17 @@ export class NavHeaderComponent {
 
   activeUser$ = this.authService.getActiveUser$();
 
+  openToggleSearch = false;
+  searchForm: FormGroup = new FormGroup({});
+
   readonly NAVIGATION_URL_VALUES = NAVIGATION_URL_VALUES;
 
-  constructor(private router: Router) {}
+  constructor(private router: Router) {
+    this.searchForm = this.formBuilder.group({
+      searchKey: [''],
+      postCode: [''],
+    });
+  }
 
   handleNavigation(url: NAVIGATION_URL_VALUES) {
     void this.router.navigate([url]);
@@ -70,5 +80,13 @@ export class NavHeaderComponent {
           });
         },
       });
+  }
+
+  navigateToSearch() {
+    this.openToggleSearch = false;
+    const queryParams = JSON.parse(JSON.stringify(this.searchForm.value));
+    void this.router.navigate([NAVIGATION_URL_VALUES.SEARCH_HANDLER], {
+      queryParams,
+    });
   }
 }

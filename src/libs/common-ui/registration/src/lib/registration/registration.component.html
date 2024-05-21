@@ -151,22 +151,6 @@
           placeholder="Enter your post code"
           [formControlName]="RegistrationFormProperties.POST_CODE"
         />
-        <ng-container
-          *ngIf="
-            getControl(RegistrationFormProperties.POST_CODE) as postCodeControl
-          "
-        >
-          <ng-container
-            *ngIf="postCodeControl.touched && postCodeControl.errors"
-          >
-            <div
-              *ngIf="postCodeControl.hasError('required')"
-              class="invalid-feedback d-block text-left red-txt-st"
-            >
-              Please enter your post code.
-            </div>
-          </ng-container>
-        </ng-container>
       </div>
       <div class="mb-4">
         <label class="mb-2">Phone number</label>
@@ -176,24 +160,6 @@
           placeholder="Enter your phone number"
           [formControlName]="RegistrationFormProperties.PHONE_NUMBER"
         />
-        <ng-container
-          *ngIf="
-            getControl(
-              RegistrationFormProperties.PHONE_NUMBER
-            ) as phoneNumberControl
-          "
-        >
-          <ng-container
-            *ngIf="phoneNumberControl.touched && phoneNumberControl.errors"
-          >
-            <div
-              *ngIf="phoneNumberControl.hasError('required')"
-              class="invalid-feedback d-block text-left red-txt-st"
-            >
-              Please enter your phone number.
-            </div>
-          </ng-container>
-        </ng-container>
       </div>
       <button
         class="btn btn-c btn-primary btn-user btn-block d-flex align-items-center gap-8"
