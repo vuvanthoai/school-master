@@ -18,6 +18,7 @@ export function login(
   rootUrl: string,
   params?: Login$Params,
   context?: HttpContext
+<<<<<<< HEAD
 ): Observable<
   StrictHttpResponse<{
     access_token?: string;
@@ -40,6 +41,22 @@ export function login(
           access_token?: string;
           refresh_token?: string;
         }>;
+=======
+): Observable<StrictHttpResponse<void>> {
+  const rb = new RequestBuilder(rootUrl, login.PATH, 'post');
+  if (params) {
+    rb.body('body', params.body, {});
+  }
+
+  return http
+    .request(rb.build({ responseType: 'text', accept: '*/*', context }))
+    .pipe(
+      filter((r: any): r is HttpResponse<any> => r instanceof HttpResponse),
+      map((r: HttpResponse<any>) => {
+        return (r as HttpResponse<any>).clone({
+          body: undefined,
+        }) as StrictHttpResponse<void>;
+>>>>>>> f22ba5f (update service)
       })
     );
 }

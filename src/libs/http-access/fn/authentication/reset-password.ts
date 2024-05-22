@@ -17,6 +17,7 @@ export function resetPassword(
   rootUrl: string,
   params?: ResetPassword$Params,
   context?: HttpContext
+<<<<<<< HEAD
 ): Observable<StrictHttpResponse<any>> {
   const rb = new RequestBuilder(rootUrl, resetPassword.PATH, 'post');
   if (params) {
@@ -29,6 +30,22 @@ export function resetPassword(
       filter((r: any): r is HttpResponse<any> => r instanceof HttpResponse),
       map((r: HttpResponse<any>) => {
         return r as StrictHttpResponse<any>;
+=======
+): Observable<StrictHttpResponse<void>> {
+  const rb = new RequestBuilder(rootUrl, resetPassword.PATH, 'post');
+  if (params) {
+    rb.body('body', params.body, {});
+  }
+
+  return http
+    .request(rb.build({ responseType: 'text', accept: '*/*', context }))
+    .pipe(
+      filter((r: any): r is HttpResponse<any> => r instanceof HttpResponse),
+      map((r: HttpResponse<any>) => {
+        return (r as HttpResponse<any>).clone({
+          body: undefined,
+        }) as StrictHttpResponse<void>;
+>>>>>>> f22ba5f (update service)
       })
     );
 }

@@ -8,10 +8,15 @@ import { RequestBuilder } from '../../request-builder';
 
 export interface ResetPasswordConfirm$Params {
   body?: {
+<<<<<<< HEAD
     new_password1?: string;
     new_password2?: string;
     token?: string;
     uid?: string;
+=======
+    password?: string;
+    token?: string;
+>>>>>>> f22ba5f (update service)
   };
 }
 
@@ -23,7 +28,11 @@ export function resetPasswordConfirm(
 ): Observable<StrictHttpResponse<void>> {
   const rb = new RequestBuilder(rootUrl, resetPasswordConfirm.PATH, 'post');
   if (params) {
+<<<<<<< HEAD
     rb.body(params.body, 'application/json');
+=======
+    rb.body('body', params.body, {});
+>>>>>>> f22ba5f (update service)
   }
 
   return http

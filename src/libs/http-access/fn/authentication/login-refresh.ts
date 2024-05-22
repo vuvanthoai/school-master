@@ -17,6 +17,7 @@ export function loginRefresh(
   rootUrl: string,
   params?: LoginRefresh$Params,
   context?: HttpContext
+<<<<<<< HEAD
 ): Observable<
   StrictHttpResponse<{
     access?: string;
@@ -37,6 +38,22 @@ export function loginRefresh(
         return r as StrictHttpResponse<{
           access?: string;
         }>;
+=======
+): Observable<StrictHttpResponse<void>> {
+  const rb = new RequestBuilder(rootUrl, loginRefresh.PATH, 'post');
+  if (params) {
+    rb.body('body', params.body, {});
+  }
+
+  return http
+    .request(rb.build({ responseType: 'text', accept: '*/*', context }))
+    .pipe(
+      filter((r: any): r is HttpResponse<any> => r instanceof HttpResponse),
+      map((r: HttpResponse<any>) => {
+        return (r as HttpResponse<any>).clone({
+          body: undefined,
+        }) as StrictHttpResponse<void>;
+>>>>>>> f22ba5f (update service)
       })
     );
 }

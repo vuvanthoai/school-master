@@ -9,7 +9,11 @@ import { Injectable } from '@angular/core';
   providedIn: 'root',
 })
 export class ApiConfiguration {
+<<<<<<< HEAD
   rootUrl: string = 'http://api.schoolmaster.io';
+=======
+  rootUrl: string = '';
+>>>>>>> f22ba5f (update service)
 }
 
 /**

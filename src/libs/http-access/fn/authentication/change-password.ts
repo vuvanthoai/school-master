@@ -22,7 +22,11 @@ export function changePassword(
 ): Observable<StrictHttpResponse<void>> {
   const rb = new RequestBuilder(rootUrl, changePassword.PATH, 'post');
   if (params) {
+<<<<<<< HEAD
     rb.body(params.body, 'application/json');
+=======
+    rb.body('body', params.body, {});
+>>>>>>> f22ba5f (update service)
   }
 
   return http
