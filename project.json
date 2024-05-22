@@ -19,13 +19,7 @@
         "styles": [
           "./src/styles.scss",
           "./src/assets/scss/_index.scss"
-        ],
-        "scripts": [],
-        "server": "src/main.server.ts",
-        "prerender": false,
-        "ssr": {
-          "entry": "server.ts"
-        }
+        ]
       },
       "configurations": {
         "production": {
