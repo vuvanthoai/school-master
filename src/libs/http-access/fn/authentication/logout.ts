@@ -6,22 +6,17 @@ import { filter, map } from 'rxjs/operators';
 import { StrictHttpResponse } from '../../strict-http-response';
 import { RequestBuilder } from '../../request-builder';
 
-<<<<<<< HEAD
 export interface Logout$Params {
   body?: {
     refresh?: string;
   };
 }
-=======
-export interface Logout$Params {}
->>>>>>> f22ba5f (update service)
 
 export function logout(
   http: HttpClient,
   rootUrl: string,
   params?: Logout$Params,
   context?: HttpContext
-<<<<<<< HEAD
 ): Observable<
   StrictHttpResponse<{
     detail?: string;
@@ -42,21 +37,6 @@ export function logout(
         return r as StrictHttpResponse<{
           detail?: string;
         }>;
-=======
-): Observable<StrictHttpResponse<void>> {
-  const rb = new RequestBuilder(rootUrl, logout.PATH, 'post');
-  if (params) {
-  }
-
-  return http
-    .request(rb.build({ responseType: 'text', accept: '*/*', context }))
-    .pipe(
-      filter((r: any): r is HttpResponse<any> => r instanceof HttpResponse),
-      map((r: HttpResponse<any>) => {
-        return (r as HttpResponse<any>).clone({
-          body: undefined,
-        }) as StrictHttpResponse<void>;
->>>>>>> f22ba5f (update service)
       })
     );
 }

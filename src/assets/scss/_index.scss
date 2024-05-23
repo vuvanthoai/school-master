@@ -3,5 +3,7 @@
 @import 'css/app.css';
 @import 'css/icons.css';
 @import '@ng-select/ng-select/themes/default.theme.css';
+@import '@angular/material/prebuilt-themes/deeppurple-amber.css';
+@import '_global.scss';
 @import '_dropdowns.scss';
 @import '_custom_app.scss';

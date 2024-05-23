@@ -23,7 +23,6 @@ export function signup(
   rootUrl: string,
   params?: Signup$Params,
   context?: HttpContext
-<<<<<<< HEAD
 ): Observable<StrictHttpResponse<any>> {
   const rb = new RequestBuilder(rootUrl, signup.PATH, 'post');
   if (params) {
@@ -36,22 +35,6 @@ export function signup(
       filter((r: any): r is HttpResponse<any> => r instanceof HttpResponse),
       map((r: HttpResponse<any>) => {
         return r as StrictHttpResponse<any>;
-=======
-): Observable<StrictHttpResponse<void>> {
-  const rb = new RequestBuilder(rootUrl, signup.PATH, 'post');
-  if (params) {
-    rb.body('body', params.body, {});
-  }
-
-  return http
-    .request(rb.build({ responseType: 'text', accept: '*/*', context }))
-    .pipe(
-      filter((r: any): r is HttpResponse<any> => r instanceof HttpResponse),
-      map((r: HttpResponse<any>) => {
-        return (r as HttpResponse<any>).clone({
-          body: undefined,
-        }) as StrictHttpResponse<void>;
->>>>>>> f22ba5f (update service)
       })
     );
 }

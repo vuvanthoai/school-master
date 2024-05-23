@@ -20,7 +20,7 @@ export enum NAVIGATION_URL_VALUES {
 
 export enum NAVIGATION_URL_PARAMS_VALUES {
   UID = 'uid',
-  TOKEN = 'token'
+  TOKEN = 'token',
 }
 
 export enum CookieKey {

@@ -1,9 +1,9 @@
 /* eslint-disable */
 export default {
-  displayName: 'schoolmaster-app',
+  displayName: 'school-master',
   preset: './jest.preset.js',
   setupFilesAfterEnv: ['<rootDir>/src/test-setup.ts'],
-  coverageDirectory: './coverage/schoolmaster-app',
+  coverageDirectory: './coverage/school-master',
   transform: {
     '^.+\\.(ts|mjs|js|html)$': [
       'jest-preset-angular',

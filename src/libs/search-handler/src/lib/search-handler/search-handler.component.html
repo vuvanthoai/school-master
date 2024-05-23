@@ -14,486 +14,254 @@
         <span class="search-result-for fz20-fw70">Search result for </span
         >“<span class="key-search fz20-fw70">School</span>"
       </div>
-      <div class="search-form-b">
-        <input class="school-48" placeholder="School" />
+      <div
+        class="w-100 d-flex align-items-center gap-18 fz20-fw70 search-form-b"
+      >
+        <input class="school-input" placeholder="School" />
         <div class="line"></div>
         <input class="post-code" placeholder="Post code" />
-        <button class="frame-49">
+        <button class="search-key-post-btn">
           <div class="search-icon"></div>
-          <span class="search-4a">Search</span>
+          <span>Search</span>
         </button>
       </div>
     </div>
-    <div class="row">
-      <div class="flex-row-ca col-md-3 col-12">
-        <div class="frame-4b">
-          <div class="frame-4c">
-            <span class="location">Location</span>
-            <div class="frame-4d">
-              <span class="all">All</span>
-              <div class="arrow-caret-down-md">
-                <div class="vector-4e"></div>
-              </div>
-            </div>
+    <div class="row m-0">
+      <div class="col-md-3 col-12 p-0">
+        <div class="d-flex-col p-3 gap-24 filter-form-c">
+          <div>
+            <label class="mb-2">Location</label>
+            <ng-select
+              class="w-100"
+              bindLabel="name"
+              bindValue="value"
+              [clearable]="false"
+              [searchable]="false"
+              [items]="[
+                { name: 'hello' },
+                { name: 'hello 1' },
+                { name: 'hello 2' }
+              ]"
+            ></ng-select>
           </div>
-          <div class="frame-4f">
-            <span class="gender">Gender</span>
-            <div class="frame-50">
-              <div class="frame-51">
-                <div class="default-size"><div class="checkbox"></div></div>
-                <span class="mixed">Mixed</span>
-              </div>
-              <div class="frame-52">
-                <div class="default-size-53">
-                  <div class="checkbox-54"></div>
-                </div>
-                <span class="girls">Girls</span>
-              </div>
-              <div class="frame-55">
-                <div class="default-size-56">
-                  <div class="checkbox-57"></div>
-                </div>
-                <span class="boys">Boys</span>
-              </div>
-            </div>
+          <div>
+            <label class="mb-2">Gender</label>
+            <ul class="list-style-none p-0">
+              @for (subtask of tasks; track subtask) {
+              <li class="mb-3">
+                <mat-checkbox
+                  [(ngModel)]="subtask.completed"
+                  [color]="subtask.color"
+                  (ngModelChange)="updateAllComplete()"
+                >
+                  {{ subtask.name }}
+                </mat-checkbox>
+              </li>
+              }
+            </ul>
           </div>
-          <div class="frame-58">
-            <span class="age-range">Age range</span>
-            <div class="frame-59">
+          <div>
+            <label class="mb-2">Age range</label>
+            <div class="d-flex-col align-items-end gap-8 w-100">
               <span class="age-range-values">4-18 </span>
-              <div class="group-5a"></div>
+              <mat-slider min="200" max="500" class="w-100 m-0">
+                <input value="300" matSliderStartThumb />
+                <input value="400" matSliderEndThumb />
+              </mat-slider>
             </div>
           </div>
-          <div class="frame-5b">
-            <span class="boarding-day">Boarding day</span>
-            <div class="frame-5c">
-              <span class="dash">-</span>
-              <div class="calendar-remove"><div class="vector-5d"></div></div>
-            </div>
+          <div class="boarding-day-control">
+            <label class="mb-2">Boarding day</label>
+            <mat-form-field class="w-100">
+              <input matInput [matDatepicker]="picker" />
+              <mat-datepicker-toggle
+                matIconSuffix
+                [for]="picker"
+              ></mat-datepicker-toggle>
+              <mat-datepicker #picker></mat-datepicker>
+            </mat-form-field>
           </div>
-          <div class="frame-5e">
-            <span class="admission-difficulty-rating"
-              >Admission Difficulty Rating</span
-            >
-            <div class="frame-5f">
-              <div class="star">
-                <div class="group-60"><div class="vector-61"></div></div>
+          <div class="d-flex-col align-items-start gap-12">
+            <label class="mb-2">Admission Difficulty Rating</label>
+            <div class="d-flex align-items-center gap-12 w-100">
+              <div class="star-item">
+                <div class="star-item-yellow"></div>
               </div>
-              <div class="star-62">
-                <div class="group-63"><div class="vector-64"></div></div>
-              </div>
-              <div class="star-65">
-                <div class="group-66"><div class="vector-67"></div></div>
-              </div>
-              <div class="star-68">
-                <div class="group-69"><div class="vector-6a"></div></div>
-              </div>
-              <div class="star-6b">
-                <div class="group-6c"><div class="vector-6d"></div></div>
+              <div class="star-item">
+                <div class="start-item-grey"></div>
               </div>
             </div>
           </div>
-          <div class="frame-6e">
-            <div class="distance">
-              <span class="distance-6f">Distance </span
-              ><span class="km">(km)</span>
-            </div>
-            <div class="frame-70">
-              <span class="span">10-200</span>
-              <div class="div"></div>
-            </div>
-          </div>
-          <div class="div-71">
-            <span class="span-72">Academic results</span>
-            <div class="div-73">
-              <span class="span-74">All</span>
-              <div class="div-75"><div class="div-76"></div></div>
+          <div>
+            <label class="mb-2">Distance ( km )</label>
+            <div class="d-flex-col align-items-end gap-8 w-100">
+              <span class="age-range-values">4-18 </span>
+              <mat-slider min="200" max="500" class="w-100 m-0">
+                <input value="300" matSliderStartThumb />
+                <input value="400" matSliderEndThumb />
+              </mat-slider>
             </div>
           </div>
-          <div class="div-77">
+          <div>
+            <label class="mb-2">Academic results</label>
+            <ng-select
+              class="w-100"
+              bindLabel="name"
+              bindValue="value"
+              [clearable]="false"
+              [searchable]="false"
+              [items]="[
+                { name: 'hello' },
+                { name: 'hello 1' },
+                { name: 'hello 2' }
+              ]"
+            ></ng-select>
+          </div>
+          <div
+            class="w-100 d-flex align-items-center justify-content-center cursor-pointer"
+          >
             <div class="div-78"><div class="div-79"></div></div>
             <span class="span-7a">More</span>
           </div>
-          <div class="div-7b">
-            <button class="button"><span class="span-7c">Apply</span></button>
+          <div class="w-100 d-flex align-items-center item-action fw-bold">
+            <button class="button w-100 color-white fs-14 height-34">
+              Apply</button
+            ><button class="button w-100 btn-white fs-14 height-34">
+              Reset filters
+            </button>
           </div>
-          <div class="div-7d"><span class="span-7e">Reset filters</span></div>
         </div>
       </div>
       <div class="col-md-9 col-12">
-        <div class="div-7f">
-          <div class="div-80">
-            <span class="span-81">Sort by:</span
-            ><button class="button-82">
-              <span class="span-83">School name</span>
-              <div class="div-84"><div class="div-85"></div></div></button
-            ><button class="button-86">
-              <span class="span-87">Fee per term</span>
-              <div class="div-88"><div class="div-89"></div></div></button
-            ><button class="button-8a">
-              <span class="span-8b">Reviews</span>
-              <div class="div-8c"><div class="div-8d"></div></div></button
-            ><button class="button-8e">
-              <span class="span-8f">Application dates</span>
-              <div class="div-90"><div class="div-91"></div></div>
-            </button>
+        <div class="school-list-container pb-4">
+          <div
+            class="d-flex align-items-center gap-12 p-3 school-list-right-filter"
+          >
+            <strong class="whitespace-nowrap">Sort by:</strong
+            ><ng-select
+              class="w-100"
+              bindLabel="name"
+              bindValue="value"
+              [clearable]="false"
+              [searchable]="false"
+              [items]="[
+                { name: 'hello' },
+                { name: 'hello 1' },
+                { name: 'hello 2' }
+              ]"
+            ></ng-select
+            ><ng-select
+              class="w-100"
+              bindLabel="name"
+              bindValue="value"
+              [clearable]="false"
+              [searchable]="false"
+              [items]="[
+                { name: 'hello' },
+                { name: 'hello 1' },
+                { name: 'hello 2' }
+              ]"
+            ></ng-select
+            ><ng-select
+              class="w-100"
+              bindLabel="name"
+              bindValue="value"
+              [clearable]="false"
+              [searchable]="false"
+              [items]="[
+                { name: 'hello' },
+                { name: 'hello 1' },
+                { name: 'hello 2' }
+              ]"
+            ></ng-select
+            ><ng-select
+              class="w-100"
+              bindLabel="name"
+              bindValue="value"
+              [clearable]="false"
+              [searchable]="false"
+              [items]="[
+                { name: 'hello' },
+                { name: 'hello 1' },
+                { name: 'hello 2' }
+              ]"
+            ></ng-select>
           </div>
-          <div class="div-92">
-            <div class="div-93">
-              <div class="div-94"></div>
-              <div class="div-95">
-                <div class="div-96">
-                  <span class="span-97">St Margaret's School</span>
-                  <div class="div-98">
-                    <span class="span-99"> Add:</span
-                    ><span class="span-9a">
-                      St Mary’s Abbotsford Convent, 1 St Heliers Street,
-                      Abbotsford</span
-                    >
-                  </div>
-                  <div class="div-9b">
-                    <div class="div-9c">
-                      <div class="div-9d">
-                        <div class="div-9e"><div class="div-9f"></div></div>
-                      </div>
-                      <span class="span-a0">4 reviews</span>
-                    </div>
-                  </div>
-                </div>
-                <div class="div-a1">
-                  <button class="button-a2">
-                    <span class="span-a3">See more</span></button
-                  ><button class="button-a4">
-                    <span class="span-a5">Add to favorites</span>
-                  </button>
-                </div>
-              </div>
-            </div>
-            <div class="div-a6">
-              <div class="div-a7"></div>
-              <div class="div-a8">
-                <div class="div-a9">
-                  <span class="span-aa">Heathside Preparatory School</span>
-                  <div class="div-ab">
-                    <span class="span-ac"> Add:</span
-                    ><span class="span-ad">
-                      St Mary’s Abbotsford Convent, 1 St Heliers Street,
-                      Abbotsford</span
-                    >
-                  </div>
-                  <div class="div-ae">
-                    <div class="div-af">
-                      <div class="div-b0">
-                        <div class="div-b1"><div class="div-b2"></div></div>
-                      </div>
-                      <span class="span-b3">4 reviews</span>
-                    </div>
-                  </div>
-                </div>
-                <div class="div-b4">
-                  <button class="button-b5">
-                    <span class="span-b6">See more</span></button
-                  ><button class="button-b7">
-                    <span class="span-b8">Add to favorites</span>
-                  </button>
-                </div>
-              </div>
-            </div>
-            <div class="div-b9">
-              <div class="div-ba"></div>
-              <div class="div-bb">
-                <div class="div-bc">
-                  <span class="span-bd">River House Montessori School</span>
-                  <div class="add-st-marys">
-                    <span class="add"> Add:</span
-                    ><span class="st-marys-abbotsford">
-                      St Mary’s Abbotsford Convent, 1 St Heliers Street,
-                      Abbotsford</span
-                    >
-                  </div>
-                  <div class="frame-be">
-                    <div class="frame-bf">
-                      <div class="vuesax-linear-message">
-                        <div class="vuesax-linear-message-c0">
-                          <div class="message"></div>
-                        </div>
-                      </div>
-                      <span class="reviews">4 reviews</span>
-                    </div>
-                  </div>
-                </div>
-                <div class="frame-c1">
-                  <button class="frame-c2">
-                    <span class="see-more">See more</span></button
-                  ><button class="frame-c3">
-                    <div class="interface-check">
-                      <div class="vector-c4"></div>
-                    </div>
-                    <span class="added">Added</span>
-                  </button>
-                </div>
-              </div>
-            </div>
-            <div class="frame-c5">
-              <div class="colon"></div>
-              <div class="frame-c6">
-                <div class="frame-c7">
-                  <span class="latymer-upper-school">Latymer Upper School</span>
-                  <div class="add-st-marys-c8">
-                    <span class="add-c9"> Add:</span
-                    ><span class="st-marys-abbotsford-ca">
-                      St Mary’s Abbotsford Convent, 1 St Heliers Street,
-                      Abbotsford</span
-                    >
-                  </div>
-                  <div class="frame-cb">
-                    <div class="frame-cc">
-                      <div class="vuesax-linear-message-cd">
-                        <div class="vuesax-linear-message-ce">
-                          <div class="message-cf"></div>
-                        </div>
-                      </div>
-                      <span class="reviews-d0">4 reviews</span>
-                    </div>
-                  </div>
-                </div>
-                <div class="frame-d1">
-                  <button class="frame-d2">
-                    <span class="see-more-d3">See more</span></button
-                  ><button class="frame-d4">
-                    <span class="add-to-favorites">Add to favorites</span>
-                  </button>
-                </div>
-              </div>
-            </div>
-            <div class="frame-d5">
-              <div class="colon-d6"></div>
-              <div class="frame-d7">
-                <div class="frame-d8">
-                  <span class="lycee-francais-charles-de-gaulle"
-                    >Lycee Francais Charles de Gaulle</span
-                  >
-                  <div class="add-st-marys-d9">
-                    <span class="add-da"> Add:</span
-                    ><span class="st-marys-abbotsford-db">
-                      St Mary’s Abbotsford Convent, 1 St Heliers Street,
-                      Abbotsford</span
-                    >
-                  </div>
-                  <div class="frame-dc">
-                    <div class="frame-dd">
-                      <div class="vuesax-linear-message-de">
-                        <div class="vuesax-linear-message-df">
-                          <div class="message-e0"></div>
-                        </div>
-                      </div>
-                      <span class="reviews-e1">4 reviews</span>
-                    </div>
-                  </div>
-                </div>
-                <div class="frame-e2">
-                  <button class="frame-e3">
-                    <span class="see-more-e4">See more</span></button
-                  ><button class="frame-e5">
-                    <span class="add-to-favorites-e6">Add to favorites</span>
-                  </button>
-                </div>
-              </div>
-            </div>
-            <div class="frame-e7">
-              <div class="colon-e8"></div>
-              <div class="frame-e9">
-                <div class="frame-ea">
-                  <span class="dulwich-college">Dulwich College</span>
-                  <div class="add-st-marys-eb">
-                    <span class="add-ec"> Add:</span
-                    ><span class="st-marys-abbotsford-ed">
-                      St Mary’s Abbotsford Convent, 1 St Heliers Street,
-                      Abbotsford</span
-                    >
-                  </div>
-                  <div class="frame-ee">
-                    <div class="frame-ef">
-                      <div class="vuesax-linear-message-f0">
-                        <div class="vuesax-linear-message-f1">
-                          <div class="message-f2"></div>
-                        </div>
-                      </div>
-                      <span class="reviews-f3">4 reviews</span>
-                    </div>
-                  </div>
-                </div>
-                <div class="frame-f4">
-                  <button class="frame-f5">
-                    <span class="see-more-f6">See more</span></button
-                  ><button class="frame-f7">
-                    <span class="add-to-favorites-f8">Add to favorites</span>
-                  </button>
-                </div>
-              </div>
-            </div>
-            <div class="frame-f9">
-              <div class="colon-fa"></div>
-              <div class="frame-fb">
-                <div class="frame-fc">
-                  <span class="ibstock-place-school">Ibstock Place School</span>
-                  <div class="add-st-marys-fd">
-                    <span class="add-fe"> Add:</span
-                    ><span class="st-marys-abbotsford-convent">
-                      St Mary’s Abbotsford Convent, 1 St Heliers Street,
-                      Abbotsford</span
-                    >
-                  </div>
-                  <div class="frame-ff">
-                    <div class="frame-100">
-                      <div class="vuesax-linear-message-101">
-                        <div class="vuesax-linear-message-102">
-                          <div class="message-103"></div>
-                        </div>
-                      </div>
-                      <span class="reviews-104">4 reviews</span>
-                    </div>
-                  </div>
-                </div>
-                <div class="frame-105">
-                  <button class="frame-106">
-                    <span class="see-more-107">See more</span></button
-                  ><button class="frame-108">
-                    <span class="add-to-favorites-109">Add to favorites</span>
-                  </button>
-                </div>
-              </div>
-            </div>
-          </div>
-          <div class="frame-10a">
-            <span class="previous">Previous</span>
-            <div class="frame-10b"><span class="number-1">1</span></div>
-            <div class="frame-10c"><span class="number-2">2</span></div>
-            <div class="frame-10d"><span class="number-3">3</span></div>
-            <div class="frame-10e"><span class="number-4">4</span></div>
-            <div class="frame-10f"><span class="number-5">5</span></div>
-            <span class="next">Next</span><span class="last">Last</span>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="vector-110"></div>
-    <div>
-      <div class="rectangle-115">
-        <span class="get-started-with-school-master"
-          >Get Started with School master</span
-        ><button class="frame-116">
-          <span class="register">Register</span>
-          <div class="arrow-e">
-            <div class="group-117"><div class="vector-118"></div></div>
-          </div>
-        </button>
-      </div>
-      <div class="flex-row-a-119">
-        <div class="up-arrow"></div>
-        <div class="vector-11a">
-          <div class="frame-11b">
-            <span class="any-questions">Any questions</span
-            ><span class="hello-schoolmaster-io">hello&#64;schoolmaster.io</span
-            ><span class="please-contact-us"
-              >Please contact us! We speak human language and like to receive
-              feedback</span
+          <div class="school-list">
+            @for (item of [1, 2, 3,4, 5,6,7,8,9,10]; track item) {
+            <div
+              class="d-flex align-items-center justify-content-between gap-16 school-item-container w-100"
             >
-          </div>
-          <div class="frame-11c">
-            <span class="legal-info">Legal info</span
-            ><span class="support">Support</span
-            ><span class="contact">Contact</span
-            ><span class="privacy">Privacy</span
-            ><span class="terms">Terms</span>
-          </div>
-          <div class="frame-11d">
-            <span class="follow-us">Follow us</span>
-            <div class="frame-11e">
-              <div class="twitter-alt"><div class="vector-11f"></div></div>
-              <div class="youtube">
-                <div class="xmlid"><div class="vector-120"></div></div>
-              </div>
-              <div class="facebook">
-                <div class="group-121"><div class="vector-122"></div></div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div class="rectangle-123">
-          <div class="frame-124">
-            <div class="group-125">
-              <div class="group-126"></div>
-              <div class="flex-column-bc">
-                <div class="group-127">
-                  <div class="vector-128"></div>
-                  <div class="vector-129"></div>
-                  <div class="vector-12a"></div>
-                  <div class="vector-12b"></div>
-                  <div class="vector-12c"></div>
-                  <div class="vector-12d"></div>
-                  <div class="vector-12e"></div>
-                  <div class="vector-12f"></div>
-                  <div class="vector-130"></div>
-                  <div class="vector-131"></div>
-                  <div class="vector-132"></div>
-                  <div class="vector-133"></div>
-                </div>
-                <div class="group-134">
-                  <div class="flex-row-c">
-                    <div class="vector-135"></div>
-                    <div class="vector-136"></div>
-                    <div class="vector-137"></div>
-                    <div class="vector-138"></div>
-                    <div class="vector-139"></div>
-                    <div class="vector-13a"></div>
-                    <div class="vector-13b"></div>
-                    <div class="vector-13c"></div>
-                    <div class="vector-13d"></div>
-                    <div class="vector-13e"></div>
-                    <div class="vector-13f"></div>
-                    <div class="vector-140"></div>
+              <div class="d-flex align-items-center gap-16">
+                <img
+                  class="item-image"
+                  src="assets/images/icons/62dee7794ddba4bab3a13bd09479cc6fe7edf080.png"
+                  alt=""
+                />
+                <div class="d-flex-col align-items-start gap-8">
+                  <strong>St Margaret's School</strong>
+                  <div class="fs12-fw400">
+                    <strong> Add: </strong>St Mary’s Abbotsford Convent, 1 St
+                    Heliers Street, Abbotsford
                   </div>
-                  <div class="flex-row-fda">
-                    <div class="vector-141"></div>
-                    <div class="vector-142"></div>
-                    <div class="vector-143"></div>
-                    <div class="vector-144"></div>
-                    <div class="vector-145"></div>
-                    <div class="vector-146"></div>
-                    <div class="vector-147"></div>
-                    <div class="vector-148"></div>
-                    <div class="vector-149"></div>
-                    <div class="vector-14a"></div>
-                    <div class="vector-14b"></div>
-                    <div class="vector-14c"></div>
-                    <div class="vector-14d"></div>
-                    <div class="vector-14e"></div>
-                    <div class="vector-14f"></div>
-                    <div class="vector-150"></div>
-                    <div class="vector-151"></div>
-                    <div class="vector-152"></div>
+                  <div class="d-flex align-items-center gap-8 fs12-fw400">
+                    <div class="review-icon"></div>
+                    <span>4 reviews</span>
                   </div>
-                  <div class="flex-row">
-                    <div class="vector-153"></div>
-                    <div class="vector-154"></div>
-                    <div class="regroup-155">
-                      <div class="vector-156"></div>
-                      <div class="vector-157"></div>
-                    </div>
-                    <div class="vector-158"></div>
-                    <div class="vector-159"></div>
-                    <div class="vector-15a"></div>
-                    <div class="vector-15b"></div>
-                  </div>
-                  <div class="vector-15c"></div>
                 </div>
               </div>
+              <div class="d-flex align-items-center item-action fw-bold">
+                <button class="button w-100 color-white fs-14 height-34">
+                  See more</button
+                ><button class="button w-100 btn-white fs-14 height-34">
+                  Add to favorites
+                </button>
+              </div>
             </div>
+            }
           </div>
-          <span class="all-rights-reserved">© 2024 All rights reserved.</span>
+          <ngb-pagination
+            [collectionSize]="200"
+            [(page)]="pageNumber"
+            [pageSize]="20"
+            [maxSize]="3"
+            [rotate]="true"
+            [boundaryLinks]="true"
+          >
+            <ng-template ngbPaginationFirst>First</ng-template>
+            <ng-template ngbPaginationPrevious>Prev</ng-template>
+            <ng-template ngbPaginationNext>Next</ng-template>
+            <ng-template ngbPaginationLast>Last</ng-template>
+          </ngb-pagination>
         </div>
       </div>
     </div>
   </div>
 </div>
+<section
+  class="get-start-section d-flex-col align-items-center justify-items-center"
+>
+  <div class="get-start-title">Get Started with Schoolmaster</div>
+  <button class="cta-button">
+    Register
+    <svg
+      width="12"
+      height="12"
+      viewBox="0 0 12 12"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <g clip-path="url(#clip0_13_302)">
+        <path
+          d="M6.834 1.12792C6.76212 1.0634 6.67309 1.02108 6.57767 1.00607C6.48226 0.991065 6.38453 1.00402 6.29632 1.04337C6.20811 1.08271 6.13318 1.14677 6.08059 1.22779C6.02801 1.30881 6.00002 1.40333 6 1.49992V4.99992H1C0.734784 4.99992 0.48043 5.10528 0.292893 5.29281C0.105357 5.48035 0 5.7347 0 5.99992C0 6.26514 0.105357 6.51949 0.292893 6.70703C0.48043 6.89456 0.734784 6.99992 1 6.99992H6V10.4999C6.00002 10.5965 6.02801 10.691 6.08059 10.772C6.13318 10.8531 6.20811 10.9171 6.29632 10.9565C6.38453 10.9958 6.48226 11.0088 6.57767 10.9938C6.67309 10.9788 6.76212 10.9364 6.834 10.8719L11.834 6.37192C11.8862 6.32503 11.928 6.26767 11.9566 6.20358C11.9851 6.13949 11.9999 6.0701 11.9999 5.99992C11.9999 5.92974 11.9851 5.86035 11.9566 5.79626C11.928 5.73217 11.8862 5.67481 11.834 5.62792L6.834 1.12792Z"
+          fill="white"
+        />
+      </g>
+      <defs>
+        <clipPath id="clip0_13_302">
+          <rect width="12" height="12" fill="white" />
+        </clipPath>
+      </defs>
+    </svg>
+  </button>
+</section>

@@ -1,0 +1,175 @@
+.page-footer {
+  position: relative;
+  display: block;
+  padding-top: 80px;
+  padding-bottom: 20px;
+  background-color: #ffffff;
+  color: #fff;
+}
+
+.page-footer h5 {
+  margin-bottom: 24px;
+}
+
+.page-footer p {
+  color: rgba(255, 255, 255, 0.7);
+}
+
+.footer-menu {
+  position: relative;
+  padding-left: 0;
+  list-style: none;
+}
+
+.footer-menu li {
+  margin-bottom: 8px;
+}
+
+.footer-menu a {
+  color: #afb7c1;
+}
+
+.sosmed-button a {
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  line-height: 42px;
+  text-align: center;
+  border-radius: 50%;
+  color: rgba(255, 255, 255, 0.6);
+  outline: none !important;
+  background: #a6d7ff;
+}
+
+.sosmed-button a:hover {
+  text-decoration: none;
+}
+
+#typed {
+  color: #2f89fc;
+}
+
+#typed-text {
+  display: none;
+}
+
+.typed-cursor {
+  color: #2f89fc;
+}
+
+.course-filter {
+  position: relative;
+  display: block;
+  padding: 20px;
+  width: auto;
+  max-width: 320px;
+  background-color: #fff;
+  border-radius: 8px;
+  -webkit-box-shadow: 0 4px 12px rgba(109, 114, 139, 0.1);
+  box-shadow: 0 4px 12px rgba(109, 114, 139, 0.1);
+}
+
+.course-filter hr {
+  margin-top: 24px;
+  margin-bottom: 24px;
+}
+
+.course-filter-list {
+  position: relative;
+  padding-left: 0;
+  list-style: none;
+}
+
+.course-filter-list li {
+  margin-bottom: 12px;
+}
+
+.card-sign {
+  position: relative;
+  padding: 20px 24px;
+  width: 100%;
+  border-radius: 8px;
+  border: 1px solid #ebeefd;
+  -webkit-box-shadow: 0 4px 12px rgba(109, 114, 139, 0.1);
+  box-shadow: 0 4px 12px rgba(109, 114, 139, 0.1);
+}
+
+.card-sign .sosmed-button a {
+  padding: 0;
+}
+
+@media (min-width: 576px) {
+  .card-sign .wrap {
+    margin: 15px auto;
+    max-width: 360px;
+  }
+}
+
+/* Custom Plugin */
+.owl-nav {
+  display: block;
+  margin: auto;
+  text-align: center;
+}
+
+.owl-carousel .owl-nav button.owl-next,
+.owl-carousel .owl-nav button.owl-prev {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  display: inline-block;
+  margin: auto;
+  width: 50px;
+  height: 50px;
+  line-height: 50px;
+  border-radius: 50%;
+  text-align: center;
+  background-color: #2f89fc;
+  color: #fff;
+}
+
+.owl-carousel .owl-nav button.owl-next:focus,
+.owl-carousel .owl-nav button.owl-prev:focus {
+  outline: none;
+}
+
+.owl-carousel .owl-nav button.owl-next {
+  right: 10px;
+}
+
+.owl-carousel .owl-nav button.owl-prev {
+  left: 10px;
+}
+
+.owl-carousel .owl-dots {
+  display: block;
+  margin: 16px auto;
+  text-align: center;
+}
+
+.owl-carousel button.owl-dot {
+  display: inline-block;
+  margin: 0 4px;
+  width: 36px;
+  height: 4px;
+  background-color: #c6ccd3;
+  -webkit-transition: all 0.2s ease;
+  transition: all 0.2s ease;
+}
+
+.owl-carousel button.owl-dot:focus {
+  outline: none;
+}
+
+.owl-carousel button.owl-dot.active {
+  background-color: #2f89fc;
+}
+
+#copyright {
+  color: #b2b2b2;
+  font-family: Figtree, serif;
+  font-size: 14px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: normal;
+}

@@ -132,158 +132,232 @@
   </div>
 </section>
 
-<!--<section class="steps-section">-->
-<!--  <h2>How it works</h2>-->
-<!--  <div class="steps-wrapper">-->
-<!--    <img-->
-<!--      src="https://cdn.builder.io/api/v1/image/assets/TEMP/913cd176bf6b78f9a7fb8d3012374929400f75feb41cc7ea3de79291a58e82e4?apiKey=daeef418df09432d964afa2a611d7283&"-->
-<!--      alt=""-->
-<!--      class="img-12"-->
-<!--    />-->
-<!--    <div class="steps">-->
-<!--      <div class="steps-box">-->
-<!--        <div class="step">-->
-<!--          <div class="step-number">Step 01</div>-->
-<!--          <img-->
-<!--            src="https://cdn.builder.io/api/v1/image/assets/TEMP/df3661a046134ec862498daff7de44ff46b1eadedb3833e32909967885a3942b?apiKey=daeef418df09432d964afa2a611d7283&"-->
-<!--            alt=""-->
-<!--            class="step-image"-->
-<!--          />-->
-<!--          <p class="step-description">-->
-<!--            Create an account and add your child's profile-->
-<!--          </p>-->
-<!--        </div>-->
-<!--        <div class="step">-->
-<!--          <div class="step-number">Step 02</div>-->
-<!--          <img-->
-<!--            src="https://cdn.builder.io/api/v1/image/assets/TEMP/df3661a046134ec862498daff7de44ff46b1eadedb3833e32909967885a3942b?apiKey=daeef418df09432d964afa2a611d7283&"-->
-<!--            alt=""-->
-<!--            class="step-image"-->
-<!--          />-->
-<!--          <p class="step-description">-->
-<!--            Search and shortlist schools based on your preferences-->
-<!--          </p>-->
-<!--        </div>-->
-<!--        <div class="step">-->
-<!--          <div class="step-number">Step 03</div>-->
-<!--          <img-->
-<!--            src="https://cdn.builder.io/api/v1/image/assets/TEMP/df3661a046134ec862498daff7de44ff46b1eadedb3833e32909967885a3942b?apiKey=daeef418df09432d964afa2a611d7283&"-->
-<!--            alt=""-->
-<!--            class="step-image"-->
-<!--          />-->
-<!--          <p class="step-description">-->
-<!--            Track the application process for each school-->
-<!--          </p>-->
-<!--        </div>-->
-<!--        <div class="step benefits-section">-->
-<!--          <div>-->
-<!--            <div class="step-number">Step 04</div>-->
-<!--            <img-->
-<!--              src="https://cdn.builder.io/api/v1/image/assets/TEMP/3f6ef35a029c2f0c13b755095c937c6d836894685f15e465351f4ec7697227c5?apiKey=daeef418df09432d964afa2a611d7283&"-->
-<!--              alt=""-->
-<!--              class="step-image"-->
-<!--            />-->
-<!--          </div>-->
-<!--          <img-->
-<!--            src="https://cdn.builder.io/api/v1/image/assets/TEMP/df3661a046134ec862498daff7de44ff46b1eadedb3833e32909967885a3942b?apiKey=daeef418df09432d964afa2a611d7283&"-->
-<!--            alt=""-->
-<!--            class="step-image"-->
-<!--          />-->
-<!--          <p class="step-description">-->
-<!--            Receive alerts and reminders for important deadlines-->
-<!--          </p>-->
-<!--        </div>-->
-<!--      </div>-->
-<!--      <img-->
-<!--        src="https://cdn.builder.io/api/v1/image/assets/TEMP/89447494eeca25f2b6f391f6a49a33e447cfb09f646d24bd8b9e2b93ca70987d?apiKey=daeef418df09432d964afa2a611d7283&"-->
-<!--        alt=""-->
-<!--        class="img-18"-->
-<!--      />-->
-<!--    </div>-->
-<!--  </div>-->
-<!--</section>-->
-
-<section class="testimonials-section">
-  <div class="testimonials">
-    <div class="testimonial-card">
-      <div class="testimonial-image">
-        <img
-          src="https://cdn.builder.io/api/v1/image/assets/TEMP/f8eb3d23cca3b21a66b26e46e5485f8fe8d8f755e101b573907bc1a0de5eb27e?apiKey=daeef418df09432d964afa2a611d7283&"
-          alt=""
-          class="img-24"
-        />
+<section class="d-flex-col align-items-center w-100 steps-wrapper m-0">
+  <h2 class="header-title">How it works</h2>
+  <div
+    class="d-flex-col align-items-center w-100 position-relative steps-container"
+  >
+    <img
+      loading="lazy"
+      src="https://cdn.builder.io/api/v1/image/assets/TEMP/b1ee3b0add9ff09984d054fe7ec9464ce78f256a8ed64ce912f6c8f34b2cfa95?apiKey=daeef418df09432d964afa2a611d7283&"
+      alt="Steps Background"
+      class="background-image"
+    />
+    <div class="steps-content">
+      <div class="step-columns">
+        <div class="step-column">
+          <article class="step">
+            <span class="step-title" onclick="handleStep(1)"> Step 01 </span>
+            <img
+              loading="lazy"
+              src="https://cdn.builder.io/api/v1/image/assets/TEMP/df3661a046134ec862498daff7de44ff46b1eadedb3833e32909967885a3942b?apiKey=daeef418df09432d964afa2a611d7283&"
+              alt="Create an Account"
+              class="step-icon"
+            />
+            <div class="h-100 d-flex align-items-center justify-content-center">
+              <span class="step-description" onclick="handleDescription(1)">
+                Create an account and add your child's profile Create an account
+                and add your child's profile
+              </span>
+            </div>
+          </article>
+        </div>
+        <div class="step-column">
+          <article class="step">
+            <span class="step-title" onclick="handleStep(2)"> Step 02 </span>
+            <img
+              loading="lazy"
+              src="https://cdn.builder.io/api/v1/image/assets/TEMP/df3661a046134ec862498daff7de44ff46b1eadedb3833e32909967885a3942b?apiKey=daeef418df09432d964afa2a611d7283&"
+              alt="Search Schools"
+              class="step-icon"
+            />
+            <div class="h-100 d-flex align-items-center justify-content-center">
+              <span class="step-description" onclick="handleDescription(1)">
+                Create an account and add your child's profile Create an account
+              </span>
+            </div>
+          </article>
+        </div>
+        <div class="step-column">
+          <article class="step">
+            <span class="step-title" onclick="handleStep(3)"> Step 03 </span>
+            <img
+              loading="lazy"
+              src="https://cdn.builder.io/api/v1/image/assets/TEMP/df3661a046134ec862498daff7de44ff46b1eadedb3833e32909967885a3942b?apiKey=daeef418df09432d964afa2a611d7283&"
+              alt="Track Applications"
+              class="step-icon"
+            />
+            <div class="h-100 d-flex align-items-center justify-content-center">
+              <span class="step-description" onclick="handleDescription(1)">
+                Create an account and add your child's pro
+              </span>
+            </div>
+          </article>
+        </div>
+        <div class="step-column">
+          <article class="step">
+            <span class="step-title" onclick="handleStep(4)"> Step 04 </span>
+            <img
+              loading="lazy"
+              src="https://cdn.builder.io/api/v1/image/assets/TEMP/df3661a046134ec862498daff7de44ff46b1eadedb3833e32909967885a3942b?apiKey=daeef418df09432d964afa2a611d7283&"
+              alt="Receive Alerts"
+              class="step-icon"
+            />
+            <div class="h-100 d-flex align-items-center justify-content-center">
+              <span class="step-description" onclick="handleDescription(1)">
+                Create an account and add your child's profile Create an account
+                Create an account and add your child's profile Create an account
+                and add your child's profile
+              </span>
+            </div>
+          </article>
+        </div>
       </div>
-      <span class="testimonial-quote">“</span>
-      <p class="testimonial-text">
-        Lorem ipsum dolor sit amet consectetur. Justo in amet congue risus
-        sapien. Egestas elit non ac egestas tincidunt. At eget tortor id
-        tincidunt. Pellentesque praesent odio et ac eget tristique leo.
-      </p>
-      <div class="testimonial-author">
-        John Doe - <span class="font-light small-text">Parent’s Paul</span>
-      </div>
-    </div>
-    <div class="testimonial-dots">
-      <div class="dot dot-active"></div>
-      <div class="dot"></div>
-      <div class="dot"></div>
-      <div class="dot"></div>
-      <div class="dot"></div>
     </div>
   </div>
 </section>
 
-<section class="footer-responsiveBlueBanner">
-  <footer class="footer-content">
-    <div class="footer-col1">
-      <div class="">
-        <h3>Start saving time with us</h3>
-        <div class="contact-block">
+<section class="confidence-assurance-section-container">
+  <div class="content-wrapper">
+    <h2 class="title">Confidence and Assurance</h2>
+    <section class="feature-section">
+      <div class="feature-list">
+        <div class="feature-item">
+          <div class="feature-card">
+            <img
+              loading="lazy"
+              src="https://cdn.builder.io/api/v1/image/assets/TEMP/1ba0d4007db66d772897b81123dd92381431946474c988124e3cb9705e7bb793?apiKey=daeef418df09432d964afa2a611d7283&"
+              alt="Verified School Listings"
+              class="feature-img"
+            />
+            <p class="feature-title">Verified School Listings</p>
+            <p class="feature-description">
+              We only feature schools that have been thoroughly vetted and
+              approved, ensuring you have access to the best educational
+              institutions for your children.
+            </p>
+          </div>
+        </div>
+        <div class="feature-item">
+          <div class="feature-card">
+            <img
+              loading="lazy"
+              src="https://cdn.builder.io/api/v1/image/assets/TEMP/6849d72ff91e7dac88e44da50f15382705137eee96d72985364a922ac2bbe463?apiKey=daeef418df09432d964afa2a611d7283&"
+              alt="Secure and Confidential"
+              class="feature-img"
+            />
+            <p class="feature-title">Secure and Confidential</p>
+            <p class="feature-description">
+              Your privacy is our priority. We use state-of-the-art security
+              measures to protect your personal information and ensure your data
+              remains confidential and secure.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section class="secure-section">
+      <div class="secure-list">
+        <div class="secure-item">
+          <div class="secure-card">
+            <img
+              loading="lazy"
+              src="https://cdn.builder.io/api/v1/image/assets/TEMP/853e43aab3e5179bc30f706ac2e0fd73123bfe3204e20c499c6d7552749fc2fc?apiKey=daeef418df09432d964afa2a611d7283&"
+              alt="Expert Guidance and Support"
+              class="feature-img"
+            />
+            <p class="secure-title">Expert Guidance and Support</p>
+            <p class="secure-description">
+              Our team of education experts is here to provide personalized
+              advice and support throughout the application process, ensuring
+              you make informed decisions every step of the way.
+            </p>
+          </div>
+        </div>
+        <div class="secure-item">
+          <div class="secure-card">
+            <img
+              loading="lazy"
+              src="https://cdn.builder.io/api/v1/image/assets/TEMP/3a6d5961b3e35ccea50781630f64992c22863977dbd46c928981fa413d279e3f?apiKey=daeef418df09432d964afa2a611d7283&"
+              alt="Transparent Application Process"
+              class="feature-img"
+            />
+            <p class="secure-title">Transparent Application Process</p>
+            <p class="secure-description">
+              Track the status of your applications in real-time with our
+              user-friendly interface, giving you complete transparency and
+              control over your child's educational journey.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+  </div>
+</section>
+<section
+  class="d-flex align-items-center justify-items-center w-100 quote-section"
+>
+  <div class="d-flex-col w-100">
+    <div class="d-flex justify-content-between w-100 gap-20 text-image-wrapper">
+      <div class="d-flex align-items-center gap-20 image-text-container">
+        <div
+          class="d-flex align-items-center justify-items-center image-circle"
+        >
           <img
-            src="https://cdn.builder.io/api/v1/image/assets/TEMP/498e6979a1b6ab92e8f2c64f9ba8edd8fda2590f8235a5642302782999339840?apiKey=daeef418df09432d964afa2a611d7283&"
-            alt=""
-            class="img-26"
+            loading="lazy"
+            src="https://cdn.builder.io/api/v1/image/assets/TEMP/5f7d6d314a23b7b27c1f2875ca39b668b142aab96dd1ecec532f2a2396abf93d?apiKey=daeef418df09432d964afa2a611d7283&"
+            class="next-prev-icon"
+            alt="Profile image"
           />
-          <p>
-            Safety payments provided by Stripe. The standard VAT rate may be
-            charged, following the law of your country
-          </p>
         </div>
-      </div>
-      <div class="faq-container">
-        <div class="faq">
-          <h4 class="faq-question">Can I get a discount?</h4>
-          <p class="faq-answer">
-            Lorem ipsum dolor sit amet consectetur. Justo in amet congue risus
-            sapien. Egestas e
-          </p>
-        </div>
-        <div class="faq">
-          <h4 class="faq-question">How can I get updates?</h4>
-          <p class="faq-answer">
-            Lorem ipsum dolor sit amet consectetur. Justo in amet congue risus
-            sapien. Egestas e
-          </p>
-        </div>
-        <div class="faq">
-          <h4 class="faq-question">Can I try it before the purchase?</h4>
-          <p class="faq-answer">
-            Lorem ipsum dolor sit amet consectetur. Justo in amet congue risus
-            sapien. Egestas e
-          </p>
-        </div>
+        <div class="quote-symbol">“</div>
+        <p class="quote-text">
+          The 11+ process was so stressful for our daughter, and for a lot of
+          our friends. Using Schoolmaster made it much less stressful for us,
+          which meant we could focus more on helping her."
+        </p>
+        <img
+          loading="lazy"
+          src="https://cdn.builder.io/api/v1/image/assets/TEMP/ea974f7265b7efc67f684dfda242da4edeb8f95cdb9916398bb794cb80354b15?apiKey=daeef418df09432d964afa2a611d7283&"
+          class="next-prev-icon"
+          alt="Decorative image"
+        />
       </div>
     </div>
-    <div class="footer-legalInfo">
-      <div>
-        <h4 class="footer-heading">Legal info</h4>
-        <ul class="footer-list">
-          <li><a href="#support">Support</a></li>
-          <li><a href="#contact">Contact</a></li>
-          <li><a href="#privacy">Privacy</a></li>
-          <li><a href="#terms">Terms</a></li>
-        </ul>
-      </div>
+    <div class="pagination">
+      <div class="pagination-dot"></div>
+      <div class="pagination-dot-gray"></div>
+      <div class="pagination-dot-gray"></div>
+      <div class="pagination-dot-gray"></div>
+      <div class="pagination-dot-gray"></div>
     </div>
-  </footer>
+  </div>
+</section>
+
+<section
+  class="get-start-section d-flex-col align-items-center justify-items-center"
+>
+  <div class="get-start-title">Get Started with Schoolmaster</div>
+  <button class="cta-button">
+    Get Started
+    <svg
+      width="12"
+      height="12"
+      viewBox="0 0 12 12"
+      fill="none"
+      xmlns="http://www.w3.org/2000/svg"
+    >
+      <g clip-path="url(#clip0_13_302)">
+        <path
+          d="M6.834 1.12792C6.76212 1.0634 6.67309 1.02108 6.57767 1.00607C6.48226 0.991065 6.38453 1.00402 6.29632 1.04337C6.20811 1.08271 6.13318 1.14677 6.08059 1.22779C6.02801 1.30881 6.00002 1.40333 6 1.49992V4.99992H1C0.734784 4.99992 0.48043 5.10528 0.292893 5.29281C0.105357 5.48035 0 5.7347 0 5.99992C0 6.26514 0.105357 6.51949 0.292893 6.70703C0.48043 6.89456 0.734784 6.99992 1 6.99992H6V10.4999C6.00002 10.5965 6.02801 10.691 6.08059 10.772C6.13318 10.8531 6.20811 10.9171 6.29632 10.9565C6.38453 10.9958 6.48226 11.0088 6.57767 10.9938C6.67309 10.9788 6.76212 10.9364 6.834 10.8719L11.834 6.37192C11.8862 6.32503 11.928 6.26767 11.9566 6.20358C11.9851 6.13949 11.9999 6.0701 11.9999 5.99992C11.9999 5.92974 11.9851 5.86035 11.9566 5.79626C11.928 5.73217 11.8862 5.67481 11.834 5.62792L6.834 1.12792Z"
+          fill="white"
+        />
+      </g>
+      <defs>
+        <clipPath id="clip0_13_302">
+          <rect width="12" height="12" fill="white" />
+        </clipPath>
+      </defs>
+    </svg>
+  </button>
 </section>

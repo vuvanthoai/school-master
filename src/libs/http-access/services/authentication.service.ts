@@ -60,25 +60,17 @@ export class AuthenticationService extends BaseService {
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
    * To access only the response body, use `login()` instead.
    *
-<<<<<<< HEAD
    * This method sends `application/json` and handles request body of type `application/json`.
-=======
-   * This method doesn't expect any request body.
->>>>>>> f22ba5f (update service)
    */
   login$Response(
     params?: Login$Params,
     context?: HttpContext
-<<<<<<< HEAD
   ): Observable<
     StrictHttpResponse<{
       access_token?: string;
       refresh_token?: string;
     }>
   > {
-=======
-  ): Observable<StrictHttpResponse<void>> {
->>>>>>> f22ba5f (update service)
     return login(this.http, this.rootUrl, params, context);
   }
 
@@ -93,7 +85,6 @@ export class AuthenticationService extends BaseService {
    * This method provides access only to the response body.
    * To access the full response (for headers, for example), `login$Response()` instead.
    *
-<<<<<<< HEAD
    * This method sends `application/json` and handles request body of type `application/json`.
    */
   login(
@@ -115,13 +106,6 @@ export class AuthenticationService extends BaseService {
           refresh_token?: string;
         } => r.body
       )
-=======
-   * This method doesn't expect any request body.
-   */
-  login(params?: Login$Params, context?: HttpContext): Observable<void> {
-    return this.login$Response(params, context).pipe(
-      map((r: StrictHttpResponse<void>): void => r.body)
->>>>>>> f22ba5f (update service)
     );
   }
 
@@ -136,24 +120,16 @@ export class AuthenticationService extends BaseService {
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
    * To access only the response body, use `loginRefresh()` instead.
    *
-<<<<<<< HEAD
    * This method sends `application/json` and handles request body of type `application/json`.
-=======
-   * This method doesn't expect any request body.
->>>>>>> f22ba5f (update service)
    */
   loginRefresh$Response(
     params?: LoginRefresh$Params,
     context?: HttpContext
-<<<<<<< HEAD
   ): Observable<
     StrictHttpResponse<{
       access?: string;
     }>
   > {
-=======
-  ): Observable<StrictHttpResponse<void>> {
->>>>>>> f22ba5f (update service)
     return loginRefresh(this.http, this.rootUrl, params, context);
   }
 
@@ -165,16 +141,11 @@ export class AuthenticationService extends BaseService {
    * This method provides access only to the response body.
    * To access the full response (for headers, for example), `loginRefresh$Response()` instead.
    *
-<<<<<<< HEAD
    * This method sends `application/json` and handles request body of type `application/json`.
-=======
-   * This method doesn't expect any request body.
->>>>>>> f22ba5f (update service)
    */
   loginRefresh(
     params?: LoginRefresh$Params,
     context?: HttpContext
-<<<<<<< HEAD
   ): Observable<{
     access?: string;
   }> {
@@ -188,11 +159,6 @@ export class AuthenticationService extends BaseService {
           access?: string;
         } => r.body
       )
-=======
-  ): Observable<void> {
-    return this.loginRefresh$Response(params, context).pipe(
-      map((r: StrictHttpResponse<void>): void => r.body)
->>>>>>> f22ba5f (update service)
     );
   }
 
@@ -207,24 +173,16 @@ export class AuthenticationService extends BaseService {
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
    * To access only the response body, use `logout()` instead.
    *
-<<<<<<< HEAD
    * This method sends `application/json` and handles request body of type `application/json`.
-=======
-   * This method doesn't expect any request body.
->>>>>>> f22ba5f (update service)
    */
   logout$Response(
     params?: Logout$Params,
     context?: HttpContext
-<<<<<<< HEAD
   ): Observable<
     StrictHttpResponse<{
       detail?: string;
     }>
   > {
-=======
-  ): Observable<StrictHttpResponse<void>> {
->>>>>>> f22ba5f (update service)
     return logout(this.http, this.rootUrl, params, context);
   }
 
@@ -236,7 +194,6 @@ export class AuthenticationService extends BaseService {
    * This method provides access only to the response body.
    * To access the full response (for headers, for example), `logout$Response()` instead.
    *
-<<<<<<< HEAD
    * This method sends `application/json` and handles request body of type `application/json`.
    */
   logout(
@@ -291,13 +248,6 @@ export class AuthenticationService extends BaseService {
   signup(params?: Signup$Params, context?: HttpContext): Observable<any> {
     return this.signup$Response(params, context).pipe(
       map((r: StrictHttpResponse<any>): any => r.body)
-=======
-   * This method doesn't expect any request body.
-   */
-  logout(params?: Logout$Params, context?: HttpContext): Observable<void> {
-    return this.logout$Response(params, context).pipe(
-      map((r: StrictHttpResponse<void>): void => r.body)
->>>>>>> f22ba5f (update service)
     );
   }
 
@@ -312,11 +262,7 @@ export class AuthenticationService extends BaseService {
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
    * To access only the response body, use `changePassword()` instead.
    *
-<<<<<<< HEAD
    * This method sends `application/json` and handles request body of type `application/json`.
-=======
-   * This method doesn't expect any request body.
->>>>>>> f22ba5f (update service)
    */
   changePassword$Response(
     params?: ChangePassword$Params,
@@ -333,11 +279,7 @@ export class AuthenticationService extends BaseService {
    * This method provides access only to the response body.
    * To access the full response (for headers, for example), `changePassword$Response()` instead.
    *
-<<<<<<< HEAD
    * This method sends `application/json` and handles request body of type `application/json`.
-=======
-   * This method doesn't expect any request body.
->>>>>>> f22ba5f (update service)
    */
   changePassword(
     params?: ChangePassword$Params,
@@ -359,20 +301,12 @@ export class AuthenticationService extends BaseService {
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
    * To access only the response body, use `resetPassword()` instead.
    *
-<<<<<<< HEAD
    * This method sends `application/json` and handles request body of type `application/json`.
-=======
-   * This method doesn't expect any request body.
->>>>>>> f22ba5f (update service)
    */
   resetPassword$Response(
     params?: ResetPassword$Params,
     context?: HttpContext
-<<<<<<< HEAD
   ): Observable<StrictHttpResponse<any>> {
-=======
-  ): Observable<StrictHttpResponse<void>> {
->>>>>>> f22ba5f (update service)
     return resetPassword(this.http, this.rootUrl, params, context);
   }
 
@@ -384,24 +318,14 @@ export class AuthenticationService extends BaseService {
    * This method provides access only to the response body.
    * To access the full response (for headers, for example), `resetPassword$Response()` instead.
    *
-<<<<<<< HEAD
    * This method sends `application/json` and handles request body of type `application/json`.
-=======
-   * This method doesn't expect any request body.
->>>>>>> f22ba5f (update service)
    */
   resetPassword(
     params?: ResetPassword$Params,
     context?: HttpContext
-<<<<<<< HEAD
   ): Observable<any> {
     return this.resetPassword$Response(params, context).pipe(
       map((r: StrictHttpResponse<any>): any => r.body)
-=======
-  ): Observable<void> {
-    return this.resetPassword$Response(params, context).pipe(
-      map((r: StrictHttpResponse<void>): void => r.body)
->>>>>>> f22ba5f (update service)
     );
   }
 
@@ -416,11 +340,7 @@ export class AuthenticationService extends BaseService {
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
    * To access only the response body, use `resetPasswordConfirm()` instead.
    *
-<<<<<<< HEAD
    * This method sends `application/json` and handles request body of type `application/json`.
-=======
-   * This method doesn't expect any request body.
->>>>>>> f22ba5f (update service)
    */
   resetPasswordConfirm$Response(
     params?: ResetPasswordConfirm$Params,
@@ -437,11 +357,7 @@ export class AuthenticationService extends BaseService {
    * This method provides access only to the response body.
    * To access the full response (for headers, for example), `resetPasswordConfirm$Response()` instead.
    *
-<<<<<<< HEAD
    * This method sends `application/json` and handles request body of type `application/json`.
-=======
-   * This method doesn't expect any request body.
->>>>>>> f22ba5f (update service)
    */
   resetPasswordConfirm(
     params?: ResetPasswordConfirm$Params,
@@ -452,49 +368,8 @@ export class AuthenticationService extends BaseService {
     );
   }
 
-<<<<<<< HEAD
   /** Path part for operation `signUpConfirm()` */
   static readonly SignUpConfirmPath = '/hr/signup/confirm/';
-=======
-  /** Path part for operation `signup()` */
-  static readonly SignupPath = '/hr/signup/';
-
-  /**
-   * Signup.
-   *
-   * Signup
-   *
-   * This method provides access to the full `HttpResponse`, allowing access to response headers.
-   * To access only the response body, use `signup()` instead.
-   *
-   * This method doesn't expect any request body.
-   */
-  signup$Response(
-    params?: Signup$Params,
-    context?: HttpContext
-  ): Observable<StrictHttpResponse<void>> {
-    return signup(this.http, this.rootUrl, params, context);
-  }
-
-  /**
-   * Signup.
-   *
-   * Signup
-   *
-   * This method provides access only to the response body.
-   * To access the full response (for headers, for example), `signup$Response()` instead.
-   *
-   * This method doesn't expect any request body.
-   */
-  signup(params?: Signup$Params, context?: HttpContext): Observable<void> {
-    return this.signup$Response(params, context).pipe(
-      map((r: StrictHttpResponse<void>): void => r.body)
-    );
-  }
-
-  /** Path part for operation `signUpConfirm()` */
-  static readonly SignUpConfirmPath = '/hr/signup/{userId}/confirm/';
->>>>>>> f22ba5f (update service)
 
   /**
    * Sign Up Confirm.
@@ -504,17 +379,10 @@ export class AuthenticationService extends BaseService {
    * This method provides access to the full `HttpResponse`, allowing access to response headers.
    * To access only the response body, use `signUpConfirm()` instead.
    *
-<<<<<<< HEAD
    * This method sends `application/json` and handles request body of type `application/json`.
    */
   signUpConfirm$Response(
     params?: SignUpConfirm$Params,
-=======
-   * This method doesn't expect any request body.
-   */
-  signUpConfirm$Response(
-    params: SignUpConfirm$Params,
->>>>>>> f22ba5f (update service)
     context?: HttpContext
   ): Observable<StrictHttpResponse<void>> {
     return signUpConfirm(this.http, this.rootUrl, params, context);
@@ -528,17 +396,10 @@ export class AuthenticationService extends BaseService {
    * This method provides access only to the response body.
    * To access the full response (for headers, for example), `signUpConfirm$Response()` instead.
    *
-<<<<<<< HEAD
    * This method sends `application/json` and handles request body of type `application/json`.
    */
   signUpConfirm(
     params?: SignUpConfirm$Params,
-=======
-   * This method doesn't expect any request body.
-   */
-  signUpConfirm(
-    params: SignUpConfirm$Params,
->>>>>>> f22ba5f (update service)
     context?: HttpContext
   ): Observable<void> {
     return this.signUpConfirm$Response(params, context).pipe(

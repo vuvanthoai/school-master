@@ -208,12 +208,12 @@ tr.example-element-row:not(.example-expanded-row):active {
   width: 60px;
 }
 
-.ng-select .ng-select-container {
-  border: unset;
-  &:hover {
-    box-shadow: unset;
-  }
-}
+//.ng-select .ng-select-container {
+//  border: unset;
+//  &:hover {
+//    box-shadow: unset;
+//  }
+//}
 
 .footer {
   width: 100%;
@@ -403,6 +403,53 @@ label {
   }
 }
 
+.btn-white {
+  border: 1px solid #d9d9d9 !important;
+  background-color: #ffffff !important;
+}
+
+.whitespace-nowrap {
+  white-space: nowrap;
+}
+
+.color-white {
+  color: #ffffff !important;
+}
+
+.get-start-section {
+  background: #14429a;
+  padding: 60px 0;
+  .get-start-title {
+    color: #fff;
+    font-family: Figtree, serif;
+    font-size: 36px;
+    font-weight: 800;
+  }
+  .cta-button {
+    background: #1464ff;
+  }
+}
+
+.cta-button {
+  display: flex;
+  align-items: center;
+  border-radius: 30px;
+  background-color: #ff6914;
+  color: #fff;
+  margin-top: 26px;
+  gap: 10px;
+  font-size: 20px;
+  font-weight: 700;
+  padding: 16px 36px;
+  width: max-content;
+}
+
+@media (max-width: 991px) {
+  .cta-button {
+    padding: 8px 20px;
+  }
+}
+
 @keyframes placeHolderShimmer {
   0% {
     background-position: -468px 0;
@@ -417,6 +464,18 @@ $list-style: none, circle;
 @each $style in $list-style {
   .list-style-#{$style} {
     list-style: $style;
+  }
+}
+
+@for $flex-order from 1 through 10 {
+  .flex-#{$flex-order} {
+    flex: #{$flex-order} !important;
+  }
+}
+
+@for $height from 1 through 1000 {
+  .height-#{$height} {
+    height: #{$height + 'px'} !important;
   }
 }
 

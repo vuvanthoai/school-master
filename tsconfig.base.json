@@ -21,7 +21,6 @@
         "src/libs/common-ui/*/src/index",
         "src/libs/common-ui"
       ],
-<<<<<<< HEAD
       "@school-master/about": ["src/libs/about/src/index.ts"],
       "@school-master/about-us": ["src/libs/about-us/src/index.ts"],
       "@school-master/common-ui/footer": [
@@ -52,9 +51,6 @@
       "@school-master/search-detail": ["src/libs/search-detail/src/index.ts"],
       "@school-master/search-handler": ["src/libs/search-handler/src/index.ts"],
       "@school-master/services": ["src/libs/http-access/index.ts"],
-=======
-      "@school-master/services": ["src/libs/http-access/services.ts"],
->>>>>>> f33f0fb (update libs and config alias for service)
       "@school-master/services/configuration": [
         "src/libs/http-access/api-configuration.ts"
       ],

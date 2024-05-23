@@ -59,6 +59,6 @@
       "unitTestRunner": "jest"
     }
   },
-  "defaultProject": "schoolmaster-app",
+  "defaultProject": "school-master",
   "nxCloudAccessToken": "NzlhOTY0NTctMzVmYy00MDgxLTg2MGQtYmUyZjhkNDIwYmQ2fHJlYWQtd3JpdGU="
 }
